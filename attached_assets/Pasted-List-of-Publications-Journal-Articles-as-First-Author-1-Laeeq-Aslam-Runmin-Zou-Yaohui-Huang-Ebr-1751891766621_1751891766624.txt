@@ -1,0 +1,15 @@
+List of Publications
+Journal Articles as First Author
+[1] Laeeq Aslam, Runmin Zou, Yaohui Huang, Ebrahim Shahzad Awan, Sharjeel Abid Butt, and Qian Zhou. Physics-informed spatio-temporal network with trainable adaptive feature selection for short-term wind speed prediction. Computers and Electrical Engineering, 126:110517, 2025.
+[2] Laeeq Aslam, Runmin Zou, Ebrahim Shahzad Awan, Sayyed Shahid Hussain, Muhammad Asim, and Samia Allaoua Chelloug. Dynamic optimization of recurrent networks for wind prediction on edge devices. IEEE Access,2025.
+[4] Laeeq Aslam, Runmin Zou, Ebrahim Shahzad Awan, Sayyed Shahid Hussain, Kashish Ara Shakil, Mudasir Ahmad Wani, and Muhammad Asim.Hardware-centric exploration of the discrete design space in transformer-LSTM models for wind speed prediction on memory-constrained devices. Energies, 18(9):2153, 2025.
+[5] Laeeq Aslam, Ahmad Saeed, Ijaz Mansoor Qureshi, Muhammad Amir, and Waseem Khan. Novel image steganography based on preprocessing of secrete messages to attain enhanced data security and improved payload capacity. Traitement du Signal, 37(1), 2020.
+[6] Laeeq Aslam, Fawad Ahmad, Sohail Akhtar, Ebrahim Shahzad Awan, and Fatima Yaqoob. Effect of faulty sensors on estimation of direction of arrival and other parameters. Journal of Mechanics of Continua and Mathematical Sciences, 15(4), April 2020.
+Journal Articles as Co-Author
+[1] Hamid Ali Mirza, Laeeq Aslam, Muhammad Asif Zahoor Raja, Naveed Ishtiaq Chaudhary, Ijaz Mansoor Qureshi, and Aqdas Naveed Malik. A new computing paradigm for off-grid direction of arrival estimation using compressive sensing. Wireless Communications and Mobile Computing, 2020(1):9280198, 2020.
+[2] Muhammad Zaheer, IM Qureshi, Zeeshan Muzaffar, and Laeeq Aslam. Compressed sensing based image steganography system for secure transmission of audio message with enhanced security. International Journal of Computer Science and Network Security, 7:133–141, 2017.
+Conference Article as First Author
+[1] Laeeq Aslam, Runmin Zou, Ebrahim Awan, and Sharjeel Abid Butt. Integrating physics-informed vectors for improved wind speed forecasting with neural networks. In 2024 14th Asian Control Conference (ASCC), pages 1902–1907. IEEE, 2024.
+Conference Articles as Co-Author
+[1] Abdullahi Mohamed Hassan, Xiaojun Zhou, and Laeeq Aslam. Exploring new frontiers in facial expression recognition: Dual densenet-201 and landmark distance analytics in the wild. In 2024 IEEE 13th Data Driven Control and Learning Systems Conference (DDCLS), pages 2036–2043. IEEE, 2024.
+[2] Qian Zhou, Yun Wang, Guang Wu, and Laeeq Aslam. Towards efficient soh estimation for lithium-ion batteries via structural re-parameterization. In 2024 IEEE 8th Conference on Energy Internet and Energy System Integration (EI2), pages 2658–2663. IEEE, 2024.
