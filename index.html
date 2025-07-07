@@ -43,7 +43,7 @@
         .btn-primary {
             background-color: hsl(var(--primary));
             color: hsl(var(--primary-foreground));
-            padding: 0.75rem 2rem;
+            padding: 0.5rem 1.5rem; /* Reduced padding */
             border-radius: 0.5rem;
             font-weight: 500;
             transition: all 0.2s ease;
@@ -57,14 +57,13 @@
             scroll-behavior: smooth;
         }
 
-        /* Added for profile image */
         .profile-img-container {
             border: 4px solid white;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.1); /* Reduced shadow */
             overflow: hidden;
             border-radius: 50%;
-            width: 280px;
-            height: 280px;
+            width: 220px; /* Reduced from 280px */
+            height: 220px; /* Reduced from 280px */
         }
         
         .profile-img {
@@ -98,44 +97,42 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-16 academic-gradient min-h-screen flex items-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="home" class="pt-16 academic-gradient min-h-[80vh] flex items-center"> <!-- Reduced min-height -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"> <!-- Reduced padding -->
+            <div class="grid lg:grid-cols-2 gap-8 items-center"> <!-- Reduced gap -->
                 <div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                        Machine Learning Engineer & 
-                        <span class="text-blue-600"> AI Researcher</span>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"> <!-- Smaller font sizes -->
+                        ML Engineer & 
+                        <span class="text-blue-600">AI Researcher</span>
                     </h1>
-                    <p class="mt-6 text-xl text-gray-600 leading-relaxed">
-                        Specializing in sustainable AI systems, Edge AI, and Computer Vision with 10+ years of experience bridging AI and sustainability for Industry 5.0 advancements.
+                    <p class="mt-4 text-lg text-gray-600 leading-relaxed"> <!-- Smaller font and margin -->
+                        Expert in Edge AI, Computer Vision, and sustainable AI systems.
                     </p>
-                    <div class="mt-8 flex flex-wrap gap-4">
+                    <div class="mt-6 flex flex-wrap gap-3"> <!-- Reduced margin and gap -->
                         <a href="#contact" class="btn-primary inline-block text-decoration-none">
                             Get in Touch
                         </a>
-                        <!-- Updated resume link -->
-                        <a href="resume.pdf" download="Laeeq_Aslam_Resume.pdf" class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-medium hover:border-blue-600 hover:text-blue-600 transition-colors duration-200 inline-flex items-center">
+                        <a href="resume.pdf" download="Laeeq_Aslam_Resume.pdf" class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-medium hover:border-blue-600 hover:text-blue-600 transition-colors duration-200 inline-flex items-center"> <!-- Reduced padding -->
                             <i data-lucide="download" class="mr-2 h-4 w-4"></i>
                             Download CV
                         </a>
                     </div>
-                    <div class="mt-8 flex space-x-6">
+                    <div class="mt-6 flex space-x-6"> <!-- Reduced margin -->
                         <a href="https://github.com/L-A-Sandhu" target="_blank" class="text-gray-400 hover:text-blue-600 transition-colors duration-200" title="GitHub Profile">
-                            <i data-lucide="github" class="h-6 w-6"></i>
+                            <i data-lucide="github" class="h-5 w-5"></i> <!-- Smaller icons -->
                         </a>
                         <a href="https://www.linkedin.com/in/laeeq-aslam/" target="_blank" class="text-gray-400 hover:text-blue-600 transition-colors duration-200" title="LinkedIn Profile">
-                            <i data-lucide="linkedin" class="h-6 w-6"></i>
+                            <i data-lucide="linkedin" class="h-5 w-5"></i>
                         </a>
                         <a href="https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&hl=en" target="_blank" class="text-gray-400 hover:text-blue-600 transition-colors duration-200" title="Google Scholar">
-                            <i data-lucide="graduation-cap" class="h-6 w-6"></i>
+                            <i data-lucide="graduation-cap" class="h-5 w-5"></i>
                         </a>
                         <a href="mailto:204608004@csu.edu.cn" class="text-gray-400 hover:text-blue-600 transition-colors duration-200" title="Email">
-                            <i data-lucide="mail" class="h-6 w-6"></i>
+                            <i data-lucide="mail" class="h-5 w-5"></i>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Updated profile picture -->
                 <div class="flex justify-center">
                     <div class="profile-img-container">
                         <img src="pic.png" alt="Laeeq Aslam" class="profile-img">
@@ -217,7 +214,6 @@
                     Published 8 journal articles, 4 arXiv preprints, 3 conference papers, and 3 under review, with 28 total citations.
                 </p>
                 
-                <!-- Google Scholar Stats -->
                 <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl max-w-4xl mx-auto">
                     <div class="flex items-center justify-center mb-6">
                         <i data-lucide="graduation-cap" class="h-8 w-8 text-blue-600 mr-3"></i>
@@ -247,7 +243,6 @@
                 </div>
             </div>
 
-            <!-- Recent Publications -->
             <div class="mb-12">
                 <h3 class="text-2xl font-semibold text-gray-900 mb-8">Recent Publications</h3>
                 <div class="grid gap-6">
@@ -278,107 +273,37 @@
             </div>
         </div>
     </section>
-<!-- Projects Section -->
-<section id="projects" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Key Projects</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Innovative solutions spanning edge computing, computer vision, and sustainable AI systems.
-            </p>
-        </div>
 
-        <!-- Featured GitHub Projects -->
-        <div class="academic-card p-8 mb-12">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-semibold text-gray-900">
-                    <i data-lucide="github" class="inline mr-3 h-6 w-6"></i>
-                    GitHub Repositories
-                </h3>
-                <a href="https://github.com/L-A-Sandhu" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
-                    View Profile <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
-                </a>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Key Projects</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Innovative solutions spanning edge computing, computer vision, and sustainable AI systems.
+                </p>
             </div>
-            
-            <div id="github-repos" class="space-y-4">
-                <!-- keras-swin-unet -->
-                <div class="flex items-center justify-between p-4 bg-blue-50 rounded-lg border-l-4 border-blue-600">
-                    <div class="flex-1">
-                        <div class="flex items-center justify-between">
-                            <h5 class="font-medium text-gray-900">keras-swin-unet</h5>
-                            <a href="https://github.com/L-A-Sandhu/keras-swin-unet" target="_blank" class="text-gray-400 hover:text-blue-600">
-                                <i data-lucide="external-link" class="h-4 w-4"></i>
-                            </a>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-2">Swin Transformer based UNet for satellite imagery segmentation - Published PyPI package</p>
-                        <div class="flex items-center space-x-4 text-sm text-gray-500">
-                            <span class="flex items-center">
-                                <span class="h-3 w-3 mr-1 bg-yellow-400 rounded-full"></span>
-                                Python
-                            </span>
-                            <span class="flex items-center">
-                                <i data-lucide="star" class="h-3 w-3 mr-1"></i>
-                                Featured
-                            </span>
-                            <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">PyPI Package</span>
-                        </div>
-                    </div>
+
+            <div class="academic-card p-8 mb-12">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-semibold text-gray-900">
+                        <i data-lucide="github" class="inline mr-3 h-6 w-6"></i>
+                        Top GitHub Repositories
+                    </h3>
+                    <a href="https://github.com/L-A-Sandhu" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
+                        View Profile <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                    </a>
                 </div>
                 
-                <!-- TimeMesh -->
-                <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                    <div class="flex-1">
-                        <div class="flex items-center justify-between">
-                            <h5 class="font-medium text-gray-900">TimeMesh</h5>
-                            <a href="https://github.com/L-A-Sandhu/TimeMesh" target="_blank" class="text-gray-400 hover:text-green-600">
-                                <i data-lucide="external-link" class="h-4 w-4"></i>
-                            </a>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-2">Efficient time series data preprocessing library for machine learning workflows</p>
-                        <div class="flex items-center space-x-4 text-sm text-gray-500">
-                            <span class="flex items-center">
-                                <span class="h-3 w-3 mr-1 bg-yellow-400 rounded-full"></span>
-                                Python
-                            </span>
-                            <span class="flex items-center">
-                                <i data-lucide="star" class="h-3 w-3 mr-1"></i>
-                                Featured
-                            </span>
-                            <span class="bg-green-600 text-white px-2 py-1 rounded text-xs">Time Series</span>
-                        </div>
+                <div id="github-repos" class="space-y-4">
+                    <div class="text-center">
+                        <i data-lucide="loader" class="animate-spin h-6 w-6 text-blue-600"></i>
+                        <p class="text-gray-600">Loading top repositories...</p>
                     </div>
                 </div>
-
-                <!-- Physics-Informed Vectors for Wind Speed Prediction -->
-                <div class="flex items-center justify-between p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
-                    <div class="flex-1">
-                        <div class="flex items-center justify-between">
-                            <h5 class="font-medium text-gray-900">Physics-Informed Vectors for Wind Speed Prediction</h5>
-                            <a href="https://github.com/L-A-Sandhu/Physics-Informed-Vectors-For-Wind-Speed-Prediction" target="_blank" class="text-gray-400 hover:text-yellow-600">
-                                <i data-lucide="external-link" class="h-4 w-4"></i>
-                            </a>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-2">Physics-informed vector field modeling for accurate wind speed forecasting</p>
-                        <div class="flex items-center space-x-4 text-sm text-gray-500">
-                            <span class="flex items-center">
-                                <span class="h-3 w-3 mr-1 bg-yellow-400 rounded-full"></span>
-                                Python
-                            </span>
-                            <span class="flex items-center">
-                                <i data-lucide="star" class="h-3 w-3 mr-1"></i>
-                                Featured
-                            </span>
-                            <span class="bg-yellow-600 text-white px-2 py-1 rounded text-xs">Wind Prediction</span>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
 
     <!-- Research Section -->
     <section id="research" class="py-20 bg-gray-50">
@@ -566,13 +491,11 @@
                     const offsetBottom = offsetTop + element.offsetHeight;
                     
                     if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-                        // Remove active class from all nav links
                         document.querySelectorAll('nav a').forEach(link => {
                             link.classList.remove('text-blue-600');
                             link.classList.add('text-gray-700', 'hover:text-blue-600');
                         });
                         
-                        // Add active class to current nav link
                         navLink.classList.remove('text-gray-700', 'hover:text-blue-600');
                         navLink.classList.add('text-blue-600');
                     }
@@ -580,15 +503,15 @@
             });
         });
         
-        // Load GitHub repositories dynamically
+        // Load top-starred GitHub repositories dynamically
         async function loadGitHubRepos() {
             try {
-                const response = await fetch('https://api.github.com/users/L-A-Sandhu/repos?sort=updated&per_page=5');
+                const response = await fetch('https://api.github.com/users/L-A-Sandhu/repos?sort=stars&per_page=5');
                 const repos = await response.json();
                 
                 if (repos && repos.length > 0) {
                     const repoContainer = document.getElementById('github-repos');
-                    repoContainer.innerHTML = '';
+                    repoContainer.innerHTML = ''; // Clear loading state
                     
                     repos.slice(0, 3).forEach(repo => {
                         const repoElement = document.createElement('div');
@@ -621,15 +544,18 @@
                         repoContainer.appendChild(repoElement);
                     });
                     
-                    // Re-initialize Lucide icons for new content
-                    lucide.createIcons();
+                    lucide.createIcons(); // Re-initialize Lucide icons
+                } else {
+                    const repoContainer = document.getElementById('github-repos');
+                    repoContainer.innerHTML = '<p class="text-center text-gray-600">No repositories found.</p>';
                 }
             } catch (error) {
-                console.log('GitHub API temporarily unavailable - showing featured repositories');
+                console.log('GitHub API temporarily unavailable');
+                const repoContainer = document.getElementById('github-repos');
+                repoContainer.innerHTML = '<p class="text-center text-gray-600">Unable to load repositories. Please try again later.</p>';
             }
         }
         
-        // Load repositories when page loads
         document.addEventListener('DOMContentLoaded', loadGitHubRepos);
     </script>
 </body>
