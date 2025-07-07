@@ -8,7 +8,7 @@
     
     <!-- Open Graph tags -->
     <meta property="og:title" content="Laeeq Aslam - ML Engineer & AI Researcher">
-    <meta property="og:description" content="PhD researcher specializing in sustainable AI systems, Edge AI, and Computer Vision with 28 citations and 15 publications.">
+    <meta property="og:description" content="PhD researcher specializing in sustainable AI systems, Edge AI, and Computer Vision with 27 citations and 11 publications.">
     <meta property="og:type" content="website">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -175,6 +175,48 @@
             position: relative;
             z-index: 2;
         }
+        
+        /* Scrollable publications */
+        .scrollable-publications {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 12px;
+        }
+        
+        .scrollable-publications::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .scrollable-publications::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .scrollable-publications::-webkit-scrollbar-thumb {
+            background: #c5c5c5;
+            border-radius: 4px;
+        }
+        
+        .scrollable-publications::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        
+        /* Download button styles */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            background-color: #f3f4f6;
+            border-radius: 4px;
+            color: #3b82f6;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+        
+        .download-btn:hover {
+            background-color: #e5e7eb;
+            color: #2563eb;
+        }
     </style>
 </head>
 <body class="font-sans antialiased bg-white text-gray-900">
@@ -268,11 +310,11 @@
                         <h4 class="font-semibold text-gray-900 mb-3">Research Impact</h4>
                         <div class="grid grid-cols-2 gap-4 text-center">
                             <div>
-                                <div class="text-2xl font-bold text-blue-600">28</div>
+                                <div class="text-2xl font-bold text-blue-600">27</div>
                                 <div class="text-sm text-gray-600">Total Citations</div>
                             </div>
                             <div>
-                                <div class="text-2xl font-bold text-blue-600">15</div>
+                                <div class="text-2xl font-bold text-blue-600">11</div>
                                 <div class="text-sm text-gray-600">Publications</div>
                             </div>
                         </div>
@@ -314,7 +356,7 @@
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Publications & Research</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                    Published 8 journal articles, 4 arXiv preprints, 3 conference papers, and 3 under review, with 28 total citations.
+                    Published 11 research papers with 27 total citations.
                 </p>
                 
                 <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
@@ -324,11 +366,11 @@
                     </div>
                     <div class="grid md:grid-cols-3 gap-6 mb-6">
                         <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                            <div class="text-4xl font-bold text-blue-600 mb-2">28</div>
+                            <div class="text-4xl font-bold text-blue-600 mb-2">27</div>
                             <div class="text-gray-600">Total Citations</div>
                         </div>
                         <div class="text-center" data-aos="fade-up" data-aos-delay="350">
-                            <div class="text-4xl font-bold text-blue-600 mb-2">15</div>
+                            <div class="text-4xl font-bold text-blue-600 mb-2">11</div>
                             <div class="text-gray-600">Publications</div>
                         </div>
                         <div class="text-center" data-aos="fade-up" data-aos-delay="400">
@@ -349,13 +391,17 @@
             <div class="mb-12">
                 <h3 class="text-2xl font-semibold text-gray-900 mb-8" data-aos="fade-up">Recent Publications</h3>
                 <div class="grid gap-6">
+                    <!-- Latest three publications -->
                     <div class="academic-card p-6 pub-card" data-aos="fade-up" data-aos-delay="200">
                         <h4 class="text-lg font-semibold text-gray-900 mb-2">
                             Physics-Informed Spatio-Temporal Network with Trainable Adaptive Feature Selection for Short-Term Wind Speed Prediction
                         </h4>
                         <p class="text-blue-600 font-medium mb-2">Computers & Electrical Engineering, 2025</p>
-                        <p class="text-gray-600 text-sm">First Author • Journal Article</p>
-                        <div class="mt-4">
+                        <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Yaohui Huang, Ebrahim Shahzad Awan, Sharjeel Abid Butt, and Qian Zhou</p>
+                        <div class="mt-4 flex gap-2">
+                            <a href="manuscripts/Physics-Informed_Spatio-Temporal_Network.pdf" download class="download-btn">
+                                <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                            </a>
                             <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
                                 Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
                             </a>
@@ -367,8 +413,11 @@
                             Dynamic Optimization of Recurrent Networks for Wind Prediction on Edge Devices
                         </h4>
                         <p class="text-blue-600 font-medium mb-2">IEEE Access, 2025</p>
-                        <p class="text-gray-600 text-sm">First Author • Journal Article</p>
-                        <div class="mt-4">
+                        <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Ebrahim Shahzad Awan, Sayyed Shahid Hussain, Muhammad Asim, and Samia Allaoua Chelloug</p>
+                        <div class="mt-4 flex gap-2">
+                            <a href="manuscripts/Dynamic_Optimization_Recurrent_Networks.pdf" download class="download-btn">
+                                <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                            </a>
                             <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
                                 Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
                             </a>
@@ -380,11 +429,138 @@
                             Hardware-Centric Exploration of the Discrete Design Space in Transformer–LSTM Models for Wind Speed Prediction on Memory-Constrained Devices
                         </h4>
                         <p class="text-blue-600 font-medium mb-2">Energies, 2025</p>
-                        <p class="text-gray-600 text-sm">First Author • Journal Article</p>
-                        <div class="mt-4">
+                        <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Ebrahim Shahzad Awan, Sayyed Shahid Hussain, Kashish Ara Shakil, Mudasir Ahmad Wani, and Muhammad Asim</p>
+                        <div class="mt-4 flex gap-2">
+                            <a href="manuscripts/Hardware-Centric_Exploration.pdf" download class="download-btn">
+                                <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                            </a>
                             <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
                                 Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
                             </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Scrollable area for additional publications -->
+                <div class="mt-12">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6" data-aos="fade-up">All Publications</h3>
+                    <div class="scrollable-publications" data-aos="fade-up" data-aos-delay="200">
+                        <div class="grid gap-6">
+                            <!-- Journal Articles as First Author -->
+                            <div class="academic-card p-6 pub-card">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                                    Novel Image Steganography Based on the Preprocessing of Secret Messages to Attain Enhanced Data Security and Improved Payload Capacity
+                                </h4>
+                                <p class="text-blue-600 font-medium mb-2">Traitement du Signal, 2020</p>
+                                <p class="text-gray-600 text-sm">Laeeq Aslam, Ahmad Saeed, Ijaz Mansoor Qureshi, Muhammad Amir, and Waseem Khan</p>
+                                <div class="mt-4 flex gap-2">
+                                    <a href="manuscripts/Novel_Image_Steganography.pdf" download class="download-btn">
+                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                                    </a>
+                                    <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="academic-card p-6 pub-card">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                                    Effect of Faulty Sensors on Estimation of Direction of Arrival and Other Parameters
+                                </h4>
+                                <p class="text-blue-600 font-medium mb-2">Journal of Mechanics of Continua and Mathematical Sciences, 2020</p>
+                                <p class="text-gray-600 text-sm">Laeeq Aslam, Fawad Ahmad, Sohail Akhtar, Ebrahim Shahzad Awan, and Fatima Yaqoob</p>
+                                <div class="mt-4 flex gap-2">
+                                    <a href="manuscripts/Effect_of_Faulty_Sensors.pdf" download class="download-btn">
+                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                                    </a>
+                                    <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Journal Articles as Co-Author -->
+                            <div class="academic-card p-6 pub-card">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                                    A New Computing Paradigm for the Off-Grid Direction of Arrival Estimation Using Compressive Sensing
+                                </h4>
+                                <p class="text-blue-600 font-medium mb-2">Wireless Communications and Mobile Computing, 2020</p>
+                                <p class="text-gray-600 text-sm">Hamid Ali Mirza, Laeeq Aslam, Muhammad Asif Zahoor Raja, Naveed Ishtiaq Chaudhary, Ijaz Mansoor Qureshi, and Aqdas Naveed Malik</p>
+                                <div class="mt-4 flex gap-2">
+                                    <a href="manuscripts/Off-Grid_Direction_of_Arrival.pdf" download class="download-btn">
+                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                                    </a>
+                                    <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="academic-card p-6 pub-card">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                                    Compressed Sensing-Based Image Steganography System for Secure Transmission of Audio Message with Enhanced Security
+                                </h4>
+                                <p class="text-blue-600 font-medium mb-2">International Journal of Computer Science and Network Security, 2017</p>
+                                <p class="text-gray-600 text-sm">Muhammad Zaheer, IM Qureshi, Zeeshan Muzaffar, and Laeeq Aslam</p>
+                                <div class="mt-4 flex gap-2">
+                                    <a href="manuscripts/Compressed_Sensing_Steganography.pdf" download class="download-btn">
+                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                                    </a>
+                                    <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Conference Article as First Author -->
+                            <div class="academic-card p-6 pub-card">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                                    Integrating Physics-Informed Vectors for Improved Wind Speed Forecasting with Neural Networks
+                                </h4>
+                                <p class="text-blue-600 font-medium mb-2">2024 14th Asian Control Conference (ASCC), 2024</p>
+                                <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Ebrahim Awan, and Sharjeel Abid Butt</p>
+                                <div class="mt-4 flex gap-2">
+                                    <a href="manuscripts/Physics-Informed_Vectors_Wind_Forecasting.pdf" download class="download-btn">
+                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                                    </a>
+                                    <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Conference Articles as Co-Author -->
+                            <div class="academic-card p-6 pub-card">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                                    Exploring New Frontiers in Facial Expression Recognition: Dual Densenet-201 and Landmark Distance Analytics in the Wild
+                                </h4>
+                                <p class="text-blue-600 font-medium mb-2">2024 IEEE 13th Data Driven Control and Learning Systems Conference (DDCLS), 2024</p>
+                                <p class="text-gray-600 text-sm">Abdullahi Mohamed Hassan, Xiaojun Zhou, and Laeeq Aslam</p>
+                                <div class="mt-4 flex gap-2">
+                                    <a href="manuscripts/Facial_Expression_Recognition.pdf" download class="download-btn">
+                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                                    </a>
+                                    <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="academic-card p-6 pub-card">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                                    Towards Efficient SOH Estimation for Lithium-Ion Batteries via Structural Re-parameterization
+                                </h4>
+                                <p class="text-blue-600 font-medium mb-2">2024 IEEE 8th Conference on Energy Internet and Energy System Integration (EI2), 2024</p>
+                                <p class="text-gray-600 text-sm">Qian Zhou, Yun Wang, Guang Wu, and Laeeq Aslam</p>
+                                <div class="mt-4 flex gap-2">
+                                    <a href="manuscripts/SOH_Estimation_Lithium_Batteries.pdf" download class="download-btn">
+                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                                    </a>
+                                    <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
