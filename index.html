@@ -349,7 +349,8 @@
             </div>
         </div>
     </section>
-<!-- Publications Section -->
+
+    <!-- Publications Section -->
     <section id="publications" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -454,6 +455,26 @@
                     <h3 class="text-2xl font-semibold text-gray-900 mb-6" data-aos="fade-up">All Publications</h3>
                     <div class="scrollable-publications" data-aos="fade-up" data-aos-delay="200">
                         <div class="grid gap-6">
+                            <!-- NEW PUBLICATION ADDED HERE -->
+                            <div class="academic-card p-6 pub-card" data-bibkey="dasti2025enhanced">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                                    Enhanced Glacier Segmentation Using Physics-Informed Cascaded Swin-Unet (PICSw-UNet) Model
+                                </h4>
+                                <p class="text-blue-600 font-medium mb-2">Preprints, 2025</p>
+                                <p class="text-gray-600 text-sm">Muhammad YS Dasti, Fatima Yaqoob, Laeeq Aslam, Yushan Zhou, Akram Syed, and Yunsheng Zhang</p>
+                                <div class="mt-4 flex gap-2 flex-wrap">
+                                    <a href="manuscripts/Enhanced Glacier Segmentation Using Physics-Informed Cascaded Swin-Unet (PICSw-UNet) Model.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
+                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                                    </a>
+                                    <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
+                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
+                                    </a>
+                                    <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
+                                        <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
+                                    </button>
+                                </div>
+                            </div>
+                            
                             <!-- Journal Articles as First Author -->
                             <div class="academic-card p-6 pub-card" data-bibkey="aslam2020novel">
                                 <h4 class="text-lg font-semibold text-gray-900 mb-2">
@@ -702,6 +723,13 @@
       pages={2658--2663},
       year={2024},
       organization={IEEE}
+    }`,
+            // NEW BIBTEX ENTRY ADDED HERE
+            "dasti2025enhanced": `@article{dasti2025enhanced,
+      title={Enhanced Glacier Segmentation Using Physics-Informed Cascaded Swin-Unet (PICSw-UNet) Model},
+      author={Dasti, Muhammad YS and Yaqoob, Fatima and Aslam, Laeeq and Zhou, Yushan and Syed, Akram and Zhang, Yunsheng},
+      year={2025},
+      publisher={Preprints}
     }`
         };
     
@@ -750,136 +778,135 @@
     </script>
 
     <!-- Projects Section -->
-<!-- Projects Section -->
-<section id="projects" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Key Projects</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Cutting-edge implementations of novel AI architectures and methodologies.
-            </p>
-        </div>
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Key Projects</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Cutting-edge implementations of novel AI architectures and methodologies.
+                </p>
+            </div>
 
-        <div class="academic-card p-8 mb-12" data-aos="fade-up">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-semibold text-gray-900">
-                    <i data-lucide="github" class="inline mr-3 h-6 w-6"></i>
-                    Research Implementation Projects
-                </h3>
-                <a href="https://github.com/L-A-Sandhu" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
-                    View GitHub Profile <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
-                </a>
-            </div>
-            
-            <div class="space-y-6">
-                <!-- Project 1: Keras Swin-Unet -->
-                <div class="grid md:grid-cols-2 gap-6 items-center academic-card p-6 project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative rounded-xl overflow-hidden">
-                        <img src="3.png" 
-                             alt="Image Segmentation with Swin-Unet" 
-                             class="w-full h-full object-cover aspect-video">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-4">
-                            <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mr-2">PyPI Package</span>
-                            <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">Image Segmentation(Focal Loss)</span>
-                        </div>
-                    </div>
-                    <div class="project-card-content">
-                        <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-lg font-semibold text-gray-900">Keras Swin-Unet</h4>
-                            <div class="flex items-center space-x-4">
-                                <div class="flex items-center text-yellow-600">
-                                    <i data-lucide="star" class="h-4 w-4 fill-current mr-1"></i>
-                                    <span class="text-sm font-medium">10</span>
-                                </div>
-                                <a href="https://github.com/L-A-Sandhu/keras-swin-unet" target="_blank" class="text-blue-600 hover:text-blue-800">
-                                    <i data-lucide="external-link" class="h-4 w-4"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 mb-4">Swin UNet – The Simplest & Most Powerful Image Segmentation Workflow(Advanced Satellite Imagery Segmentation for GIS and Urban Planning)</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Keras</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">TensorFlow</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Vision Transformers</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Medical Imaging</span>
-                        </div>
-                    </div>
+            <div class="academic-card p-8 mb-12" data-aos="fade-up">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-semibold text-gray-900">
+                        <i data-lucide="github" class="inline mr-3 h-6 w-6"></i>
+                        Research Implementation Projects
+                    </h3>
+                    <a href="https://github.com/L-A-Sandhu" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
+                        View GitHub Profile <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                    </a>
                 </div>
                 
-                <!-- Project 2: TimeMesh -->
-                <div class="grid md:grid-cols-2 gap-6 items-center academic-card p-6 project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative rounded-xl overflow-hidden">
-                        <img src="Timemesh.png" 
-                             alt="Time Series Forecasting" 
-                             class="w-full h-full object-cover aspect-video">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-4">
-                            <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mr-2">PyPI Package</span>
-                            <span class="bg-green-600 text-white text-xs px-2 py-1 rounded">User-friendly</span>
-                        </div>
-                    </div>
-                    <div class="project-card-content">
-                        <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-lg font-semibold text-gray-900">TimeMesh</h4>
-                            <div class="flex items-center space-x-4">
-                                <div class="flex items-center text-yellow-600">
-                                    <i data-lucide="star" class="h-4 w-4 fill-current mr-1"></i>
-                                    <span class="text-sm font-medium">9</span>
-                                </div>
-                                <a href="https://github.com/L-A-Sandhu/TimeMesh" target="_blank" class="text-blue-600 hover:text-blue-800">
-                                    <i data-lucide="external-link" class="h-4 w-4"></i>
-                                </a>
+                <div class="space-y-6">
+                    <!-- Project 1: Keras Swin-Unet -->
+                    <div class="grid md:grid-cols-2 gap-6 items-center academic-card p-6 project-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative rounded-xl overflow-hidden">
+                            <img src="3.png" 
+                                 alt="Image Segmentation with Swin-Unet" 
+                                 class="w-full h-full object-cover aspect-video">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mr-2">PyPI Package</span>
+                                <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">Image Segmentation(Focal Loss)</span>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-4">A Python library for  time series data preprocessing  featuring advanced windowing strategies, normalization, and dataset splitting. Perfect for preparing time-dependent data for LSTM, Transformer, and other sequence models.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">PyTorch</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Temporal CNNs</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Time Series</span>
-                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Forecasting</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3: Physics-Informed Wind Prediction -->
-                <div class="grid md:grid-cols-2 gap-6 items-center academic-card p-6 project-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="relative rounded-xl overflow-hidden">
-                        <img src="block.png" 
-                             alt="Wind Speed Prediction" 
-                             class="w-full h-full object-cover aspect-video">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-4">
-                            <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mr-2">PyPI Package</span>
-                            <span class="bg-teal-600 text-white text-xs px-2 py-1 rounded">Industry Application</span>
-                        </div>
-                    </div>
-                    <div class="project-card-content">
-                        <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-lg font-semibold text-gray-900">Physics-Informed Vectors for Wind Speed Prediction</h4>
-                            <div class="flex items-center space-x-4">
-                                <div class="flex items-center text-yellow-600">
-                                    <i data-lucide="star" class="h-4 w-4 fill-current mr-1"></i>
-                                    <span class="text-sm font-medium">9</span>
+                        <div class="project-card-content">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-lg font-semibold text-gray-900">Keras Swin-Unet</h4>
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center text-yellow-600">
+                                        <i data-lucide="star" class="h-4 w-4 fill-current mr-1"></i>
+                                        <span class="text-sm font-medium">10</span>
+                                    </div>
+                                    <a href="https://github.com/L-A-Sandhu/keras-swin-unet" target="_blank" class="text-blue-600 hover:text-blue-800">
+                                        <i data-lucide="external-link" class="h-4 w-4"></i>
+                                    </a>
                                 </div>
-                                <a href="https://github.com/L-A-Sandhu/Physics-Informed-Vectors-For-Wind-Speed-Prediction" target="_blank" class="text-blue-600 hover:text-blue-800">
-                                    <i data-lucide="external-link" class="h-4 w-4"></i>
-                                </a>
+                            </div>
+                            <p class="text-gray-600 mb-4">Swin UNet – The Simplest & Most Powerful Image Segmentation Workflow(Advanced Satellite Imagery Segmentation for GIS and Urban Planning)</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Keras</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">TensorFlow</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Vision Transformers</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Medical Imaging</span>
                             </div>
                         </div>
-                        <p class="text-gray-600 mb-4">This project implements a machine learning framework for time series forecasting using Long Short-Term Memory (LSTM) networks and Temporal Convolutional Networks (TCN). The aim is to enhance predictive accuracy through Integrating Physics Informed Vectors as an input and part of loss function. The block diagram of the proposed work is given below</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">TensorFlow</span>
-                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Physics-Informed AI</span>
-                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Renewable Energy</span>
-                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Scientific ML</span>
+                    </div>
+                    
+                    <!-- Project 2: TimeMesh -->
+                    <div class="grid md:grid-cols-2 gap-6 items-center academic-card p-6 project-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative rounded-xl overflow-hidden">
+                            <img src="Timemesh.png" 
+                                 alt="Time Series Forecasting" 
+                                 class="w-full h-full object-cover aspect-video">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mr-2">PyPI Package</span>
+                                <span class="bg-green-600 text-white text-xs px-2 py-1 rounded">User-friendly</span>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-lg font-semibold text-gray-900">TimeMesh</h4>
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center text-yellow-600">
+                                        <i data-lucide="star" class="h-4 w-4 fill-current mr-1"></i>
+                                        <span class="text-sm font-medium">9</span>
+                                    </div>
+                                    <a href="https://github.com/L-A-Sandhu/TimeMesh" target="_blank" class="text-blue-600 hover:text-blue-800">
+                                        <i data-lucide="external-link" class="h-4 w-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">A Python library for  time series data preprocessing  featuring advanced windowing strategies, normalization, and dataset splitting. Perfect for preparing time-dependent data for LSTM, Transformer, and other sequence models.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">PyTorch</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Temporal CNNs</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Time Series</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Forecasting</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3: Physics-Informed Wind Prediction -->
+                    <div class="grid md:grid-cols-2 gap-6 items-center academic-card p-6 project-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="relative rounded-xl overflow-hidden">
+                            <img src="block.png" 
+                                 alt="Wind Speed Prediction" 
+                                 class="w-full h-full object-cover aspect-video">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mr-2">PyPI Package</span>
+                                <span class="bg-teal-600 text-white text-xs px-2 py-1 rounded">Industry Application</span>
+                            </div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-lg font-semibold text-gray-900">Physics-Informed Vectors for Wind Speed Prediction</h4>
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center text-yellow-600">
+                                        <i data-lucide="star" class="h-4 w-4 fill-current mr-1"></i>
+                                        <span class="text-sm font-medium">9</span>
+                                    </div>
+                                    <a href="https://github.com/L-A-Sandhu/Physics-Informed-Vectors-For-Wind-Speed-Prediction" target="_blank" class="text-blue-600 hover:text-blue-800">
+                                        <i data-lucide="external-link" class="h-4 w-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">This project implements a machine learning framework for time series forecasting using Long Short-Term Memory (LSTM) networks and Temporal Convolutional Networks (TCN). The aim is to enhance predictive accuracy through Integrating Physics Informed Vectors as an input and part of loss function. The block diagram of the proposed work is given below</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">TensorFlow</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Physics-Informed AI</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Renewable Energy</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Scientific ML</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Research Section -->
     <section id="research" class="py-20 bg-gray-50">
