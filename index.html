@@ -430,17 +430,18 @@
                         </div>
                     </div>
                     
-                    <div class="academic-card p-6 pub-card" data-aos="fade-up" data-aos-delay="400" data-bibkey="aslam2025hardware">
+                    <!-- REPLACED CARD: New SHM paper in top three -->
+                    <div class="academic-card p-6 pub-card" data-aos="fade-up" data-aos-delay="400" data-bibkey="ASLAM2025110700">
                         <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                            Hardware-Centric Exploration of the Discrete Design Space in Transformer–LSTM Models for Wind Speed Prediction on Memory-Constrained Devices
+                            A shallow hybrid model with dynamic Bayesian optimisation for wind speed prediction on memory-constrained devices
                         </h4>
-                        <p class="text-blue-600 font-medium mb-2">Energies, 2025</p>
-                        <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Ebrahim Shahzad Awan, Sayyed Shahid Hussain, Kashish Ara Shakil, Mudasir Ahmad Wani, and Muhammad Asim</p>
+                        <p class="text-blue-600 font-medium mb-2">Computers & Electrical Engineering, 2025</p>
+                        <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Yaohui Huang, Fatima Yaqoob, Sharjeel Abid Butt, and Qian Zhou</p>
                         <div class="mt-4 flex gap-2 flex-wrap">
-                            <a href="manuscripts/Hardware-Centric_Exploration.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
+                            <a href="manuscripts/SHM.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
                                 <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
                             </a>
-                            <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0045790625006433" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
                                 Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
                             </a>
                             <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
@@ -464,6 +465,26 @@
                                 <p class="text-gray-600 text-sm">Muhammad YS Dasti, Fatima Yaqoob, Laeeq Aslam, Yushan Zhou, Akram Syed, and Yunsheng Zhang</p>
                                 <div class="mt-4 flex gap-2 flex-wrap">
                                     <a href="manuscripts/PICSw-UNet.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
+                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
+                                    </a>
+                                    <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
+                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
+                                    </a>
+                                    <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
+                                        <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- MOVED HERE: Hardware-centric paper -->
+                            <div class="academic-card p-6 pub-card" data-bibkey="aslam2025hardware">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                                    Hardware-Centric Exploration of the Discrete Design Space in Transformer–LSTM Models for Wind Speed Prediction on Memory-Constrained Devices
+                                </h4>
+                                <p class="text-blue-600 font-medium mb-2">Energies, 2025</p>
+                                <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Ebrahim Shahzad Awan, Sayyed Shahid Hussain, Kashish Ara Shakil, Mudasir Ahmad Wani, and Muhammad Asim</p>
+                                <div class="mt-4 flex gap-2 flex-wrap">
+                                    <a href="manuscripts/Hardware-Centric_Exploration.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
                                         <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
                                     </a>
                                     <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
@@ -730,7 +751,20 @@
       author={Dasti, Muhammad YS and Yaqoob, Fatima and Aslam, Laeeq and Zhou, Yushan and Syed, Akram and Zhang, Yunsheng},
       year={2025},
       publisher={Preprints}
-    }`
+    }`,
+            "ASLAM2025110700": `@article{ASLAM2025110700,
+title = {A shallow hybrid model with dynamic Bayesian optimisation for wind speed prediction on memory-constrained devices},
+journal = {Computers and Electrical Engineering},
+volume = {128},
+pages = {110700},
+year = {2025},
+issn = {0045-7906},
+doi = {https://doi.org/10.1016/j.compeleceng.2025.110700},
+url = {https://www.sciencedirect.com/science/article/pii/S0045790625006433},
+author = {Laeeq Aslam and Runmin Zou and Yaohui Huang and Fatima Yaqoob and Sharjeel Abid Butt and Qian Zhou},
+keywords = {Wind speed prediction, Hybrid model, Memory-constrained devices, Fast independent component analysis, Random vector functional link, Dynamic tree-structured Parzen estimator},
+abstract = {Accurate wind speed prediction (WSP) supports energy management, but many deep learning models are too computationally intensive for embedded systems. This work presents a shallow hybrid model optimised with a dynamic tree-structured Parzen estimator. The model employs fast independent component analysis and an adaptive least absolute shrinkage and selection operator for feature selection, alongside a concurrent recurrent temporal module with a random vector functional link layer. The output is then refined through an attention layer to capture temporal dependencies. Across three sites, the model reduces mean squared error by up to 5.9% and mean absolute error by 5.03%, while increasing the coefficient of determination by 1.14 percentage points compared with the strongest baseline, alongside a 38.04% reduction in parameters. This design balances accuracy with resource efficiency and is well-suited to memory-constrained applications.}
+}`
         };
     
         // Modal functionality
