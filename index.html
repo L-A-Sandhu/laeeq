@@ -3,1179 +3,1133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laeeq Aslam - Machine Learning Engineer & AI Researcher</title>
-    <meta name="description" content="Machine Learning Engineer with 10+ years of experience in AI research, deep learning, and sustainable AI systems. Specializing in Edge AI and Computer Vision.">
-    
-    <!-- Open Graph tags -->
-    <meta property="og:title" content="Laeeq Aslam - ML Engineer & AI Researcher">
-    <meta property="og:description" content="PhD researcher specializing in sustainable AI systems, Edge AI, and Computer Vision with 30 citations and 10 publications.">
+    <title>Laeeq Aslam - Physics-Informed AI for Energy, Climate, and Infrastructure</title>
+
+    <meta name="description" content="Physics-informed AI for energy systems, climate resilience, and embedded deployment under real hardware limits.">
+    <meta property="og:title" content="Laeeq Aslam - Physics-Informed AI for Energy, Climate, and Infrastructure">
+    <meta property="og:description" content="Resilient, deployable forecasting for sustainable systems and urban risk.">
     <meta property="og:type" content="website">
-    
+
+    <!-- TailwindCSS, Lucide Icons, AOS animations -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         :root {
             --primary: 217 90% 54%;
             --primary-foreground: 211 100% 99%;
-            --academic-blue: 217 90% 54%;
-            --academic-blue-dark: 217 90% 45%;
-            --academic-gray: 220 9% 46%;
-            --academic-gray-light: 220 14% 96%;
-            --academic-navy: 217 33% 17%;
         }
-        
+
         .academic-gradient {
-            background: linear-gradient(135deg, hsl(220, 14%, 96%) 0%, hsl(207, 89%, 86%) 0%);
+            background: radial-gradient(circle at 20% 20%, rgb(240,247,255) 0%, rgb(224,234,255) 40%, rgb(255,255,255) 70%);
         }
-        
-        .academic-card {
-            background: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
-            border: 1px solid rgb(230 231 235);
-            transition: all 0.4s ease;
-            transform: translateY(0);
-        }
-        
-        .academic-card:hover {
-            box-shadow: 0 px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-            transform: translateY(-5px);
-        }
-        
+
         .btn-primary {
             background-color: hsl(var(--primary));
             color: hsl(var(--primary-foreground));
-            padding: 0.5rem 1.5rem;
+            padding: 0.5rem 1.25rem;
             border-radius: 0.5rem;
             font-weight: 500;
             transition: all 0.2s ease;
             position: relative;
             overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
-        
-        .btn-primary:hover {
-            opacity: 0.9;
-        }
-        
+        .btn-primary:hover { opacity: 0.9; }
         .btn-primary::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
             transition: all 0.6s ease;
         }
-        
-        .btn-primary:hover::after {
-            left: 100%;
+        .btn-primary:hover::after { left: 100%; }
+
+        .academic-card {
+            background-color: #fff;
+            border-radius: 0.75rem;
+            border: 1px solid rgb(230,231,235);
+            box-shadow: 0 8px 20px -6px rgba(0,0,0,0.08);
+            transition: all .25s ease;
         }
-        
-        html {
-            scroll-behavior: smooth;
+        .academic-card:hover {
+            box-shadow: 0 20px 30px -8px rgba(0,0,0,0.15);
         }
 
-        .profile-img-container {
-            border: 4px solid white;
-            box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border-radius: 50%;
-            width: 220px;
-            height: 220px;
-            position: relative;
+        .pub-card {
+            transition: transform .25s ease;
         }
-        
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            transition: transform 0.5s ease;
+        .pub-card:hover {
+            transform: translateX(4px);
         }
-        
-        .profile-img-container:hover .profile-img {
-            transform: scale(1.05);
+
+        /* Scroll window for All Publications */
+        .scrollable-publications {
+            max-height: 240px;
+            overflow-y: auto;
+            padding-right: 12px;
         }
-        
-        /* Section animations */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        .scrollable-publications::-webkit-scrollbar {
+            width: 8px;
         }
-        
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        .scrollable-publications::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
         }
-        
-        /* Underline animation */
+        .scrollable-publications::-webkit-scrollbar-thumb {
+            background: #c5c5c5;
+            border-radius: 4px;
+        }
+        .scrollable-publications::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
         .nav-link {
             position: relative;
         }
-        
         .nav-link::after {
             content: '';
             position: absolute;
             bottom: -2px;
             left: 0;
-            width: 0;
             height: 2px;
+            width: 0;
             background-color: hsl(var(--primary));
-            transition: width 0.3s ease;
+            transition: width .3s ease;
         }
-        
         .nav-link:hover::after,
         .nav-link.active::after {
             width: 100%;
         }
-        
-        /* Research card hover effect */
-        .research-card {
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        
-        .research-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        /* Publication card hover effect */
-        .pub-card {
-            transition: transform 0.3s ease;
-        }
-        
-        .pub-card:hover {
-            transform: translateX(5px);
-        }
-        
-        /* Project card gradient overlay */
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            border-radius: 0.75rem;
-            z-index: 1;
-        }
-        
-        .project-card:hover::before {
-            opacity: 1;
-        }
-        
-        .project-card-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Scrollable publications */
-        .scrollable-publications {
-            max-height: 400px;
-            overflow-y: auto;
-            padding-right: 12px;
-        }
-        
-        .scrollable-publications::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        .scrollable-publications::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-        
-        .scrollable-publications::-webkit-scrollbar-thumb {
-            background: #c5c5c5;
-            border-radius: 4px;
-        }
-        
-        .scrollable-publications::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8;
-        }
-        
-        /* Download button styles */
+
         .download-btn {
             display: inline-flex;
             align-items: center;
-            padding: 6px 12px;
+            padding: 0.5rem 0.75rem;
             background-color: #f3f4f6;
-            border-radius: 4px;
-            color: #3b82f6;
+            border-radius: 0.375rem;
+            color: #1f2937;
             font-size: 0.875rem;
-            transition: all 0.2s ease;
+            font-weight: 500;
+            transition: all .15s ease;
         }
-        
         .download-btn:hover {
             background-color: #e5e7eb;
             color: #2563eb;
         }
+
+        .timeline-dot {
+            position: absolute;
+            left: -0.65rem;
+            top: 0.4rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            background-color: #2563eb;
+            border-radius: 9999px;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.2);
+        }
+
+        .sdg-chip {
+            display: inline-flex;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid rgb(229,231,235);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px -2px rgb(0 0 0 / 0.08);
+            padding: 0.25rem 0.5rem 0.25rem 0.4rem;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1;
+            color: #1f2937;
+        }
+        .sdg-chip img {
+            height: 1rem;
+            width: auto;
+            border-radius: 0.25rem;
+            margin-right: 0.4rem;
+            flex-shrink: 0;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 0.15);
+        }
     </style>
 </head>
+
 <body class="font-sans antialiased bg-white text-gray-900">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50 transition-all duration-300">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm border-b border-gray-200 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0" data-aos="fade-right">
                     <h1 class="text-xl font-semibold text-gray-900">Laeeq Aslam</h1>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="nav-link text-blue-600 px-3 py-2 text-sm font-medium active">Home</a>
-                        <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
-                        <a href="#publications" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Publications</a>
-                        <a href="#research" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Research</a>
-                        <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Projects</a>
-                        <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    <div class="ml-10 flex items-baseline space-x-8 text-sm font-medium">
+                        <a href="#home" class="nav-link text-blue-600 active">Home</a>
+                        <a href="#publications" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Publications</a>
+                        <a href="#experience" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Experience</a>
+                        <a href="#education" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Education</a>
+                        <a href="#tooling" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Tooling</a>
+                        <a href="#references" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">References</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-16 academic-gradient min-h-[80vh] flex items-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid lg:grid-cols-2 gap-8 items-center">
-                <div data-aos="fade-right" data-aos-duration="800">
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                        ML Engineer & 
-                        <span class="text-blue-600">AI Researcher</span>
+    <!-- HERO / HOME -->
+    <section id="home" class="pt-24 academic-gradient pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-start">
+
+            <!-- LEFT COLUMN -->
+            <div class="flex flex-col items-start w-full" data-aos="fade-right" data-aos-duration="800">
+
+                <div class="rounded-full w-48 h-48 sm:w-56 sm:h-56 md:w-60 md:h-60 border-4 border-white shadow-xl overflow-hidden bg-white">
+                    <img src="pic.png" alt="Laeeq Aslam" class="w-full h-full object-cover object-top">
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between w-full mt-6">
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
+                        Laeeq Aslam
                     </h1>
-                    <p class="mt-4 text-lg text-gray-600 leading-relaxed">
-                        Expert in Edge AI, Computer Vision, and sustainable AI systems.
-                    </p>
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <a href="#contact" class="btn-primary inline-block text-decoration-none" data-aos="fade-up" data-aos-delay="200">
-                            Get in Touch
-                        </a>
-                        <a href="resume.pdf" download="Laeeq_Aslam_Resume.pdf" class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-medium hover:border-blue-600 hover:text-blue-600 transition-colors duration-200 inline-flex items-center" data-aos="fade-up" data-aos-delay="300">
-                            <i data-lucide="download" class="mr-2 h-4 w-4"></i>
-                            Download CV
-                        </a>
-                    </div>
-                    <div class="mt-6 flex space-x-6">
-                        <a href="https://github.com/L-A-Sandhu" target="_blank" class="text-gray-400 hover:text-blue-600 transition-colors duration-200" title="GitHub Profile" data-aos="fade-up" data-aos-delay="400">
-                            <i data-lucide="github" class="h-5 w-5"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/laeeq-aslam/" target="_blank" class="text-gray-400 hover:text-blue-600 transition-colors duration-200" title="LinkedIn Profile" data-aos="fade-up" data-aos-delay="450">
-                            <i data-lucide="linkedin" class="h-5 w-5"></i>
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&hl=en" target="_blank" class="text-gray-400 hover:text-blue-600 transition-colors duration-200" title="Google Scholar" data-aos="fade-up" data-aos-delay="500">
-                            <i data-lucide="graduation-cap" class="h-5 w-5"></i>
-                        </a>
-                        <a href="mailto:204608004@csu.edu.cn" class="text-gray-400 hover:text-blue-600 transition-colors duration-200" title="Email" data-aos="fade-up" data-aos-delay="550">
-                            <i data-lucide="mail" class="h-5 w-5"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="flex justify-center" data-aos="fade-left" data-aos-duration="800">
-                    <div class="profile-img-container">
-                        <img src="pic.png" alt="Laeeq Aslam" class="profile-img">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">About Me</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    A passionate researcher and engineer dedicated to advancing AI technology for sustainable solutions.
+                    <div class="flex flex-wrap gap-2 text-[0.7rem] font-medium text-gray-600 mt-4 sm:mt-0">
+                        <a href="https://github.com/L-A-Sandhu" target="_blank" class="inline-flex items-center bg-white border border-gray-200 rounded-full px-3 py-1 hover:border-blue-600 hover:text-blue-600 transition-colors">
+                            <i data-lucide="github" class="h-3.5 w-3.5 mr-1"></i>
+                            GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/laeeq-aslam" target="_blank" class="inline-flex items-center bg-white border border-gray-200 rounded-full px-3 py-1 hover:border-blue-600 hover:text-blue-600 transition-colors">
+                            <i data-lucide="linkedin" class="h-3.5 w-3.5 mr-1"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&hl=en" target="_blank" class="inline-flex items-center bg-white border border-gray-200 rounded-full px-3 py-1 hover:border-blue-600 hover:text-blue-600 transition-colors">
+                            <i data-lucide="graduation-cap" class="h-3.5 w-3.5 mr-1"></i>
+                            Scholar
+                        </a>
+                        <a href="https://pypi.org/user/L-A-Sandhu/" target="_blank" class="inline-flex items-center bg-white border border-gray-200 rounded-full px-3 py-1 hover:border-blue-600 hover:text-blue-600 transition-colors">
+                            <i data-lucide="package" class="h-3.5 w-3.5 mr-1"></i>
+                            PyPI
+                        </a>
+                    </div>
+                </div>
+
+                <p class="mt-3 text-[0.8rem] font-semibold text-blue-600 tracking-wide uppercase">
+                    Physics-Informed Forecasting <span class="text-gray-400">|</span>
+                    Urban Thermal Risk <span class="text-gray-400">|</span>
+                    Edge AI Optimization
                 </p>
-            </div>
 
-            <div class="grid lg:grid-cols-2 gap-12 items-start">
-                <div data-aos="fade-right" data-aos-delay="200">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Professional Summary</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Machine Learning Engineer with 10+ years of experience in AI research, deep learning, and real-time deployment across academia, industry, and research. Specializing in sustainable AI systems, Edge AI, and Computer Vision.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        I have optimized models that improved efficiency by 30% and reduced inference time by 20%. Proven expertise in algorithm optimization, cloud-based model deployment, and hardware acceleration.
-                    </p>
-                    <div class="bg-blue-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="300">
-                        <h4 class="font-semibold text-gray-900 mb-3">Research Impact</h4>
-                        <div class="grid grid-cols-2 gap-4 text-center">
-                            <div>
-                                <div class="text-2xl font-bold text-blue-600">30</div>
-                                <div class="text-sm text-gray-600">Total Citations</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-blue-600">10</div>
-                                <div class="text-sm text-gray-600">Publications</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="inline-flex items-center text-[10px] font-medium bg-blue-50 text-blue-700 rounded-full px-3 py-1 border border-blue-200 uppercase tracking-wide mt-4">
+                    <i data-lucide="zap" class="h-3.5 w-3.5 mr-1"></i>
+                    Physics-Informed AI · Edge Deployment
                 </div>
 
-                <div data-aos="fade-left" data-aos-delay="200">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Education & Experience</h3>
-                    <div class="space-y-6">
-                        <div class="border-l-4 border-blue-600 pl-6 transition-all duration-300 hover:border-blue-700" data-aos="fade-up" data-aos-delay="250">
-                            <h4 class="font-semibold text-gray-900">PhD in Control Science & Machine Learning</h4>
-                            <p class="text-blue-600 font-medium">Central South University, China</p>
-                            <p class="text-sm text-gray-600">2020 – Present</p>
-                        </div>
-                        <div class="border-l-4 border-gray-300 pl-6 transition-all duration-300 hover:border-blue-500" data-aos="fade-up" data-aos-delay="300">
-                            <h4 class="font-semibold text-gray-900">MS in Electronic Engineering</h4>
-                            <p class="text-gray-700 font-medium">International Islamic University, Pakistan</p>
-                            <p class="text-sm text-gray-600">2015 – 2017 (Gold Medalist)</p>
-                        </div>
-                        <div class="border-l-4 border-gray-300 pl-6 transition-all duration-300 hover:border-blue-500" data-aos="fade-up" data-aos-delay="350">
-                            <h4 class="font-semibold text-gray-900">AI/ML Consultant</h4>
-                            <p class="text-gray-700 font-medium">Bond and Built Pvt Ltd</p>
-                            <p class="text-sm text-gray-600">July 2024 – March 2025</p>
-                        </div>
-                        <div class="border-l-4 border-gray-300 pl-6 transition-all duration-300 hover:border-blue-500" data-aos="fade-up" data-aos-delay="400">
-                            <h4 class="font-semibold text-gray-900">Machine Learning Engineer</h4>
-                            <p class="text-gray-700 font-medium">DLISION, Pakistan</p>
-                            <p class="text-sm text-gray-600">May 2021 – Sept 2022</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mt-4">
+                    Resilient AI for Energy, Climate, and Infrastructure
+                    <span class="block text-blue-600 text-lg sm:text-xl font-semibold mt-1">
+                        Physics-informed models for sustainable systems — designed to run where they’re needed, even on constrained hardware
+                    </span>
+                </h2>
 
-    <!-- Publications Section -->
-    <section id="publications" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Publications & Research</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                    Published 10 research papers with 30 total citations.
+                <p class="mt-6 text-base text-gray-700 leading-relaxed max-w-xl">
+                    I build physics-informed forecasting systems for clean energy, grid reliability, and city-scale thermal-stress early warning. These models operate under edge constraints such as NVIDIA Jetson Nano while still delivering high-fidelity short-horizon forecasts of wind speed, electrical load, and near-surface air temperature under extreme regimes. My peer-reviewed <a href="#publications" class="text-blue-600 underline font-medium">publications</a> include 10+ papers (6 first-author), with state-of-the-art error reductions such as 69.2% lower extreme-condition temperature error in dense urban cores and multi-hour wind predictions that outperform recent deep-learning baselines under strict memory and latency budgets.
                 </p>
-                
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center justify-center mb-6">
-                        <i data-lucide="graduation-cap" class="h-8 w-8 text-blue-600 mr-3"></i>
-                        <h3 class="text-2xl font-semibold text-gray-900">Academic Impact</h3>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-6 mb-6">
-                        <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                            <div class="text-4xl font-bold text-blue-600 mb-2">30</div>
-                            <div class="text-gray-600">Total Citations</div>
-                        </div>
-                        <div class="text-center" data-aos="fade-up" data-aos-delay="350">
-                            <div class="text-4xl font-bold text-blue-600 mb-2">10</div>
-                            <div class="text-gray-600">Publications</div>
-                        </div>
-                        <div class="text-center" data-aos="fade-up" data-aos-delay="400">
-                            <div class="text-4xl font-bold text-blue-600 mb-2">3</div>
-                            <div class="text-gray-600">h-index</div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <a href="https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&hl=en" target="_blank" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:opacity-90 transition-all duration-200 font-medium" data-aos="fade-up" data-aos-delay="500">
-                            <i data-lucide="graduation-cap" class="mr-2 h-5 w-5"></i>
-                            View Google Scholar Profile
-                            <i data-lucide="external-link" class="ml-2 h-4 w-4"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="mb-12">
-                <h3 class="text-2xl font-semibold text-gray-900 mb-8" data-aos="fade-up">Recent Publications</h3>
-                <div class="grid gap-6">
-                    <!-- Latest three publications -->
-                    <div class="academic-card p-6 pub-card" data-aos="fade-up" data-aos-delay="200" data-bibkey="aslam2025physics">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                            Physics-Informed Spatio-Temporal Network with Trainable Adaptive Feature Selection for Short-Term Wind Speed Prediction
-                        </h4>
-                        <p class="text-blue-600 font-medium mb-2">Computers & Electrical Engineering, 2025</p>
-                        <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Yaohui Huang, Ebrahim Shahzad Awan, Sharjeel Abid Butt, and Qian Zhou</p>
-                        <div class="mt-4 flex gap-2 flex-wrap">
-                            <a href="manuscripts/Physics-Informed_Spatio-Temporal_Network.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                            </a>
-                            <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                            </a>
-                            <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="academic-card p-6 pub-card" data-aos="fade-up" data-aos-delay="300" data-bibkey="aslam2025dynamic">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                            Dynamic Optimization of Recurrent Networks for Wind Prediction on Edge Devices
-                        </h4>
-                        <p class="text-blue-600 font-medium mb-2">IEEE Access, 2025</p>
-                        <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Ebrahim Shahzad Awan, Sayyed Shahid Hussain, Muhammad Asim, and Samia Allaoua Chelloug</p>
-                        <div class="mt-4 flex gap-2 flex-wrap">
-                            <a href="manuscripts/Dynamic_Optimization_Recurrent_Networks.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                            </a>
-                            <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                            </a>
-                            <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- REPLACED CARD: New SHM paper in top three -->
-                    <div class="academic-card p-6 pub-card" data-aos="fade-up" data-aos-delay="400" data-bibkey="ASLAM2025110700">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                            A shallow hybrid model with dynamic Bayesian optimisation for wind speed prediction on memory-constrained devices
-                        </h4>
-                        <p class="text-blue-600 font-medium mb-2">Computers & Electrical Engineering, 2025</p>
-                        <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Yaohui Huang, Fatima Yaqoob, Sharjeel Abid Butt, and Qian Zhou</p>
-                        <div class="mt-4 flex gap-2 flex-wrap">
-                            <a href="manuscripts/SHM.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                            </a>
-                            <a href="https://www.sciencedirect.com/science/article/pii/S0045790625006433" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                            </a>
-                            <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Scrollable area for additional publications -->
-                <div class="mt-12">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-6" data-aos="fade-up">All Publications</h3>
-                    <div class="scrollable-publications" data-aos="fade-up" data-aos-delay="200" style="max-height: 320px;">
-                        <div class="grid gap-6">
-                            <!-- NEW PUBLICATION ADDED HERE -->
-                            <div class="academic-card p-6 pub-card" data-bibkey="dasti2025enhanced">
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                                    Enhanced Glacier Segmentation Using Physics-Informed Cascaded Swin-Unet (PICSw-UNet) Model
-                                </h4>
-                                <p class="text-blue-600 font-medium mb-2">Preprints, 2025</p>
-                                <p class="text-gray-600 text-sm">Muhammad YS Dasti, Fatima Yaqoob, Laeeq Aslam, Yushan Zhou, Akram Syed, and Yunsheng Zhang</p>
-                                <div class="mt-4 flex gap-2 flex-wrap">
-                                    <a href="manuscripts/PICSw-UNet.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                                    </a>
-                                    <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                                    </a>
-                                    <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                        <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                                    </button>
-                                </div>
-                            </div>
 
-                            <!-- MOVED HERE: Hardware-centric paper -->
-                            <div class="academic-card p-6 pub-card" data-bibkey="aslam2025hardware">
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                                    Hardware-Centric Exploration of the Discrete Design Space in Transformer–LSTM Models for Wind Speed Prediction on Memory-Constrained Devices
-                                </h4>
-                                <p class="text-blue-600 font-medium mb-2">Energies, 2025</p>
-                                <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Ebrahim Shahzad Awan, Sayyed Shahid Hussain, Kashish Ara Shakil, Mudasir Ahmad Wani, and Muhammad Asim</p>
-                                <div class="mt-4 flex gap-2 flex-wrap">
-                                    <a href="manuscripts/Hardware-Centric_Exploration.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                                    </a>
-                                    <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                                    </a>
-                                    <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                        <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <!-- Journal Articles as First Author -->
-                            <div class="academic-card p-6 pub-card" data-bibkey="aslam2020novel">
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                                    Novel Image Steganography Based on the Preprocessing of Secret Messages to Attain Enhanced Data Security and Improved Payload Capacity
-                                </h4>
-                                <p class="text-blue-600 font-medium mb-2">Traitement du Signal, 2020</p>
-                                <p class="text-gray-600 text-sm">Laeeq Aslam, Ahmad Saeed, Ijaz Mansoor Qureshi, Muhammad Amir, and Waseem Khan</p>
-                                <div class="mt-4 flex gap-2 flex-wrap">
-                                    <a href="manuscripts/Novel_Image_Steganography.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                                    </a>
-                                    <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                                    </a>
-                                    <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                        <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div class="academic-card p-6 pub-card" data-bibkey="Aslam2020">
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                                    Effect of Faulty Sensors on Estimation of Direction of Arrival and Other Parameters
-                                </h4>
-                                <p class="text-blue-600 font-medium mb-2">Journal of Mechanics of Continua and Mathematical Sciences, 2020</p>
-                                <p class="text-gray-600 text-sm">Laeeq Aslam, Fawad Ahmad, Sohail Akhtar, Ebrahim Shahzad Awan, and Fatima Yaqoob</p>
-                                <div class="mt-4 flex gap-2 flex-wrap">
-                                    <a href="manuscripts/Effect_of_Faulty_Sensors.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                                    </a>
-                                    <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                                    </a>
-                                    <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                        <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <!-- Journal Articles as Co-Author -->
-                            <div class="academic-card p-6 pub-card" data-bibkey="mirza2020new">
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                                    A New Computing Paradigm for the Off-Grid Direction of Arrival Estimation Using Compressive Sensing
-                                </h4>
-                                <p class="text-blue-600 font-medium mb-2">Wireless Communications and Mobile Computing, 2020</p>
-                                <p class="text-gray-600 text-sm">Hamid Ali Mirza, Laeeq Aslam, Muhammad Asif Zahoor Raja, Naveed Ishtiaq Chaudhary, Ijaz Mansoor Qureshi, and Aqdas Naveed Malik</p>
-                                <div class="mt-4 flex gap-2 flex-wrap">
-                                    <a href="manuscripts/Off-Grid_Direction_of_Arrival.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                                    </a>
-                                    <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                                    </a>
-                                    <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                        <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div class="academic-card p-6 pub-card" data-bibkey="zaheer2017compressed">
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                                    Compressed Sensing-Based Image Steganography System for Secure Transmission of Audio Message with Enhanced Security
-                                </h4>
-                                <p class="text-blue-600 font-medium mb-2">International Journal of Computer Science and Network Security, 2017</p>
-                                <p class="text-gray-600 text-sm">Muhammad Zaheer, IM Qureshi, Zeeshan Muzaffar, and Laeeq Aslam</p>
-                                <div class="mt-4 flex gap-2 flex-wrap">
-                                    <a href="manuscripts/Compressed_Sensing_Steganography.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                                    </a>
-                                    <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                                    </a>
-                                    <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                        <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <!-- Conference Article as First Author -->
-                            <div class="academic-card p-6 pub-card" data-bibkey="aslam2024integrating">
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                                    Integrating Physics-Informed Vectors for Improved Wind Speed Forecasting with Neural Networks
-                                </h4>
-                                <p class="text-blue-600 font-medium mb-2">2024 14th Asian Control Conference (ASCC), 2024</p>
-                                <p class="text-gray-600 text-sm">Laeeq Aslam, Runmin Zou, Ebrahim Awan, and Sharjeel Abid Butt</p>
-                                <div class="mt-4 flex gap-2 flex-wrap">
-                                    <a href="manuscripts/Physics-Informed_Vectors_Wind_Forecasting.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                                    </a>
-                                    <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                                    </a>
-                                    <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                        <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <!-- Conference Articles as Co-Author -->
-                            <div class="academic-card p-6 pub-card" data-bibkey="hassan2024exploring">
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                                    Exploring New Frontiers in Facial Expression Recognition: Dual Densenet-201 and Landmark Distance Analytics in the Wild
-                                </h4>
-                                <p class="text-blue-600 font-medium mb-2">2024 IEEE 13th Data Driven Control and Learning Systems Conference (DDCLS), 2024</p>
-                                <p class="text-gray-600 text-sm">Abdullahi Mohamed Hassan, Xiaojun Zhou, and Laeeq Aslam</p>
-                                <div class="mt-4 flex gap-2 flex-wrap">
-                                    <a href="manuscripts/Facial_Expression_Recognition.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                                    </a>
-                                    <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                                    </a>
-                                    <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                        <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div class="academic-card p-6 pub-card" data-bibkey="zhou2024towards">
-                                <h4 class="text-lg font-semibold text-gray-900 mb-2">
-                                    Towards Efficient SOH Estimation for Lithium-Ion Batteries via Structural Re-parameterization
-                                </h4>
-                                <p class="text-blue-600 font-medium mb-2">2024 IEEE 8th Conference on Energy Internet and Energy System Integration (EI2), 2024</p>
-                                <p class="text-gray-600 text-sm">Qian Zhou, Yun Wang, Guang Wu, and Laeeq Aslam</p>
-                                <div class="mt-4 flex gap-2 flex-wrap">
-                                    <a href="manuscripts/SOH_Estimation_Lithium_Batteries.pdf" download class="download-btn inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        <i data-lucide="download" class="mr-1 h-4 w-4"></i> Download PDF
-                                    </a>
-                                    <a href="#" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 font-medium">
-                                        Read Publication <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                                    </a>
-                                    <button class="cite-btn inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 font-medium">
-                                        <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i> Cite
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Citation Modal -->
-        <div id="citation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-            <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-2xl max-h-[80vh] overflow-auto">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-bold text-gray-900">BibTeX Citation</h3>
-                    <button id="close-modal" class="text-gray-500 hover:text-gray-700">
-                        <i data-lucide="x" class="h-6 w-6"></i>
-                    </button>
-                </div>
-                <pre id="bibtex-content" class="bg-gray-100 p-4 rounded text-sm overflow-auto font-mono"></pre>
-                <div class="mt-4 flex justify-end">
-                    <button id="copy-bibtex" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center">
-                        <i data-lucide="copy" class="mr-2 h-4 w-4"></i> Copy to Clipboard
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <script>
-        // BibTeX database
-        const bibEntries = {
-            "aslam2025physics": `@article{aslam2025physics,
-      title={Physics-informed spatio-temporal network with trainable adaptive feature selection for short-term wind speed prediction},
-      author={Aslam, Laeeq and Zou, Runmin and Huang, Yaohui and Awan, Ebrahim Shahzad and Butt, Sharjeel Abid and Zhou, Qian},
-      journal={Computers and Electrical Engineering},
-      volume={126},
-      pages={110517},
-      year={2025},
-      publisher={Elsevier}
-    }`,
-            "aslam2025dynamic": `@article{aslam2025dynamic,
-      author    = {Laeeq Aslam and Runmin Zou and Ebrahim Shahzad Awan and Sayyed Shahid Hussain and Muhammad Asim and Samia Allaoua Chelloug},
-      title     = {Dynamic Optimization of Recurrent Networks for Wind Prediction on Edge Devices},
-      journal   = {IEEE Access},
-      year      = {2025},
-      doi       = {10.1109/ACCESS.2025.3581973}
-    }`,
-            "aslam2025hardware": `@article{aslam2025hardware,
-      title={Hardware-Centric Exploration of the Discrete Design Space in Transformer--LSTM Models for Wind Speed Prediction on Memory-Constrained Devices},
-      author={Aslam, Laeeq and Zou, Runmin and Awan, Ebrahim Shahzad and Hussain, Sayyed Shahid and Shakil, Kashish Ara and Wani, Mudasir Ahmad and Asim, Muhammad},
-      journal={Energies},
-      volume={18},
-      number={9},
-      pages={2153},
-      year={2025},
-      publisher={MDPI}
-    }`,
-            "aslam2020novel": `@article{aslam2020novel,
-      title={Novel Image Steganography Based on Preprocessing of Secrete Messages to Attain Enhanced Data Security and Improved Payload Capacity.},
-      author={Aslam, Laeeq and Saeed, Ahmad and Qureshi, Ijaz Mansoor and Amir, Muhammad and Khan, Waseem},
-      journal={Traitement du Signal},
-      volume={37},
-      number={1},
-      year={2020}
-    }`,
-            "Aslam2020": `@article{Aslam2020,
-      author = {Laeeq Aslam and Fawad Ahmad and Sohail Akhtar and Ebrahim Shahzad Awan and Fatima Yaqoob},
-      title = {Effect of Faulty Sensors on Estimation of Direction of Arrival and Other Parameters},
-      journal = {Journal of Mechanics of Continua and Mathematical Sciences},
-      volume = {15},
-      number = {4},
-      year = {2020},
-      month = {April}
-    }`,
-            "mirza2020new": `@article{mirza2020new,
-      title={A New Computing Paradigm for Off-Grid Direction of Arrival Estimation Using Compressive Sensing},
-      author={Mirza, Hamid Ali and Aslam, Laeeq and Raja, Muhammad Asif Zahoor and Chaudhary, Naveed Ishtiaq and Qureshi, Ijaz Mansoor and Malik, Aqdas Naveed},
-      journal={Wireless Communications and Mobile Computing},
-      volume={2020},
-      number={1},
-      pages={9280198},
-      year={2020},
-      publisher={Wiley Online Library}
-    }`,
-            "zaheer2017compressed": `@article{zaheer2017compressed,
-      title={Compressed sensing based image steganography system for secure transmission of audio message with enhanced security},
-      author={Zaheer, Muhammad and Qureshi, IM and Muzaffar, Zeeshan and Aslam, Laeeq},
-      journal={International Journal of Computer Science and Network Security},
-      volume={7},
-      pages={133--141},
-      year={2017}
-    }`,
-            "aslam2024integrating": `@inproceedings{aslam2024integrating,
-      title={Integrating Physics-Informed Vectors for Improved Wind Speed Forecasting with Neural Networks},
-      author={Aslam, Laeeq and Zou, Runmin and Awan, Ebrahim and Butt, Sharjeel Abid},
-      booktitle={2024 14th Asian Control Conference (ASCC)},
-      pages={1902--1907},
-      year={2024},
-      organization={IEEE}
-    }`,
-            "hassan2024exploring": `@inproceedings{hassan2024exploring,
-      title={Exploring New Frontiers in Facial Expression Recognition: Dual DenseNet-201 and Landmark Distance Analytics in the Wild},
-      author={Hassan, Abdullahi Mohamed and Zhou, Xiaojun and Aslam, Laeeq},
-      booktitle={2024 IEEE 13th Data Driven Control and Learning Systems Conference (DDCLS)},
-      pages={2036--2043},
-      year={2024},
-      organization={IEEE}
-    }`,
-            "zhou2024towards": `@inproceedings{zhou2024towards,
-      title={Towards Efficient SOH Estimation for Lithium-ion Batteries via Structural Re-parameterization},
-      author={Zhou, Qian and Wang, Yun and Wu, Guang and Aslam, Laeeq},
-      booktitle={2024 IEEE 8th Conference on Energy Internet and Energy System Integration (EI2)},
-      pages={2658--2663},
-      year={2024},
-      organization={IEEE}
-    }`,
-            // NEW BIBTEX ENTRY ADDED HERE
-            "dasti2025enhanced": `@article{dasti2025enhanced,
-      title={Enhanced Glacier Segmentation Using Physics-Informed Cascaded Swin-Unet (PICSw-UNet) Model},
-      author={Dasti, Muhammad YS and Yaqoob, Fatima and Aslam, Laeeq and Zhou, Yushan and Syed, Akram and Zhang, Yunsheng},
-      year={2025},
-      publisher={Preprints}
-    }`,
-            "ASLAM2025110700": `@article{ASLAM2025110700,
-title = {A shallow hybrid model with dynamic Bayesian optimisation for wind speed prediction on memory-constrained devices},
-journal = {Computers and Electrical Engineering},
-volume = {128},
-pages = {110700},
-year = {2025},
-issn = {0045-7906},
-doi = {https://doi.org/10.1016/j.compeleceng.2025.110700},
-url = {https://www.sciencedirect.com/science/article/pii/S0045790625006433},
-author = {Laeeq Aslam and Runmin Zou and Yaohui Huang and Fatima Yaqoob and Sharjeel Abid Butt and Qian Zhou},
-keywords = {Wind speed prediction, Hybrid model, Memory-constrained devices, Fast independent component analysis, Random vector functional link, Dynamic tree-structured Parzen estimator},
-abstract = {Accurate wind speed prediction (WSP) supports energy management, but many deep learning models are too computationally intensive for embedded systems. This work presents a shallow hybrid model optimised with a dynamic tree-structured Parzen estimator. The model employs fast independent component analysis and an adaptive least absolute shrinkage and selection operator for feature selection, alongside a concurrent recurrent temporal module with a random vector functional link layer. The output is then refined through an attention layer to capture temporal dependencies. Across three sites, the model reduces mean squared error by up to 5.9% and mean absolute error by 5.03%, while increasing the coefficient of determination by 1.14 percentage points compared with the strongest baseline, alongside a 38.04% reduction in parameters. This design balances accuracy with resource efficiency and is well-suited to memory-constrained applications.}
-}`
-        };
-    
-        // Modal functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('citation-modal');
-            const bibtexContent = document.getElementById('bibtex-content');
-            const closeModal = document.getElementById('close-modal');
-            const copyButton = document.getElementById('copy-bibtex');
-            
-            // Handle cite button clicks
-            document.querySelectorAll('.cite-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const bibkey = this.closest('.pub-card').dataset.bibkey;
-                    if (bibEntries[bibkey]) {
-                        bibtexContent.textContent = bibEntries[bibkey];
-                        modal.classList.remove('hidden');
-                    }
-                });
-            });
-    
-            // Close modal
-            closeModal.addEventListener('click', () => {
-                modal.classList.add('hidden');
-            });
-    
-            // Copy to clipboard
-            copyButton.addEventListener('click', () => {
-                navigator.clipboard.writeText(bibtexContent.textContent)
-                    .then(() => {
-                        const originalText = copyButton.innerHTML;
-                        copyButton.innerHTML = '<i data-lucide="check" class="mr-2 h-4 w-4"></i> Copied!';
-                        setTimeout(() => {
-                            copyButton.innerHTML = originalText;
-                        }, 2000);
-                    });
-            });
-    
-            // Close modal when clicking outside
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.add('hidden');
-                }
-            });
-        });
-    </script>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Key Projects</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Cutting-edge implementations of novel AI architectures and methodologies.
-                </p>
-            </div>
-
-            <div class="academic-card p-8 mb-12" data-aos="fade-up">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-2xl font-semibold text-gray-900">
-                        <i data-lucide="github" class="inline mr-3 h-6 w-6"></i>
-                        Research Implementation Projects
+                <div class="mt-8 w-full">
+                    <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide flex items-center">
+                        <i data-lucide="globe-2" class="h-4 w-4 text-blue-600 mr-2"></i>
+                        Working Toward Global Sustainability Goals
                     </h3>
-                    <a href="https://github.com/L-A-Sandhu" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
-                        View GitHub Profile <i data-lucide="external-link" class="inline ml-1 h-4 w-4"></i>
+                    <p class="text-gray-600 text-sm mt-2 max-w-xl">
+                        This work supports clean and reliable energy access (SDG 7), sustainable and heat-resilient cities (SDG 11), and climate action and adaptation (SDG 13).
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-4 sm:max-w-sm mt-4">
+                        <div class="bg-white border border-gray-200 rounded-lg p-3 flex items-center justify-center">
+                            <img src="sdg7.png" alt="SDG 7 Affordable and Clean Energy" class="h-16 w-auto object-contain">
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-3 flex items-center justify-center">
+                            <img src="sdg11.png" alt="SDG 11 Sustainable Cities and Communities" class="h-16 w-auto object-contain">
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-3 flex items-center justify-center">
+                            <img src="sdg13.png" alt="SDG 13 Climate Action" class="h-16 w-auto object-contain">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="#contact" class="btn-primary" data-aos="fade-up" data-aos-delay="200">
+                        <i data-lucide="mail" class="mr-2 h-4 w-4"></i>
+                        Contact
+                    </a>
+                    <a href="resume.pdf" download="Laeeq_Aslam_Resume.pdf"
+                       class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium hover:border-blue-600 hover:text-blue-600 transition-colors duration-200 inline-flex items-center"
+                       data-aos="fade-up" data-aos-delay="300">
+                        <i data-lucide="download" class="mr-2 h-4 w-4"></i>
+                        Download CV
                     </a>
                 </div>
-                
-                <div class="space-y-6">
-                    <!-- Project 1: Keras Swin-Unet -->
-                    <div class="grid md:grid-cols-2 gap-6 items-center academic-card p-6 project-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="relative rounded-xl overflow-hidden">
-                            <img src="3.png" 
-                                 alt="Image Segmentation with Swin-Unet" 
-                                 class="w-full h-full object-cover aspect-video">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                            <div class="absolute bottom-0 left-0 p-4">
-                                <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mr-2">PyPI Package</span>
-                                <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">Image Segmentation(Focal Loss)</span>
-                            </div>
-                        </div>
-                        <div class="project-card-content">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4 class="text-lg font-semibold text-gray-900">Keras Swin-Unet</h4>
-                                <div class="flex items-center space-x-4">
-                                    <div class="flex items-center text-yellow-600">
-                                        <i data-lucide="star" class="h-4 w-4 fill-current mr-1"></i>
-                                        <span class="text-sm font-medium">10</span>
-                                    </div>
-                                    <a href="https://github.com/L-A-Sandhu/keras-swin-unet" target="_blank" class="text-blue-600 hover:text-blue-800">
-                                        <i data-lucide="external-link" class="h-4 w-4"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="text-gray-600 mb-4">Swin UNet – The Simplest & Most Powerful Image Segmentation Workflow(Advanced Satellite Imagery Segmentation for GIS and Urban Planning)</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Keras</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">TensorFlow</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Vision Transformers</span>
-                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Medical Imaging</span>
-                            </div>
-                        </div>
+
+                <div class="mt-6 flex flex-col gap-2 text-gray-500 text-sm">
+                    <div class="flex items-center">
+                        <i data-lucide="mail" class="h-4 w-4 mr-2"></i>
+                        <a class="hover:text-blue-600" href="mailto:204608004@csu.edu.cn">204608004@csu.edu.cn</a>
                     </div>
-                    
-                    <!-- Project 2: TimeMesh -->
-                    <div class="grid md:grid-cols-2 gap-6 items-center academic-card p-6 project-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="relative rounded-xl overflow-hidden">
-                            <img src="Timemesh.png" 
-                                 alt="Time Series Forecasting" 
-                                 class="w-full h-full object-cover aspect-video">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                            <div class="absolute bottom-0 left-0 p-4">
-                                <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mr-2">PyPI Package</span>
-                                <span class="bg-green-600 text-white text-xs px-2 py-1 rounded">User-friendly</span>
-                            </div>
-                        </div>
-                        <div class="project-card-content">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4 class="text-lg font-semibold text-gray-900">TimeMesh</h4>
-                                <div class="flex items-center space-x-4">
-                                    <div class="flex items-center text-yellow-600">
-                                        <i data-lucide="star" class="h-4 w-4 fill-current mr-1"></i>
-                                        <span class="text-sm font-medium">9</span>
-                                    </div>
-                                    <a href="https://github.com/L-A-Sandhu/TimeMesh" target="_blank" class="text-blue-600 hover:text-blue-800">
-                                        <i data-lucide="external-link" class="h-4 w-4"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="text-gray-600 mb-4">A Python library for  time series data preprocessing  featuring advanced windowing strategies, normalization, and dataset splitting. Perfect for preparing time-dependent data for LSTM, Transformer, and other sequence models.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">PyTorch</span>
-                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Temporal CNNs</span>
-                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Time Series</span>
-                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Forecasting</span>
-                            </div>
-                        </div>
+                    <div class="flex items-center">
+                        <i data-lucide="map-pin" class="h-4 w-4 mr-2"></i>
+                        <span>Changsha, China (open to relocation)</span>
                     </div>
-                    
-                    <!-- Project 3: Physics-Informed Wind Prediction -->
-                    <div class="grid md:grid-cols-2 gap-6 items-center academic-card p-6 project-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="relative rounded-xl overflow-hidden">
-                            <img src="block.png" 
-                                 alt="Wind Speed Prediction" 
-                                 class="w-full h-full object-cover aspect-video">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                            <div class="absolute bottom-0 left-0 p-4">
-                                <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mr-2">PyPI Package</span>
-                                <span class="bg-teal-600 text-white text-xs px-2 py-1 rounded">Industry Application</span>
-                            </div>
-                        </div>
-                        <div class="project-card-content">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4 class="text-lg font-semibold text-gray-900">Physics-Informed Vectors for Wind Speed Prediction</h4>
-                                <div class="flex items-center space-x-4">
-                                    <div class="flex items-center text-yellow-600">
-                                        <i data-lucide="star" class="h-4 w-4 fill-current mr-1"></i>
-                                        <span class="text-sm font-medium">9</span>
-                                    </div>
-                                    <a href="https://github.com/L-A-Sandhu/Physics-Informed-Vectors-For-Wind-Speed-Prediction" target="_blank" class="text-blue-600 hover:text-blue-800">
-                                        <i data-lucide="external-link" class="h-4 w-4"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="text-gray-600 mb-4">This project implements a machine learning framework for time series forecasting using Long Short-Term Memory (LSTM) networks and Temporal Convolutional Networks (TCN). The aim is to enhance predictive accuracy through Integrating Physics Informed Vectors as an input and part of loss function. The block diagram of the proposed work is given below</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">TensorFlow</span>
-                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Physics-Informed AI</span>
-                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Renewable Energy</span>
-                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Scientific ML</span>
-                            </div>
-                        </div>
+                    <div class="flex items-center">
+                        <i data-lucide="phone" class="h-4 w-4 mr-2"></i>
+                        <span>(+86) 191 1883 2562</span>
                     </div>
                 </div>
             </div>
+
+            <!-- RIGHT COLUMN: Publications preview -->
+            <div id="publications" data-aos="fade-left" data-aos-duration="800" class="w-full">
+
+                <div class="mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                        Publications & Research
+                    </h2>
+                    <p class="text-sm text-gray-600 leading-relaxed max-w-lg">
+                        Recent work in physics-informed forecasting, urban thermal risk, and embedded deployment.
+                    </p>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Recent / Featured</h3>
+                    <div id="recent-publications" class="grid gap-6">
+                        <!-- injected -->
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">All Publications</h3>
+                    <!-- Restored scrollable box so page stays short -->
+                    <div class="scrollable-publications academic-card p-4">
+                        <div id="all-publications" class="grid gap-6">
+                            <!-- injected -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Citation Modal -->
+            <div id="citation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+                <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-2xl max-h-[80vh] overflow-auto">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">BibTeX Citation</h3>
+                        <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                            <i data-lucide="x" class="h-6 w-6"></i>
+                        </button>
+                    </div>
+                    <pre id="bibtex-content" class="bg-gray-100 p-4 rounded text-sm overflow-auto font-mono"></pre>
+                    <div class="mt-4 flex justify-end">
+                        <button id="copy-bibtex" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center text-sm font-medium">
+                            <i data-lucide="copy" class="mr-2 h-4 w-4"></i>
+                            Copy to Clipboard
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Research Section -->
-    <section id="research" class="py-20 bg-gray-50">
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Research Focus</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Bridging AI and sustainability for Industry 5.0 advancements through innovative research and practical applications.
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Experience</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Track record from embedded systems and high-throughput vision pipelines to physics-informed forecasting for energy and climate resilience on constrained hardware.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="research-card bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
-                        <i data-lucide="cpu" class="text-white h-6 w-6"></i>
+            <div class="grid lg:grid-cols-2 gap-10">
+                <!-- PhD Researcher -->
+                <div class="academic-card p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">PhD Researcher – ML &amp; AI for Sustainable Systems</h3>
+                            <p class="text-blue-600 font-medium text-sm">Central South University · Sept 2020 – Present</p>
+                        </div>
+                        <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-1 rounded">PhD</span>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Edge AI Optimization</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Developing techniques to deploy complex AI models on resource-constrained devices, focusing on model compression and hardware-aware optimizations.
+                    <p class="text-gray-700 text-sm leading-relaxed mt-4">
+                        I design physics-informed sequence models for wind, load, and near-surface temperature forecasting, targeting grid reliability and urban thermal-stress early warning. This includes regime-adaptive focal losses, adaptive physics penalties, attention-equipped hybrid recurrent / convolutional temporal modules, and hardware-aware optimization for Jetson-class devices.
                     </p>
-                    <div class="mt-6">
-                        <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                            Explore Research <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                        </a>
-                    </div>
+                    <p class="text-gray-700 text-sm leading-relaxed mt-3">
+                        I led research end-to-end from problem formulation to publication, producing 6 first-author papers. The work aligns with a provincial Key R&amp;D program on wind energy and grid optimization (Project 2020WK2007).
+                    </p>
                 </div>
-                
-                <div class="research-card bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-6">
-                        <i data-lucide="leaf" class="text-white h-6 w-6"></i>
+
+                <!-- AI/ML Consultant -->
+                <div class="academic-card p-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">AI/ML Consultant – Edge Computing &amp; Computer Vision</h3>
+                            <p class="text-blue-600 font-medium text-sm">Bond and Built Pvt Ltd · Jul 2024 – Mar 2025</p>
+                        </div>
+                        <span class="text-xs font-semibold bg-green-100 text-green-700 px-2 py-1 rounded">Industry</span>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Sustainable AI Systems</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Creating energy-efficient AI solutions that minimize environmental impact while maintaining high performance for critical applications.
+                    <p class="text-gray-700 text-sm leading-relaxed mt-4">
+                        Built and scaled a footwear analytics pipeline handling 60+ concurrent video streams and ~50,000 daily inferences. Delivered production-grade market intelligence under real deployment and bandwidth constraints.
                     </p>
-                    <div class="mt-6">
-                        <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                            Explore Research <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                        </a>
-                    </div>
                 </div>
-                
-                <div class="research-card bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6">
-                        <i data-lucide="brain-circuit" class="text-white h-6 w-6"></i>
+
+                <!-- ML Engineer -->
+                <div class="academic-card p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">Machine Learning Engineer – Vision &amp; Deployment</h3>
+                            <p class="text-blue-600 font-medium text-sm">DLISION · May 2021 – Sept 2022</p>
+                        </div>
+                        <span class="text-xs font-semibold bg-purple-100 text-purple-700 px-2 py-1 rounded">Industry</span>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Hybrid AI Architectures</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Combining neural networks with symbolic AI and physics-based models to create more interpretable and robust AI systems.
+                    <p class="text-gray-700 text-sm leading-relaxed mt-4">
+                        Led semantic segmentation and real-time detection pipelines. Tuned UNet variants with attention and focal loss to improve segmentation accuracy by ~3% over in-house baselines and optimized inference for deployment.
                     </p>
-                    <div class="mt-6">
-                        <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                            Explore Research <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i>
-                        </a>
+                </div>
+
+                <!-- Lecturer / RA -->
+                <div class="academic-card p-6" data-aos="fade-up" data-aos-delay="250">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">Lecturer &amp; Research Assistant – Embedded Systems / AI</h3>
+                            <p class="text-blue-600 font-medium text-sm">iUSE School of Engineering &amp; IIUI · 2013 – 2020</p>
+                        </div>
                     </div>
+                    <p class="text-gray-700 text-sm leading-relaxed mt-4">
+                        Taught embedded systems, programming, and discrete-time signal processing. Built an Instrumentation &amp; Measurement Lab for sensor-driven data acquisition in MATLAB. Supervised applied student projects in energy management, safety telemetry, and secure voting.
+                    </p>
+                    <p class="text-gray-700 text-sm leading-relaxed mt-3">
+                        Investigated GAN-based medical diagnostics for breast cancer, with emphasis on data augmentation and robustness.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+    <!-- EDUCATION & SKILLS -->
+    <section id="education" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Education & Skills</h2>
+            </div>
+
+            <div class="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
+
+                <!-- COLUMN 1: Education Timeline -->
+                <div data-aos="fade-right" data-aos-delay="100" class="h-full">
+                    <div class="academic-card p-6 h-full">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                            <i data-lucide="graduation-cap" class="h-5 w-5 text-blue-600 mr-2"></i>
+                            Education
+                        </h3>
+
+                        <ol class="relative border-l border-blue-200 pl-4 space-y-6 text-sm text-gray-700 leading-relaxed">
+                            <li class="relative">
+                                <span class="timeline-dot"></span>
+                                <p class="text-gray-900 font-semibold">
+                                    PhD in Control Science &amp; Machine Learning
+                                </p>
+                                <p class="text-blue-600 font-medium">
+                                    Central South University, China
+                                </p>
+                                <p class="text-gray-600 text-[0.8rem] mt-1">
+                                    Sept 2020 – Present
+                                </p>
+                            </li>
+
+                            <li class="relative">
+                                <span class="timeline-dot"></span>
+                                <p class="text-gray-900 font-semibold flex flex-wrap items-center">
+                                    MS in Electronic Engineering
+                                    <span class="text-[0.65rem] bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded font-medium ml-2">
+                                        Gold&nbsp;Medalist
+                                    </span>
+                                </p>
+                                <p class="text-blue-600 font-medium">
+                                    International Islamic University, Pakistan
+                                </p>
+                                <p class="text-gray-600 text-[0.8rem] mt-1">
+                                    Sept 2015 – Aug 2017
+                                </p>
+                            </li>
+
+                            <li class="relative">
+                                <span class="timeline-dot"></span>
+                                <p class="text-gray-900 font-semibold">
+                                    BS in Electronic Engineering
+                                </p>
+                                <p class="text-blue-600 font-medium">
+                                    International Islamic University, Pakistan
+                                </p>
+                                <p class="text-gray-600 text-[0.8rem] mt-1">
+                                    Sept 2006 – Aug 2010
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: Technical Skills -->
+                <div data-aos="fade-up" data-aos-delay="150" class="h-full">
+                    <div class="academic-card p-6 h-full">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                            <i data-lucide="cpu" class="h-5 w-5 text-blue-600 mr-2"></i>
+                            Technical Skills
+                        </h3>
+
+                        <div class="text-sm text-gray-700 leading-relaxed space-y-4">
+                            <div>
+                                <div class="font-semibold text-blue-600 mb-1">
+                                    Machine Learning &amp; AI
+                                </div>
+                                <div class="text-gray-700">
+                                    Deep Learning · Computer Vision · Time-Series Forecasting
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="font-semibold text-blue-600 mb-1">
+                                    Programming &amp; Tools
+                                </div>
+                                <div class="text-gray-700">
+                                    Python · MATLAB · C++ · TensorFlow · PyTorch · OpenCV · Edge&nbsp;Impulse
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="font-semibold text-blue-600 mb-1">
+                                    Deployment &amp; Systems
+                                </div>
+                                <div class="text-gray-700">
+                                    Docker · AWS (EC2) · Git · Triton Inference Server
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="font-semibold text-blue-600 mb-1">
+                                    Hardware &amp; IoT
+                                </div>
+                                <div class="text-gray-700">
+                                    Raspberry Pi · NVIDIA Jetson · Arduino Nano BLE Sense
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="font-semibold text-blue-600 mb-1">
+                                    Data &amp; Optimization
+                                </div>
+                                <div class="text-gray-700">
+                                    Pandas · NumPy · Matplotlib · Seaborn · Feature Engineering
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 3: Awards & Memberships -->
+                <div data-aos="fade-left" data-aos-delay="200" class="h-full">
+                    <div class="academic-card p-6 h-full">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                            <i data-lucide="award" class="h-5 w-5 text-blue-600 mr-2"></i>
+                            Awards &amp; Memberships
+                        </h3>
+
+                        <div class="text-sm text-gray-700 leading-relaxed space-y-3">
+                            <div class="flex items-start">
+                                <span class="w-2 h-2 rounded-full bg-blue-600 mr-3 mt-2 flex-shrink-0"></span>
+                                <span>Chinese Government CSC Scholarship (PhD)</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="w-2 h-2 rounded-full bg-blue-600 mr-3 mt-2 flex-shrink-0"></span>
+                                <span>Hunan Provincial Key R&amp;D Program (Project 2020WK2007) — wind energy &amp; grid optimization</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="w-2 h-2 rounded-full bg-blue-600 mr-3 mt-2 flex-shrink-0"></span>
+                                <span>Gold Medalist — MS in Electronic Engineering</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="w-2 h-2 rounded-full bg-blue-600 mr-3 mt-2 flex-shrink-0"></span>
+                                <span>Registered Engineer, Pakistan Engineering Council (ELECTRO/22837)</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="w-2 h-2 rounded-full bg-blue-600 mr-3 mt-2 flex-shrink-0"></span>
+                                <span>Member, IEEE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- grid -->
+        </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section id="references" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">References</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Academic supervision, senior mentorship, and active collaboration.
+                </p>
+            </div>
+
+            <div class="academic-card p-6 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <div class="space-y-10 text-sm text-gray-700 leading-relaxed">
+
+                    <!-- Reference 1 -->
+                    <div class="pb-6 border-b border-gray-200 last:border-none last:pb-0">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                            <div>
+                                <p class="text-gray-900 font-semibold flex flex-wrap items-center">
+                                    Prof. Runmin Zou
+                                    <span class="text-[0.65rem] font-medium bg-blue-50 text-blue-700 border border-blue-200 rounded px-2 py-0.5 ml-2 align-middle">
+                                        PhD Supervisor
+                                    </span>
+                                </p>
+                                <p class="text-blue-600 text-[0.8rem] font-medium">
+                                    Deputy Dean, School of Automation, Central South University
+                                </p>
+                            </div>
+                            <div class="text-[0.8rem] text-gray-700 sm:text-right sm:mt-0 mt-3">
+                                <span class="text-gray-900 font-medium">rmzou@csu.edu.cn</span><br>
+                                Changsha, Hunan, China
+                            </div>
+                        </div>
+                        <p class="text-[0.8rem] text-gray-600 italic mt-2">
+                            Doctoral advisor for physics-informed forecasting and hardware-aware energy systems,
+                            including grid reliability and wind forecasting under embedded deployment constraints.
+                        </p>
+                    </div>
+
+                    <!-- Reference 2 -->
+                    <div class="pb-6 border-b border-gray-200 last:border-none last:pb-0">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                            <div>
+                                <p class="text-gray-900 font-semibold">
+                                    Prof. Aqdas Naveed Malik
+                                </p>
+                                <p class="text-blue-600 text-[0.8rem] font-medium">
+                                    Former Acting President &amp; Former Vice President,<br>
+                                    International Islamic University Islamabad (IIUI), Pakistan
+                                </p>
+                            </div>
+                            <div class="text-[0.8rem] text-gray-700 sm:text-right sm:mt-0 mt-3">
+                                <span class="text-gray-900 font-medium">anaveed@iiu.edu.pk</span><br>
+                                Islamabad, Pakistan
+                            </div>
+                        </div>
+                        <p class="text-[0.8rem] text-gray-600 italic mt-2">
+                            Senior academic mentor during my MS in Electronic Engineering. Guided early work on intelligent sensing
+                            and signal processing that evolved into energy-forecasting and reliability research.
+                        </p>
+                    </div>
+
+                    <!-- Reference 3 -->
+                    <div class="pb-0 border-b-0">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                            <div>
+                                <p class="text-gray-900 font-semibold">
+                                    Asst. Prof. Gang Li
+                                </p>
+                                <p class="text-blue-600 text-[0.8rem] font-medium">
+                                    Department of Mechanical Engineering,<br>
+                                    Mississippi State University, United States
+                                </p>
+                            </div>
+                            <div class="text-[0.8rem] text-gray-700 sm:text-right sm:mt-0 mt-3">
+                                <span class="text-gray-900 font-medium">gli@me.msstate.edu</span><br>
+                                Mississippi, USA
+                            </div>
+                        </div>
+                        <p class="text-[0.8rem] text-gray-600 italic mt-2">
+                            Collaborator on structural reliability, energy systems, and deployable learning architectures for sustainable
+                            operations. We are preparing joint work linking forecasting quality to operational resilience.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PYPI / RESEARCH TOOLING -->
+    <section id="tooling" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">PyPI / Research Tooling</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Lightweight, deployment-aware tooling. Built for reproducibility, ablation, and on-device inference.
+                </p>
+            </div>
+
+            <div class="space-y-6 max-w-4xl mx-auto">
+
+                <!-- ed-rvfl-sc -->
+                <div class="academic-card p-6 flex flex-col md:flex-row md:items-start md:justify-between gap-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-wrap items-start justify-between">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-lg font-semibold text-gray-900">ed-rvfl-sc</h3>
+                                    <span class="text-[0.65rem] bg-blue-50 text-blue-700 border border-blue-200 rounded px-2 py-0.5 font-medium">PyPI</span>
+                                    <span class="text-[0.65rem] bg-gray-100 text-gray-700 border border-gray-200 rounded px-2 py-0.5 font-medium">CPU-only</span>
+                                    <span class="text-[0.65rem] bg-gray-100 text-gray-700 border border-gray-200 rounded px-2 py-0.5 font-medium">Edge-ready</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">MIT License · Python ≥3.9</p>
+                            </div>
+                            <a href="https://github.com/L-A-Sandhu/edrvfl" target="_blank"
+                               class="text-blue-600 hover:text-blue-800 text-xs font-medium flex items-center">
+                                <i data-lucide="github" class="h-4 w-4 mr-1"></i> Repo
+                            </a>
+                        </div>
+
+                        <p class="text-sm text-gray-700 leading-relaxed mt-3">
+                            Ensemble Deep Random Vector Functional Link with skip connections (edRVFL-SC).
+                            Delivers deep-ML–level accuracy without GPU training, using closed-form layer solves
+                            and feature reuse. Targets ultra-fast training and inference on CPU and embedded boards.
+                        </p>
+                    </div>
+
+                    <div class="flex-shrink-0 text-xs bg-gray-50 border border-gray-200 rounded-lg p-4 w-full md:w-48">
+                        <div class="text-gray-900 font-semibold mb-1">Install</div>
+                        <code class="text-[0.7rem] text-gray-700 bg-white border border-gray-200 rounded px-2 py-1 block">
+                            pip install ed-rvfl-sc
+                        </code>
+                        <div class="mt-3 text-gray-600 leading-relaxed">
+                            Non-iterative training,<br>100× faster setup,<br>Jetson-friendly.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TimeMesh -->
+                <div class="academic-card p-6 flex flex-col md:flex-row md:items-start md:justify-between gap-4" data-aos="fade-up" data-aos-delay="150">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-wrap items-start justify-between">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-lg font-semibold text-gray-900">TimeMesh</h3>
+                                    <span class="text-[0.65rem] bg-blue-50 text-blue-700 border border-blue-200 rounded px-2 py-0.5 font-medium">PyPI</span>
+                                    <span class="text-[0.65rem] bg-gray-100 text-gray-700 border border-gray-200 rounded px-2 py-0.5 font-medium">Forecasting pipeline</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">PyTorch · Temporal CNNs / LSTM / Transformer</p>
+                            </div>
+                            <a href="https://github.com/L-A-Sandhu/TimeMesh" target="_blank"
+                               class="text-blue-600 hover:text-blue-800 text-xs font-medium flex items-center">
+                                <i data-lucide="github" class="h-4 w-4 mr-1"></i> Repo
+                            </a>
+                        </div>
+
+                        <p class="text-sm text-gray-700 leading-relaxed mt-3">
+                            Preprocessing and dataset tooling for time-series forecasting experiments.
+                            Sliding windows, normalization flows, train/val/test slicing, and ready-to-train
+                            tensors for LSTM, TCN, Transformer, and iTransformer-style models.
+                        </p>
+                    </div>
+
+                    <div class="flex-shrink-0 text-xs bg-gray-50 border border-gray-200 rounded-lg p-4 w-full md:w-48">
+                        <div class="text-gray-900 font-semibold mb-1">Install</div>
+                        <code class="text-[0.7rem] text-gray-700 bg-white border border-gray-200 rounded px-2 py-1 block">
+                            pip install timemesh
+                        </code>
+                        <div class="mt-3 text-gray-600 leading-relaxed">
+                            Reproducible splits,<br>clean dataloaders,<br>fast ablations.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keras Swin-UNet -->
+                <div class="academic-card p-6 flex flex-col md:flex-row md:items-start md:justify-between gap-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-wrap items-start justify-between">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-lg font-semibold text-gray-900">Keras Swin-UNet</h3>
+                                    <span class="text-[0.65rem] bg-blue-50 text-blue-700 border border-blue-200 rounded px-2 py-0.5 font-medium">PyPI</span>
+                                    <span class="text-[0.65rem] bg-gray-100 text-gray-700 border border-gray-200 rounded px-2 py-0.5 font-medium">Segmentation</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">TensorFlow · Vision Transformer · Focal Loss</p>
+                            </div>
+                            <a href="https://github.com/L-A-Sandhu/keras-swin-unet" target="_blank"
+                               class="text-blue-600 hover:text-blue-800 text-xs font-medium flex items-center">
+                                <i data-lucide="github" class="h-4 w-4 mr-1"></i> Repo
+                            </a>
+                        </div>
+
+                        <p class="text-sm text-gray-700 leading-relaxed mt-3">
+                            Transformer-based Swin-UNet segmentation stack for earth observation, medical imaging,
+                            and industrial perception. Includes attention backbones and robust Focal Loss settings
+                            for rare-structure segmentation.
+                        </p>
+                    </div>
+
+                    <div class="flex-shrink-0 text-xs bg-gray-50 border border-gray-200 rounded-lg p-4 w-full md:w-48">
+                        <div class="text-gray-900 font-semibold mb-1">Install</div>
+                        <code class="text-[0.7rem] text-gray-700 bg-white border border-gray-200 rounded px-2 py-1 block">
+                            pip install keras-swin-unet
+                        </code>
+                        <div class="mt-3 text-gray-600 leading-relaxed">
+                            Strong baselines,<br>clean API,<br>industry-friendly.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Open to collaboration, research opportunities, and discussing innovative AI solutions.
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Open to postdoctoral roles, collaborations in climate resilience and energy systems, and embedded AI for constrained hardware.
                 </p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12">
-                <div data-aos="fade-right" data-aos-delay="200">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-8">Contact Information</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                                <i data-lucide="mail" class="text-white h-5 w-5"></i>
+                <div data-aos="fade-right" data-aos-delay="100">
+                    <div class="academic-card p-6 mb-8">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6">Contact Information</h3>
+                        <div class="space-y-6 text-sm text-gray-700">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-4 text-white">
+                                    <i data-lucide="mail" class="h-4 w-4"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Email</p>
+                                    <p>204608004@csu.edu.cn</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="font-medium text-gray-900">Email</p>
-                                <p class="text-gray-600">204608004@csu.edu.cn</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                                <i data-lucide="phone" class="text-white h-5 w-5"></i>
-                            </div>
-                            <div>
-                                <p class="font-medium text-gray-900">Phone</p>
-                                <p class="text-gray-600">(+86) 191 1883 2562</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                                <i data-lucide="map-pin" class="text-white h-5 w-5"></i>
-                            </div>
-                            <div>
-                                <p class="font-medium text-gray-900">Location</p>
-                                <p class="text-gray-600">Changsha, China (Open to relocation)</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="mt-8 pt-8 border-t border-gray-200">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Connect on Social</h4>
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/L-A-Sandhu" target="_blank" title="GitHub Profile" class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors duration-200" data-aos="fade-up" data-aos-delay="300">
-                                <i data-lucide="github" class="h-5 w-5"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/laeeq-aslam/" target="_blank" title="LinkedIn Profile" class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors duration-200" data-aos="fade-up" data-aos-delay="350">
-                                <i data-lucide="linkedin" class="h-5 w-5"></i>
-                            </a>
-                            <a href="https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&hl=en" target="_blank" title="Google Scholar" class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors duration-200" data-aos="fade-up" data-aos-delay="400">
-                                <i data-lucide="graduation-cap" class="h-5 w-5"></i>
-                            </a>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-4 text-white">
+                                    <i data-lucide="phone" class="h-4 w-4"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Phone</p>
+                                    <p>(+86) 191 1883 2562</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-4 text-white">
+                                    <i data-lucide="map-pin" class="h-4 w-4"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Location</p>
+                                    <p>Changsha, China (Open to relocation)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <h4 class="text-sm font-semibold text-gray-900 mb-4">Links</h4>
+                            <div class="flex flex-wrap gap-4 text-gray-600">
+                                <a href="https://github.com/L-A-Sandhu" target="_blank" class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors" title="GitHub">
+                                    <i data-lucide="github" class="h-4 w-4"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/laeeq-aslam" target="_blank" class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors" title="LinkedIn">
+                                    <i data-lucide="linkedin" class="h-4 w-4"></i>
+                                </a>
+                                <a href="https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&hl=en" target="_blank" class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors" title="Google Scholar">
+                                    <i data-lucide="graduation-cap" class="h-4 w-4"></i>
+                                </a>
+                                <a href="https://pypi.org/user/L-A-Sandhu/" target="_blank" class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors" title="PyPI">
+                                    <i data-lucide="package" class="h-4 w-4"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div data-aos="fade-left" data-aos-delay="200">
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-8">Send a Message</h3>
-                    <form class="space-y-6" action="mailto:204608004@csu.edu.cn" method="post" enctype="text/plain">
-                        <div data-aos="fade-up" data-aos-delay="300">
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                        <div data-aos="fade-up" data-aos-delay="350">
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email" name="email" placeholder="your.email@example.com" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                        <div data-aos="fade-up" data-aos-delay="400">
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Research Collaboration" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                        <div data-aos="fade-up" data-aos-delay="450">
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Your message..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
-                        </div>
-                        <button type="submit" class="w-full btn-primary" data-aos="fade-up" data-aos-delay="500">Send Message</button>
-                    </form>
+                <!-- Simple email form -->
+                <div data-aos="fade-left" data-aos-delay="100">
+                    <div class="academic-card p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-6">Send a Message</h3>
+                        <form class="space-y-5 text-sm" action="mailto:204608004@csu.edu.cn" method="post" enctype="text/plain">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required>
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="Research Collaboration"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Your message..."
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full">
+                                Send
+                            </button>
+                        </form>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12" data-aos="fade-up">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h3 class="text-2xl font-semibold mb-4">Laeeq Aslam</h3>
-                <p class="text-gray-400 mb-6">Machine Learning Engineer & AI Researcher</p>
-                <div class="flex justify-center space-x-6 mb-8">
-                    <a href="https://github.com/L-A-Sandhu" target="_blank" title="GitHub Profile" class="text-gray-400 hover:text-white transition-colors duration-200">
-                        <i data-lucide="github" class="h-6 w-6"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/laeeq-aslam/" target="_blank" title="LinkedIn Profile" class="text-gray-400 hover:text-white transition-colors duration-200">
-                        <i data-lucide="linkedin" class="h-6 w-6"></i>
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&hl=en" target="_blank" title="Google Scholar" class="text-gray-400 hover:text-white transition-colors duration-200">
-                        <i data-lucide="graduation-cap" class="h-6 w-6"></i>
-                    </a>
-                    <a href="mailto:204608004@csu.edu.cn" title="Email" class="text-gray-400 hover:text-white transition-colors duration-200">
-                        <i data-lucide="mail" class="h-6 w-6"></i>
-                    </a>
-                </div>
-                <p class="text-gray-400 text-sm">© 2025 Laeeq Aslam. All rights reserved.</p>
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-xl font-semibold mb-2">Laeeq Aslam</h3>
+            <p class="text-gray-400 text-sm">
+                Physics-Informed AI · Energy &amp; Climate Resilience · Edge Deployment
+            </p>
+
+            <div class="flex justify-center space-x-6 mt-6 mb-8">
+                <a href="https://github.com/L-A-Sandhu" target="_blank" class="text-gray-400 hover:text-white" title="GitHub">
+                    <i data-lucide="github" class="h-5 w-5"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/laeeq-aslam" target="_blank" class="text-gray-400 hover:text-white" title="LinkedIn">
+                    <i data-lucide="linkedin" class="h-5 w-5"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&hl=en" target="_blank" class="text-gray-400 hover:text-white" title="Scholar">
+                    <i data-lucide="graduation-cap" class="h-5 w-5"></i>
+                </a>
+                <a href="mailto:204608004@csu.edu.cn" class="text-gray-400 hover:text-white" title="Email">
+                    <i data-lucide="mail" class="h-5 w-5"></i>
+                </a>
             </div>
+
+            <p class="text-gray-500 text-xs">© 2025 Laeeq Aslam. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- External libs -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- publicationsData lives here -->
+    <script src="publications.js"></script>
+
+    <!-- MAIN SCRIPT -->
     <script>
-        // Initialize Lucide icons
+    "use strict";
+
+    // SDG icon metadata
+    const SDG_ICONS = {
+        "7":  { src: "sdg7.png",  label: "Affordable and Clean Energy (SDG 7)" },
+        "11": { src: "sdg11.png", label: "Sustainable Cities and Communities (SDG 11)" },
+        "13": { src: "sdg13.png", label: "Climate Action (SDG 13)" }
+    };
+
+    function renderSDGIcons(sdgList) {
+        if (!sdgList || !sdgList.length) {
+            return "";
+        }
+        return `
+            <div class="flex flex-wrap gap-2 mt-3">
+                ${sdgList.map(code => {
+                    const meta = SDG_ICONS[code];
+                    if (!meta) return "";
+                    return `
+                        <span class="sdg-chip">
+                            <img src="${meta.src}" alt="${meta.label}">
+                            <span class="text-gray-700">${meta.label}</span>
+                        </span>
+                    `;
+                }).join("")}
+            </div>
+        `;
+    }
+
+    // animate = true for Featured (so they fade nicely)
+    // animate = false for All Publications (no AOS -> no slow reveal issue)
+    function buildPublicationCard(pub, aosDelay, animate) {
+        const card = document.createElement('div');
+        card.className = "academic-card p-6 pub-card";
+
+        if (animate) {
+            card.setAttribute('data-aos', 'fade-up');
+            card.setAttribute('data-aos-delay', String(aosDelay));
+        }
+
+        const bibtexEncoded = encodeURIComponent(pub.bibtex || "");
+        const sdgIconsHTML = renderSDGIcons(pub.sdgs);
+
+        card.innerHTML = `
+            <h4 class="text-base font-semibold text-gray-900 mb-2 leading-snug">${pub.title}</h4>
+            <p class="text-blue-600 font-medium mb-2 text-xs">${pub.venue}, ${pub.year}</p>
+            <p class="text-gray-600 text-xs leading-relaxed">${pub.authors}</p>
+
+            ${sdgIconsHTML}
+
+            <div class="mt-4 flex gap-2 flex-wrap">
+                ${pub.pdf ? `
+                    <a href="${pub.pdf}" download
+                       class="download-btn text-xs">
+                        <i data-lucide="download" class="mr-1 h-4 w-4"></i>
+                        PDF
+                    </a>` : ``}
+
+                ${pub.code_url ? `
+                    <a href="${pub.code_url}" target="_blank"
+                       class="inline-flex items-center px-3 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 text-xs font-medium">
+                        <i data-lucide="github" class="mr-1 h-4 w-4"></i>
+                        Code
+                    </a>` : ``}
+
+                <button class="cite-btn inline-flex items-center px-3 py-2 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 text-xs font-medium"
+                        data-bibtex="${bibtexEncoded}">
+                    <i data-lucide="clipboard" class="mr-1 h-4 w-4"></i>
+                    Cite
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function renderPublications(publications) {
+        const recentContainer = document.getElementById('recent-publications');
+        const allContainer = document.getElementById('all-publications');
+
+        const featured = publications.filter(p => p.featured);
+        const rest = publications.filter(p => !p.featured);
+
+        // Featured: animate
+        featured.forEach((pub, idx) => {
+            const card = buildPublicationCard(pub, 200 + idx*100, true);
+            recentContainer.appendChild(card);
+        });
+
+        // All Publications: no animation, render all immediately
+        rest.forEach(pub => {
+            const card = buildPublicationCard(pub, 0, false);
+            allContainer.appendChild(card);
+        });
+
         lucide.createIcons();
-        
-        // Initialize AOS animations
+        if (window.AOS && AOS.refresh) {
+            AOS.refresh();
+        }
+    }
+
+    function initPageBehavior() {
+        lucide.createIcons();
         AOS.init({
             duration: 800,
             easing: 'ease-in-out',
             once: true,
-            mirror: false,
             offset: 50
         });
-        
-        // Smooth scrolling for navigation links
+
+        // Smooth scroll nav highlighting
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const targetSelector = this.getAttribute('href');
+                if (!targetSelector || !targetSelector.startsWith('#')) return;
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(targetSelector);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
-        
-        // Active navigation highlighting
+
         window.addEventListener('scroll', () => {
-            const sections = ['home', 'about', 'publications', 'research', 'projects', 'contact'];
+            const sections = ['home','publications','experience','education','tooling','references','contact'];
             const scrollPosition = window.scrollY + 100;
-            
+
             sections.forEach(section => {
-                const element = document.getElementById(section);
+                const el = document.getElementById(section);
                 const navLink = document.querySelector(`a[href="#${section}"]`);
-                
-                if (element && navLink) {
-                    const offsetTop = element.offsetTop;
-                    const offsetBottom = offsetTop + element.offsetHeight;
-                    
-                    if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                if (el && navLink) {
+                    const top = el.offsetTop;
+                    const bottom = top + el.offsetHeight;
+                    if (scrollPosition >= top && scrollPosition < bottom) {
                         document.querySelectorAll('nav a').forEach(link => {
-                            link.classList.remove('text-blue-600', 'active');
-                            link.classList.add('text-gray-700', 'hover:text-blue-600');
+                            link.classList.remove('text-blue-600','active');
+                            link.classList.add('text-gray-700','hover:text-blue-600');
                         });
-                        
-                        navLink.classList.remove('text-gray-700', 'hover:text-blue-600');
-                        navLink.classList.add('text-blue-600', 'active');
+                        navLink.classList.remove('text-gray-700','hover:text-blue-600');
+                        navLink.classList.add('text-blue-600','active');
                     }
                 }
             });
-        });
-        
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
+
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
-                nav.classList.add('shadow-md', 'py-2');
+                nav.classList.add('shadow-md','py-2');
                 nav.classList.remove('py-0');
             } else {
-                nav.classList.remove('shadow-md', 'py-2');
+                nav.classList.remove('shadow-md','py-2');
                 nav.classList.add('py-0');
             }
         });
+
+        // Citation modal logic
+        const modal = document.getElementById('citation-modal');
+        const bibtexContent = document.getElementById('bibtex-content');
+        const closeModal = document.getElementById('close-modal');
+        const copyButton = document.getElementById('copy-bibtex');
+
+        document.addEventListener('click', (e) => {
+            const citeBtn = e.target.closest('.cite-btn');
+            if (!citeBtn) return;
+            const encoded = citeBtn.getAttribute('data-bibtex') || '';
+            const decoded = decodeURIComponent(encoded);
+            bibtexContent.textContent = decoded;
+            modal.classList.remove('hidden');
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+
+        copyButton.addEventListener('click', () => {
+            navigator.clipboard.writeText(bibtexContent.textContent).then(() => {
+                const original = copyButton.innerHTML;
+                copyButton.innerHTML = '<i data-lucide="check" class="mr-2 h-4 w-4"></i> Copied!';
+                setTimeout(() => {
+                    copyButton.innerHTML = original;
+                    lucide.createIcons();
+                }, 2000);
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        initPageBehavior();
+        // publicationsData comes from publications.js
+        renderPublications(publicationsData);
+    });
     </script>
 </body>
 </html>
