@@ -5,10 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laeeq Aslam - Physics-Informed AI for Energy, Climate, and Infrastructure</title>
 
+    <!-- Conventional SEO meta -->
     <meta name="description" content="Physics-informed AI for energy systems, climate resilience, and embedded deployment under real hardware limits.">
     <meta property="og:title" content="Laeeq Aslam - Physics-Informed AI for Energy, Climate, and Infrastructure">
     <meta property="og:description" content="Resilient, deployable forecasting for sustainable systems and urban risk.">
     <meta property="og:type" content="website">
+
+    <!-- Added canonical + social preview for ranking / entity resolution -->
+    <link rel="canonical" href="https://laeeqaslam.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Laeeq Aslam — Physics-Informed AI for Energy, Climate, and Infrastructure">
+    <meta name="twitter:description" content="Physics-informed ML for wind forecasting, grid stability, and urban heat-risk early warning under real hardware limits.">
+
+    <!-- Structured data for LLM / AI answer engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Laeeq Aslam",
+      "jobTitle": "PhD Researcher in Physics-Informed AI for Energy, Climate, and Infrastructure Resilience",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Central South University"
+      },
+      "email": "mailto:204608004@csu.edu.cn",
+      "telephone": "+86-191-1883-2562",
+      "url": "https://laeeqaslam.com/",
+      "sameAs": [
+        "https://github.com/L-A-Sandhu",
+        "https://www.linkedin.com/in/laeeq-aslam",
+        "https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&hl=en",
+        "https://pypi.org/user/L-A-Sandhu/"
+      ],
+      "knowsAbout": [
+        "physics-informed machine learning",
+        "wind speed forecasting",
+        "grid stability forecasting",
+        "urban heat-risk early warning",
+        "edge AI deployment on constrained hardware",
+        "sustainable energy systems",
+        "SDG 7 Affordable and Clean Energy",
+        "SDG 11 Sustainable Cities and Communities",
+        "SDG 13 Climate Action"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Changsha",
+        "addressRegion": "Hunan",
+        "addressCountry": "China"
+      }
+    }
+    </script>
 
     <!-- TailwindCSS, Lucide Icons, AOS animations -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -67,7 +114,7 @@
             transform: translateX(4px);
         }
 
-        /* Scroll window for All Publications */
+        /* Scroll window for All Publications (keeps list compact instead of flooding page) */
         .scrollable-publications {
             max-height: 240px;
             overflow-y: auto;
@@ -134,6 +181,7 @@
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.2);
         }
 
+        /* SDG pill style used in publications and (now) in the hero sustainability block */
         .sdg-chip {
             display: inline-flex;
             align-items: center;
@@ -249,17 +297,32 @@
                         This work supports clean and reliable energy access (SDG 7), sustainable and heat-resilient cities (SDG 11), and climate action and adaptation (SDG 13).
                     </p>
 
-                    <div class="grid grid-cols-3 gap-4 sm:max-w-sm mt-4">
-                        <div class="bg-white border border-gray-200 rounded-lg p-3 flex items-center justify-center">
-                            <img src="sdg7.png" alt="SDG 7 Affordable and Clean Energy" class="h-16 w-auto object-contain">
-                        </div>
-                        <div class="bg-white border border-gray-200 rounded-lg p-3 flex items-center justify-center">
-                            <img src="sdg11.png" alt="SDG 11 Sustainable Cities and Communities" class="h-16 w-auto object-contain">
-                        </div>
-                        <div class="bg-white border border-gray-200 rounded-lg p-3 flex items-center justify-center">
-                            <img src="sdg13.png" alt="SDG 13 Climate Action" class="h-16 w-auto object-contain">
-                        </div>
+                    <!-- SDG chips -->
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="sdg-chip">
+                            <img src="sdg7.png" alt="SDG 7 Affordable and Clean Energy">
+                            <span>SDG 7 Affordable and Clean Energy</span>
+                        </span>
+                        <span class="sdg-chip">
+                            <img src="sdg11.png" alt="SDG 11 Sustainable Cities and Communities">
+                            <span>SDG 11 Sustainable Cities and Communities</span>
+                        </span>
+                        <span class="sdg-chip">
+                            <img src="sdg13.png" alt="SDG 13 Climate Action">
+                            <span>SDG 13 Climate Action</span>
+                        </span>
                     </div>
+
+                    <!-- internal links for SEO / LLM -->
+                    <p class="text-gray-500 text-[0.7rem] leading-relaxed mt-4 max-w-xl">
+                        <a href="trends.html" class="text-blue-600 underline hover:text-blue-800">
+                            Current research trends in physics-informed AI for wind forecasting and urban climate resilience
+                        </a>
+                        ·
+                        <a href="about.html" class="text-blue-600 underline hover:text-blue-800">
+                            AI / ML for climate change, wind energy, and SDG-aligned collaboration
+                        </a>
+                    </p>
                 </div>
 
                 <div class="mt-8 flex flex-wrap gap-3">
@@ -312,7 +375,7 @@
 
                 <div class="mb-8">
                     <h3 class="text-lg font-semibold text-gray-900 mb-4">All Publications</h3>
-                    <!-- Restored scrollable box so page stays short -->
+                    <!-- Scrollable box / slider behavior is preserved -->
                     <div class="scrollable-publications academic-card p-4">
                         <div id="all-publications" class="grid gap-6">
                             <!-- injected -->
@@ -937,7 +1000,7 @@
     <script>
     "use strict";
 
-    // SDG icon metadata
+    // SDG icon metadata (used in publication cards)
     const SDG_ICONS = {
         "7":  { src: "sdg7.png",  label: "Affordable and Clean Energy (SDG 7)" },
         "11": { src: "sdg11.png", label: "Sustainable Cities and Communities (SDG 11)" },
@@ -965,7 +1028,7 @@
     }
 
     // animate = true for Featured (so they fade nicely)
-    // animate = false for All Publications (no AOS -> no slow reveal issue)
+    // animate = false for All Publications (so everything shows immediately inside scroll box)
     function buildPublicationCard(pub, aosDelay, animate) {
         const card = document.createElement('div');
         card.className = "academic-card p-6 pub-card";
@@ -1023,7 +1086,7 @@
             recentContainer.appendChild(card);
         });
 
-        // All Publications: no animation, render all immediately
+        // All Publications: rest only, in scrollable box
         rest.forEach(pub => {
             const card = buildPublicationCard(pub, 0, false);
             allContainer.appendChild(card);
@@ -1044,7 +1107,7 @@
             offset: 50
         });
 
-        // Smooth scroll nav highlighting
+        // Smooth scroll nav + active state
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetSelector = this.getAttribute('href');
@@ -1088,7 +1151,7 @@
             }
         });
 
-        // Citation modal logic
+        // Citation modal
         const modal = document.getElementById('citation-modal');
         const bibtexContent = document.getElementById('bibtex-content');
         const closeModal = document.getElementById('close-modal');
