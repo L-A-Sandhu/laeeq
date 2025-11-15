@@ -16,7 +16,7 @@ const publicationsData = [
     "title": "Physics-Informed Ensemble Learning for City-Center Grid Cell Temperature Prediction During Thermal Extremes",
     "venue": "Urban Climate",
     "year": 2025,
-    "authors": "Laeeq Aslam et al.",
+    "authors": "Laeeq Aslam, Runmin Zou, Gang Li, Ebrahim Shahzad Awan, Sara Mouafik",
     "pdf": "manuscripts/PIEL-NET.pdf",
     "read_url": "",
     "code_url": "https://github.com/L-A-Sandhu/PIEL-NET",
