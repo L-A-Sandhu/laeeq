@@ -12,6 +12,19 @@
 
 const publicationsData = [
   {
+    "id": "huang2026m2fmoe",
+    "title": "M²FMoE: Multi-Resolution Multi-View Frequency Mixture-of-Experts for Extreme-Adaptive Time Series Forecasting",
+    "venue": "AAAI Conference on Artificial Intelligence (AAAI)",
+    "year": 2026,
+    "authors": "Yaohui Huang, Runmin Zou, Yun Wang, Laeeq Aslam, Ruipeng Dong",
+    "pdf": "https://arxiv.org/pdf/2601.08631",
+    "read_url": "https://arxiv.org/abs/2601.08631",
+    "code_url": null,
+    "featured": false,
+    "sdgs": [],
+    "bibtex": ""
+  },
+  {
     "id": "aslam2025pielnet",
     "title": "Physics-Informed Ensemble Learning for City-Center Grid Cell Temperature Prediction During Thermal Extremes",
     "venue": "Urban Climate",
