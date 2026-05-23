@@ -1127,10 +1127,49 @@
         });
     }
 
+    
+    function insertAccessPaperAfterM2FMoE(publications) {
+        const accessPaper = {
+            "id": "zou2026rcha_moe",
+            "title": "Regime-Conditioned Horizon-Aware Mixture-of-Experts for Spatio-Temporal Wind Forecasting",
+            "venue": "IEEE Access",
+            "year": 2026,
+            "authors": "Bowen Zou, Ming Li, and Laeeq Aslam",
+            "pdf": "manuscripts/ACCESS3695762.pdf",
+            "read_url": "https://doi.org/10.1109/ACCESS.2026.3695762",
+            "code_url": null,
+            "featured": false,
+            "sdgs": ["7", "13"],
+            "bibtex": "@article{zou2026regime,\n  title={Regime-Conditioned Horizon-Aware Mixture-of-Experts for Spatio-Temporal Wind Forecasting},\n  author={Zou, Bowen and Li, Ming and Aslam, Laeeq},\n  journal={IEEE Access},\n  year={2026},\n  doi={10.1109/ACCESS.2026.3695762}\n}"
+        };
+
+        if (!Array.isArray(publications)) {
+            return publications;
+        }
+
+        const alreadyExists = publications.some(pub => pub.id === accessPaper.id || pub.title === accessPaper.title);
+        if (alreadyExists) {
+            return publications;
+        }
+
+        const insertAfterIndex = publications.findIndex(pub =>
+            pub.id === "huang2026m2fmoe" ||
+            (pub.title && pub.title.includes("M²FMoE"))
+        );
+
+        if (insertAfterIndex >= 0) {
+            publications.splice(insertAfterIndex + 1, 0, accessPaper);
+        } else {
+            publications.push(accessPaper);
+        }
+
+        return publications;
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         initPageBehavior();
         // publicationsData comes from publications.js
-        renderPublications(publicationsData);
+        renderPublications(insertAccessPaperAfterM2FMoE(publicationsData));
     });
     </script>
 </body>
