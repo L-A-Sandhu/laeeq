@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Projects — Laeeq Aslam</title>
+    <meta name="description" content="Research projects by Laeeq Aslam: drone-based wind sensing, PINN wind-field reconstruction, physics-guided forecasting, and urban climate-risk intelligence.">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="canonical" href="https://laeeqalsam.com/projects.html">
+    <link rel="stylesheet" href="output.css">
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .academic-card {
+            background-color: #fff; border-radius: 0.75rem;
+            border: 1px solid rgb(230,231,235);
+            box-shadow: 0 8px 20px -6px rgba(0,0,0,0.08);
+        }
+        .sdg-chip {
+            display: inline-flex; align-items: center; background: #fff;
+            border: 1px solid rgb(229,231,235); border-radius: 0.5rem;
+            padding: 0.3rem 0.55rem; font-size: 0.7rem; font-weight: 500;
+            color: #1f2937;
+        }
+        .sdg-chip img { height: 1rem; width: auto; border-radius: 0.2rem; margin-right: 0.3rem; }
+        .method-tag {
+            display: inline-block;
+            background: #eff6ff; color: #1d4ed8;
+            font-size: 0.65rem; font-weight: 600;
+            padding: 0.15rem 0.5rem; border-radius: 0.3rem;
+            border: 1px solid #bfdbfe;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-900">
+
+    <nav class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="index.html" class="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-2">
+                <i data-lucide="arrow-left" class="h-4 w-4"></i> Laeeq Aslam
+            </a>
+            <div class="flex items-center gap-4 text-sm">
+                <a href="index.html" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
+                <a href="publications.html" class="text-gray-500 hover:text-blue-600 transition-colors">Publications</a>
+                <a href="cv.html" class="text-gray-500 hover:text-blue-600 transition-colors">CV</a>
+                <a href="projects.html" class="text-blue-600 font-medium">Projects</a>
+                <a href="tooling.html" class="text-gray-500 hover:text-blue-600 transition-colors">Tools</a>
+                <a href="notes.html" class="text-gray-500 hover:text-blue-600 transition-colors">Notes</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-white border-b border-gray-100 py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Research Projects</h1>
+            <p class="text-gray-600 max-w-2xl">Turning sparse field measurements into physically credible estimates — from drone-based wind sensing to grid-scale forecasting and urban climate early warning.</p>
+        </div>
+    </section>
+
+    <section class="py-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+
+            <!-- Project 1: Drone Wind Sensing -->
+            <div class="academic-card p-6 md:p-8">
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full uppercase tracking-wide">Active · GTIIT</span>
+                    <span class="text-xs text-gray-400">Mar 2026 – Present</span>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-1">Low-Cost Aerial Wind Sensing with Multirotor Drones</h2>
+                <p class="text-blue-600 text-sm font-medium mb-4">Physics-Informed Neural Networks · Field Deployment · Flow Reconstruction</p>
+
+                <div class="grid md:grid-cols-3 gap-6 mt-6">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-900 mb-2">Problem</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Conventional wind measurement (met masts, lidar, weather stations) is sparse, expensive, and stationary. Drone-based sensing could fill gaps at lower cost — but extracting ambient wind from drone telemetry is non-trivial due to rotor downwash, attitude coupling, and calibration drift.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-900 mb-2">Approach</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Low-cost multirotors equipped with IMU, GPS, and reference anemometers. Wind speed and direction are estimated from vehicle attitude response, power draw, and wind-relative direction using calibrated regression, then a PINN reconstructs the local wind field with mass-conservation and smoothness constraints.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-900 mb-2">Methods</h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="method-tag">PINNs</span>
+                            <span class="method-tag">IMU Telemetry</span>
+                            <span class="method-tag">Flow Consistency</span>
+                            <span class="method-tag">Calibration Reg.</span>
+                            <span class="method-tag">Field Experiments</span>
+                            <span class="method-tag">Cross-Platform Gen.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="sdg-chip"><img src="sdg7.webp" alt="SDG 7">SDG 7 — Clean Energy</span>
+                    <span class="sdg-chip"><img src="sdg13.webp" alt="SDG 13">SDG 13 — Climate Action</span>
+                </div>
+            </div>
+
+            <!-- Project 2: Wind & Grid Forecasting -->
+            <div class="academic-card p-6 md:p-8">
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-3 py-1 rounded-full uppercase tracking-wide">PhD Research</span>
+                    <span class="text-xs text-gray-400">2020 – 2025</span>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-1">Physics-Guided Wind & Grid Forecasting</h2>
+                <p class="text-blue-600 text-sm font-medium mb-4">Adaptive Feature Selection · Regime-Aware Loss · Edge Deployment</p>
+
+                <div class="grid md:grid-cols-3 gap-6 mt-6">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-900 mb-2">Problem</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Short-horizon (0–3h) wind forecasting is critical for renewable integration and grid stability, but standard data-driven models degrade under wind ramps, extreme gusts, and site-dependent variability. Deploying these models on turbine-edge hardware adds strict latency and memory constraints.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-900 mb-2">Approach</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Physics-guided sequence models that fuse adaptive temporal feature selection with physical wind-field structure (boundary-layer behavior, diurnal cycles, wake transport). Regime-adaptive focal losses penalize errors more heavily during high-risk ramps. Models are optimized for Jetson-class edge hardware.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-900 mb-2">Key Results</h3>
+                        <div class="text-sm text-gray-600 space-y-1.5">
+                            <p>→ 6 first-author papers (2024–2025)</p>
+                            <p>→ Shallow hybrid model runs on &lt;2 GB RAM with &lt;200 ms inference</p>
+                            <p>→ Dynamic Bayesian optimization for hyperparameter tuning on-device</p>
+                            <p>→ Hardware-centric design space exploration of Transformer–LSTM architectures</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="sdg-chip"><img src="sdg7.webp" alt="SDG 7">SDG 7 — Clean Energy</span>
+                    <span class="sdg-chip"><img src="sdg13.webp" alt="SDG 13">SDG 13 — Climate Action</span>
+                </div>
+            </div>
+
+            <!-- Project 3: Urban Climate Risk -->
+            <div class="academic-card p-6 md:p-8">
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class="text-xs font-semibold bg-purple-100 text-purple-700 px-3 py-1 rounded-full uppercase tracking-wide">PhD Research</span>
+                    <span class="text-xs text-gray-400">2023 – 2025</span>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-1">Urban Heat-Risk Early Warning</h2>
+                <p class="text-blue-600 text-sm font-medium mb-4">Ensemble Learning · Spatio-Temporal Correction · Public Health</p>
+
+                <div class="grid md:grid-cols-3 gap-6 mt-6">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-900 mb-2">Problem</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Urban heat extremes are rising in frequency and intensity. City-center thermal stress concentrates in dense cores where nighttime cooling is suppressed. Most forecasts operate at city-wide resolution, missing the neighborhood-scale hotspots that drive mortality risk.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-900 mb-2">Approach</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Physics-informed ensemble learning (PIEL-NET) that forecasts grid-cell temperature at ~100 m–1 km resolution, several hours ahead. Residual spatio-temporal correction preserves spatial context and physical plausibility. Outputs can trigger targeted cooling guidance for vulnerable populations.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-900 mb-2">Methods</h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="method-tag">Ensemble Learning</span>
+                            <span class="method-tag">Spatio-Temporal</span>
+                            <span class="method-tag">Physics Priors</span>
+                            <span class="method-tag">Grid-Cell Resolution</span>
+                            <span class="method-tag">Early Warning</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="sdg-chip"><img src="sdg11.webp" alt="SDG 11">SDG 11 — Sustainable Cities</span>
+                    <span class="sdg-chip"><img src="sdg13.webp" alt="SDG 13">SDG 13 — Climate Action</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8 mt-10">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm"><a href="index.html" class="hover:text-white">← Back to home</a> · <a href="publications.html" class="hover:text-white">Publications</a> · <a href="cv.html" class="hover:text-white">CV</a></p>
+            <p class="text-gray-500 text-xs mt-3">© 2026 Laeeq Aslam</p>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

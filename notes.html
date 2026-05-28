@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Notes — Laeeq Aslam</title>
+    <meta name="description" content="Research notes by Laeeq Aslam on physics-informed AI, aerial wind sensing, wind forecasting, edge deployment, and climate-risk intelligence.">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="canonical" href="https://laeeqalsam.com/notes.html">
+    <link rel="stylesheet" href="output.css">
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .academic-card {
+            background-color: #fff; border-radius: 0.75rem;
+            border: 1px solid rgb(230,231,235);
+            box-shadow: 0 8px 20px -6px rgba(0,0,0,0.08);
+        }
+        .note-card { transition: transform .2s ease, box-shadow .2s ease; cursor: pointer; }
+        .note-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(0,0,0,0.12); }
+        .note-body p { margin-bottom: 0.75rem; }
+        .note-body h3 { font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.5rem; font-size: 1rem; }
+        .note-body ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 0.75rem; }
+        .note-body li { margin-bottom: 0.25rem; }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-900">
+
+    <nav class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="index.html" class="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-2">
+                <i data-lucide="arrow-left" class="h-4 w-4"></i> Laeeq Aslam
+            </a>
+            <div class="flex items-center gap-4 text-sm">
+                <a href="index.html" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
+                <a href="publications.html" class="text-gray-500 hover:text-blue-600 transition-colors">Publications</a>
+                <a href="cv.html" class="text-gray-500 hover:text-blue-600 transition-colors">CV</a>
+                <a href="projects.html" class="text-gray-500 hover:text-blue-600 transition-colors">Projects</a>
+                <a href="tooling.html" class="text-gray-500 hover:text-blue-600 transition-colors">Tools</a>
+                <a href="notes.html" class="text-blue-600 font-medium">Notes</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-white border-b border-gray-100 py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Research Notes</h1>
+            <p class="text-gray-600">Short notes on methodology, deployment, and research direction. Updated occasionally.</p>
+        </div>
+    </section>
+
+    <section class="py-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+
+            <!-- Note 1 -->
+            <div class="academic-card note-card p-6" onclick="toggleNote('note1')">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <p class="text-xs text-blue-600 font-medium mb-1">May 2026 · Methodology</p>
+                        <h2 class="text-xl font-bold text-gray-900 mb-1">Why Physics-Informed Loss Terms Are Hard to Get Right</h2>
+                        <p class="text-sm text-gray-500">The trade-off between physical plausibility and raw accuracy, and why adaptive penalty design matters.</p>
+                    </div>
+                    <i data-lucide="chevron-down" class="h-5 w-5 text-gray-400 flex-shrink-0 mt-1" id="icon-note1"></i>
+                </div>
+                <div id="note1" class="hidden mt-4 pt-4 border-t border-gray-100 note-body text-sm text-gray-700 leading-relaxed">
+                    <p>A common pattern in physics-informed learning is to add a physics penalty term directly to the training loss. The model minimizes a weighted sum of data error and violation of some physical constraint — conservation of mass, momentum balance, an energy budget. In principle this is elegant: the model learns from data but is nudged toward physically plausible behavior.</p>
+                    <p>In practice this often <em>hurts</em> raw predictive accuracy. When we force a data-driven forecaster to satisfy an approximate or simplified equation, we inject bias. The model starts optimizing to satisfy the hand-written physics term instead of strictly minimizing forecast error. This is especially visible in the atmospheric boundary layer and dense urban canopies, where simplified equations don't capture the real physics.</p>
+                    <h3>What works better</h3>
+                    <p>The frontier is <strong>adaptive loss functions</strong> that apply physics pressure selectively — in high-risk regimes (gust fronts, nocturnal heat traps) where getting the physics wrong has operational consequences, while relaxing the penalty in calm regimes where data alone is sufficient. The key insight: the penalty design itself becomes part of the model architecture and must co-evolve with deployment constraints.</p>
+                    <h3>Edge consideration</h3>
+                    <p>A full CFD solve is not compatible with a 200 ms inference budget on a substation controller with sub-2 GB memory. We need a deployable physics prior — not an oversimplified analytic penalty and not a full-blown simulator.</p>
+                </div>
+            </div>
+
+            <!-- Note 2 -->
+            <div class="academic-card note-card p-6" onclick="toggleNote('note2')">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <p class="text-xs text-blue-600 font-medium mb-1">April 2026 · Deployment</p>
+                        <h2 class="text-xl font-bold text-gray-900 mb-1">Running ML Inference on a Jetson at the Turbine: What Actually Matters</h2>
+                        <p class="text-sm text-gray-500">Lessons from deploying wind forecasting models on edge hardware with strict latency and memory budgets.</p>
+                    </div>
+                    <i data-lucide="chevron-down" class="h-5 w-5 text-gray-400 flex-shrink-0 mt-1" id="icon-note2"></i>
+                </div>
+                <div id="note2" class="hidden mt-4 pt-4 border-t border-gray-100 note-body text-sm text-gray-700 leading-relaxed">
+                    <p>Deploying wind forecasting models at the turbine edge is qualitatively different from running them on a workstation. The constraints are real: sub-200 ms inference latency, sub-2 GB system RAM, and power budgets that rule out GPU acceleration. Here's what I learned from the shallow hybrid model work.</p>
+                    <h3>Model size is not the bottleneck</h3>
+                    <p>We found that <strong>inference latency</strong>, not model size, is the binding constraint. A compact LSTM with 50K parameters can still exceed 200 ms if the input preprocessing is heavy or if memory access patterns are poor. The bottleneck is often in the data pipeline — feature normalization, sliding window assembly, and tensor reshaping.</p>
+                    <h3>What helps</h3>
+                    <ul>
+                        <li><strong>Precompute features offline</strong> — anything that can be computed at rest should be. Runtime should only assemble windows and forward-pass.</li>
+                        <li><strong>Dynamic Bayesian optimization for hyperparameters</strong> — tuning on-device avoids the train-server/deploy-edge mismatch. We saw 15–20% improvement over server-tuned models when re-optimized at the edge.</li>
+                        <li><strong>Shallow hybrids beat deep models</strong> — a well-tuned random vector functional link (RVFL) with closed-form training outperformed deeper LSTM/Transformer variants on the same hardware budget. Non-iterative training means no GPU needed at all.</li>
+                    </ul>
+                    <h3>Reliability matters more than accuracy</h3>
+                    <p>A model that produces a forecast 95% of the time with 2 m/s RMSE is more valuable than one that produces a forecast 70% of the time with 1.5 m/s RMSE. Edge deployments need graceful degradation — if a sensor drops or latency spikes, the model should still produce a usable output, not crash.</p>
+                </div>
+            </div>
+
+            <!-- Note 3 -->
+            <div class="academic-card note-card p-6" onclick="toggleNote('note3')">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <p class="text-xs text-blue-600 font-medium mb-1">March 2026 · Direction</p>
+                        <h2 class="text-xl font-bold text-gray-900 mb-1">From SDG Language to Resilience Language</h2>
+                        <p class="text-sm text-gray-500">Why the global research funding vocabulary is shifting, and what it means for physics-informed AI.</p>
+                    </div>
+                    <i data-lucide="chevron-down" class="h-5 w-5 text-gray-400 flex-shrink-0 mt-1" id="icon-note3"></i>
+                </div>
+                <div id="note3" class="hidden mt-4 pt-4 border-t border-gray-100 note-body text-sm text-gray-700 leading-relaxed">
+                    <p>Sustainable Development Goal (SDG) language still matters — it provides a public-good framework that connects research to societal outcomes. But funding agencies and national programs are increasingly asking whether a method improves <strong>resilience, security, and infrastructure capacity</strong> rather than whether it supports a specific SDG target.</p>
+                    <p>For physics-informed AI researchers, this shift is useful rather than threatening. The same model that supports clean energy (SDG 7) can also support grid reliability. The same heat-risk forecast (SDG 11) can also support emergency response and city operations. The practical target becomes an operational model that remains physically credible when measurements are noisy, regimes change, and decisions must be made locally.</p>
+                    <h3>What this means for research proposals</h3>
+                    <ul>
+                        <li>Frame wind forecasting as <strong>energy security + clean energy</strong>, not clean energy alone</li>
+                        <li>Frame heat forecasting as <strong>operational early warning for city resilience</strong>, not descriptive mapping</li>
+                        <li>Frame edge deployment as <strong>sovereign AI capacity</strong> — models that run where the risk is, not only in the cloud</li>
+                    </ul>
+                    <p>The strongest future framing is not "SDGs versus security." It is SDGs translated into resilience, energy independence, and infrastructure intelligence.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8 mt-10">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm"><a href="index.html" class="hover:text-white">← Back to home</a></p>
+            <p class="text-gray-500 text-xs mt-3">© 2026 Laeeq Aslam</p>
+        </div>
+    </footer>
+
+    <script>
+    lucide.createIcons();
+    function toggleNote(id) {
+        const body = document.getElementById(id);
+        const icon = document.getElementById('icon-' + id);
+        body.classList.toggle('hidden');
+        icon.setAttribute('data-lucide', body.classList.contains('hidden') ? 'chevron-down' : 'chevron-up');
+        lucide.createIcons();
+    }
+    </script>
+</body>
+</html>

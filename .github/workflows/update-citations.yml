@@ -1,0 +1,44 @@
+name: Update Google Scholar Citations
+
+on:
+  schedule:
+    # Runs every Monday at 08:00 UTC
+    - cron: '0 8 * * 1'
+  workflow_dispatch:  # Allow manual trigger
+  push:
+    paths:
+      - 'scripts/update_citations.py'  # Re-run if the scraper itself changes
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install scholarly
+
+      - name: Run citation scraper
+        run: python scripts/update_citations.py
+
+      - name: Commit updated citations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Only commit if citations.json actually changed
+          if git diff --quiet citations.json; then
+            echo "No changes to citations data."
+          else
+            git add citations.json citation-status.json
+            git commit -m "Update Google Scholar citations [automated]"
+            git push
+            echo "Citations updated and pushed."
+          fi

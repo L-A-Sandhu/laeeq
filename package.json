@@ -1,0 +1,15 @@
+{
+  "name": "laeeq",
+  "version": "1.0.0",
+  "description": "This website presents Laeeq Aslam's current research profile. The main GTIIT project is low-cost drone-based wind estimation and wind-field reconstruction using Physics-Informed Neural Networks (PINNs). Parallel research lines include physics-guided forecasting for wind-energy and grid-reliability systems, and climate-risk intelligence for urban heat and infrastructure resilience.",
+  "main": "publications.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

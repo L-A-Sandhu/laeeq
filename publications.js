@@ -179,6 +179,32 @@ const publicationsData = [
     "featured": false,
     "sdgs": [],
     "bibtex": "@article{zaheer2017compressed,\n title={Compressed sensing based image steganography system for secure transmission of audio message with enhanced security},\n author={Zaheer, Muhammad and Qureshi, I. M. and Muzaffar, Zeeshan and Aslam, Laeeq},\n journal={International Journal of Computer Science and Network Security},\n volume={17},\n number={7},\n year={2017}\n}"
+  },
+  {
+    "id": "hassan2024facial",
+    "title": "Exploring New Frontiers in Facial Expression Recognition: Dual DenseNet-201 and Landmark Distance Analytics in the Wild",
+    "venue": "IEEE Conference on Data Driven Control and Learning Systems (DDCLS)",
+    "year": 2024,
+    "authors": "Abdullahi Mohamed Hassan, Laeeq Aslam, and others",
+    "pdf": "manuscripts/Dual_DenseNet_Facial_Expression_Recognition.pdf",
+    "read_url": "https://doi.org/10.1109/DDCLS61622.2024.10606687",
+    "code_url": null,
+    "featured": false,
+    "sdgs": [],
+    "bibtex": "@inproceedings{hassan2024facial,\n title={Exploring new frontiers in facial expression recognition: Dual DenseNet-201 and landmark distance analytics in the wild},\n author={Hassan, Abdullahi Mohamed and Aslam, Laeeq},\n booktitle={Proceedings of the IEEE Conference on Data Driven Control and Learning Systems (DDCLS)},\n year={2024},\n doi={10.1109/DDCLS61622.2024.10606687}\n}"
+  },
+  {
+    "id": "aslam2020doa",
+    "title": "Effect of Faulty Sensors on Estimation of Direction of Arrival and Other Parameters",
+    "venue": "Journal of Mechanics of Continua and Mathematical Sciences",
+    "year": 2020,
+    "authors": "Laeeq Aslam, Fawad Ahmad, Sohail Akhtar, Ebrahim Shahzad Awan, and Fatima Yaqoob",
+    "pdf": "manuscripts/Effect_of_Faulty_Sensors_on_DOA_Estimation.pdf",
+    "read_url": "https://doi.org/10.26782/jmcms.2020.04.00014",
+    "code_url": null,
+    "featured": false,
+    "sdgs": [],
+    "bibtex": "@article{aslam2020doa,\n title={Effect of faulty sensors on estimation of direction of arrival and other parameters},\n author={Aslam, Laeeq and Ahmad, Fawad and Akhtar, Sohail and Awan, Ebrahim Shahzad and Yaqoob, Fatima},\n journal={Journal of Mechanics of Continua and Mathematical Sciences},\n year={2020},\n doi={10.26782/jmcms.2020.04.00014}\n}"
   }
 ];
 

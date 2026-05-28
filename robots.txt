@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://laeeqalsam.com/sitemap.xml

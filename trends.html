@@ -6,7 +6,8 @@
     <title>Research trends in physics-informed AI for resilient energy and climate intelligence</title>
 
     <meta name="description" content="Physics-informed AI is advancing resilient energy systems, climate-risk intelligence, and deployable environmental sensing. Summary by Laeeq Aslam.">
-    <link rel="canonical" href="https://laeeqaslam.com/trends.html">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="canonical" href="https://laeeqalsam.com/trends.html">
     <meta property="og:title" content="Trends in physics-informed AI for resilient energy and climate intelligence">
     <meta property="og:description" content="Drone-based wind sensing, short-horizon grid forecasting, urban heat-risk warning, and edge-deployable physics-informed AI.">
     <meta name="twitter:card" content="summary_large_image">
@@ -39,7 +40,8 @@
     }
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="output.css">
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
     <style>
         .academic-card {
@@ -52,13 +54,26 @@
 </head>
 <body class="bg-white text-gray-900 antialiased">
 
+    <nav class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="index.html" class="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-2">
+                <i data-lucide="arrow-left" class="h-4 w-4"></i> Laeeq Aslam
+            </a>
+            <div class="flex items-center gap-4 text-sm">
+                <a href="index.html" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
+                <a href="publications.html" class="text-gray-500 hover:text-blue-600 transition-colors">Publications</a>
+                <a href="cv.html" class="text-gray-500 hover:text-blue-600 transition-colors">CV</a>
+                <a href="projects.html" class="text-gray-500 hover:text-blue-600 transition-colors">Projects</a>
+                <a href="tooling.html" class="text-gray-500 hover:text-blue-600 transition-colors">Tools</a>
+                <a href="notes.html" class="text-gray-500 hover:text-blue-600 transition-colors">Notes</a>
+            </div>
+        </div>
+    </nav>
+
     <main class="max-w-3xl mx-auto px-4 py-12 space-y-10">
 
-        <!-- Header / identity -->
         <header class="space-y-2">
             <p class="text-[0.7rem] text-gray-500">
-                <a href="index.html" class="text-blue-600 underline">← Back to main site</a>
-                ·
                 <a href="about.html" class="text-blue-600 underline">About / collaboration info</a>
             </p>
             <h1 class="text-2xl font-bold text-gray-900 leading-tight">
@@ -214,6 +229,6 @@
         </footer>
 
     </main>
-
+<script>lucide.createIcons();</script>
 </body>
 </html>

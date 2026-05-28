@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open-Source Tooling — Laeeq Aslam</title>
+    <meta name="description" content="Open-source Python packages by Laeeq Aslam: ed-rvfl-sc, TimeMesh, and Keras Swin-UNet for reproducible ML research and edge deployment.">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="canonical" href="https://laeeqalsam.com/tooling.html">
+    <link rel="stylesheet" href="output.css">
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .academic-card {
+            background-color: #fff; border-radius: 0.75rem;
+            border: 1px solid rgb(230,231,235);
+            box-shadow: 0 8px 20px -6px rgba(0,0,0,0.08);
+        }
+        pre { overflow-x: auto; }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-900">
+
+    <nav class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="index.html" class="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-2">
+                <i data-lucide="arrow-left" class="h-4 w-4"></i> Laeeq Aslam
+            </a>
+            <div class="flex items-center gap-4 text-sm">
+                <a href="index.html" class="text-gray-500 hover:text-blue-600 transition-colors">Home</a>
+                <a href="publications.html" class="text-gray-500 hover:text-blue-600 transition-colors">Publications</a>
+                <a href="cv.html" class="text-gray-500 hover:text-blue-600 transition-colors">CV</a>
+                <a href="projects.html" class="text-gray-500 hover:text-blue-600 transition-colors">Projects</a>
+                <a href="tooling.html" class="text-blue-600 font-medium">Tools</a>
+                <a href="notes.html" class="text-gray-500 hover:text-blue-600 transition-colors">Notes</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-white border-b border-gray-100 py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Open-Source Tooling</h1>
+            <p class="text-gray-600 max-w-2xl">Production-grade Python packages for reproducible ML research, edge deployment, and computer vision. All available on PyPI with MIT licensing.</p>
+        </div>
+    </section>
+
+    <section class="py-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+
+            <!-- ed-rvfl-sc -->
+            <div class="academic-card p-6 md:p-8">
+                <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h2 class="text-2xl font-bold text-gray-900">ed-rvfl-sc</h2>
+                            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-medium">PyPI</span>
+                        </div>
+                        <p class="text-sm text-gray-500">MIT License · Python ≥3.9</p>
+                    </div>
+                    <a href="https://github.com/L-A-Sandhu/edrvfl" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-colors">
+                        <i data-lucide="github" class="h-4 w-4"></i> GitHub
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Ensemble Deep Random Vector Functional Link with skip connections. Delivers deep-ML–level accuracy without GPU training using closed-form layer solves and feature reuse. Targets ultra-fast training and inference on CPU and embedded boards (Jetson, Raspberry Pi).
+                </p>
+
+                <div class="grid sm:grid-cols-3 gap-4 mb-4">
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-lg font-bold text-blue-600">CPU-only</div>
+                        <div class="text-xs text-gray-500">No GPU required</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-lg font-bold text-blue-600">~100×</div>
+                        <div class="text-xs text-gray-500">Faster training setup</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-lg font-bold text-blue-600">Edge-ready</div>
+                        <div class="text-xs text-gray-500">Jetson · RPi · Arduino</div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg p-4">
+                    <code class="text-sm text-green-400">pip install ed-rvfl-sc</code>
+                </div>
+
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Non-iterative training</span>
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Skip connections</span>
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Closed-form solve</span>
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Ensemble learning</span>
+                </div>
+            </div>
+
+            <!-- TimeMesh -->
+            <div class="academic-card p-6 md:p-8">
+                <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h2 class="text-2xl font-bold text-gray-900">TimeMesh</h2>
+                            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-medium">PyPI</span>
+                        </div>
+                        <p class="text-sm text-gray-500">PyTorch · Temporal CNNs / LSTM / Transformer</p>
+                    </div>
+                    <a href="https://github.com/L-A-Sandhu/TimeMesh" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-colors">
+                        <i data-lucide="github" class="h-4 w-4"></i> GitHub
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Preprocessing and dataset tooling for time-series forecasting experiments. Provides sliding windows, normalization flows, reproducible train/val/test slicing, and ready-to-train tensors for LSTM, TCN, Transformer, and iTransformer-style models. Designed for fast ablation studies and reproducible research.
+                </p>
+
+                <div class="bg-gray-900 rounded-lg p-4">
+                    <code class="text-sm text-green-400">pip install timemesh</code>
+                </div>
+
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Sliding windows</span>
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Normalization</span>
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Reproducible splits</span>
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Multi-model support</span>
+                </div>
+            </div>
+
+            <!-- Keras Swin-UNet -->
+            <div class="academic-card p-6 md:p-8">
+                <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h2 class="text-2xl font-bold text-gray-900">Keras Swin-UNet</h2>
+                            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-medium">PyPI</span>
+                        </div>
+                        <p class="text-sm text-gray-500">TensorFlow · Vision Transformer · Focal Loss</p>
+                    </div>
+                    <a href="https://github.com/L-A-Sandhu/keras-swin-unet" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-colors">
+                        <i data-lucide="github" class="h-4 w-4"></i> GitHub
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                    Transformer-based Swin-UNet segmentation stack for earth observation, medical imaging, and industrial perception. Includes attention backbones, skip connections, and robust Focal Loss settings for rare-structure segmentation. Clean Keras API compatible with TensorFlow.
+                </p>
+
+                <div class="bg-gray-900 rounded-lg p-4">
+                    <code class="text-sm text-green-400">pip install keras-swin-unet</code>
+                </div>
+
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Swin Transformer</span>
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">UNet decoder</span>
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Focal Loss</span>
+                    <span class="text-[0.65rem] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">Earth observation</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8 mt-10">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm"><a href="index.html" class="hover:text-white">← Back to home</a></p>
+            <p class="text-gray-500 text-xs mt-3">© 2026 Laeeq Aslam</p>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

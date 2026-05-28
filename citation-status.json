@@ -1,0 +1,5 @@
+{
+  "last_updated": "2026-05-28T15:20:08.567635Z",
+  "success": false,
+  "error": "Unknown scheme for proxy URL URL('socks://127.0.0.1:7897/')"
+}
