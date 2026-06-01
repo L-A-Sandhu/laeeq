@@ -1,13 +1,13 @@
 {
-  "updated": "2026-05-28T22:00:00Z",
+  "updated": "2026-06-01T13:36:23.622415Z",
   "name": "Laeeq Aslam",
-  "affiliation": "Guangdong Technion-Israel Institute of Technology (GTIIT)",
+  "affiliation": "Research Fellow at Guangdong Technion-Israel Institute of Technology",
   "total_citations": 68,
   "citations_per_year": {
-    "2018": 0,
+    "2018": 1,
     "2019": 0,
-    "2020": 1,
-    "2021": 2,
+    "2020": 2,
+    "2021": 0,
     "2022": 2,
     "2023": 5,
     "2024": 5,
@@ -16,6 +16,6 @@
   },
   "h_index": 6,
   "i10_index": 2,
-  "total_publications": 16,
+  "total_publications": 0,
   "source": "Google Scholar"
 }
