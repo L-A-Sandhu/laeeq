@@ -12,6 +12,19 @@
 
 const publicationsData = [
   {
+    "id": "aslam2026vortex",
+    "title": "Physics-Informed Multi-Gated Convolutional Recurrent Network for Extreme Wind Speed Prediction",
+    "venue": "Applied Energy",
+    "year": 2026,
+    "authors": "Laeeq Aslam, Runmin Zou, Yaohui Huang, Gang Li, Fatima Yaqoob, Sara Mouafik, Saad Yousaf",
+    "pdf": "manuscripts/VORTEX.pdf",
+    "read_url": "https://doi.org/10.1016/j.apenergy.2026.128094",
+    "code_url": null,
+    "featured": true,
+    "sdgs": ["7", "13"],
+    "bibtex": "@article{aslam2026vortex,\n  title={Physics-informed multi-gated convolutional recurrent network for extreme wind speed prediction},\n  author={Aslam, Laeeq and Zou, Runmin and Huang, Yaohui and Li, Gang and Yaqoob, Fatima and Mouafik, Sara and Yousaf, Saad},\n  journal={Applied Energy},\n  volume={420},\n  pages={128094},\n  year={2026},\n  doi={10.1016/j.apenergy.2026.128094}\n}"
+  },
+  {
     "id": "huang2026m2fmoe",
     "title": "M²FMoE: Multi-Resolution Multi-View Frequency Mixture-of-Experts for Extreme-Adaptive Time Series Forecasting",
     "venue": "AAAI Conference on Artificial Intelligence (AAAI)",
@@ -59,7 +72,7 @@ const publicationsData = [
     "pdf": "manuscripts/SHM.pdf",
     "read_url": "https://www.sciencedirect.com/science/article/pii/S0045790625006433",
     "code_url": null,
-    "featured": true,
+    "featured": false,
     "sdgs": ["7", "13"],
     "bibtex": "@article{ASLAM2025110700,\n title={A shallow hybrid model with dynamic Bayesian optimisation for wind speed prediction on memory-constrained devices},\n author={Aslam, Laeeq and Zou, Runmin and Huang, Yaohui and Yaqoob, Fatima and Butt, Sharjeel Abid and Zhou, Qian},\n journal={Computers and Electrical Engineering},\n year={2025}\n}"
   },
