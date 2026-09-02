@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      issues: write
 
     steps:
       - uses: actions/checkout@v4
@@ -23,7 +24,9 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install scholarly
+        # httpx>=0.28 removed the `proxies` kwarg that scholarly's
+        # FreeProxies() still relies on internally; pin below that.
+        run: pip install scholarly "httpx<0.28"
 
       - name: Run citation scraper
         run: python scripts/update_citations.py
@@ -33,12 +36,39 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Only commit if citations.json actually changed
-          if git diff --quiet citations.json; then
+          # Commit if the citation data or the status/failure-count changed
+          # (status must persist across runs even on failure so the
+          # consecutive-failure counter and alerting stay accurate).
+          if git diff --quiet citations.json citation-status.json; then
             echo "No changes to citations data."
           else
             git add citations.json citation-status.json
             git commit -m "Update Google Scholar citations [automated]"
             git push
             echo "Citations updated and pushed."
+          fi
+
+      - name: Alert on persistent scrape failures
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SUCCESS=$(jq -r '.success' citation-status.json)
+          FAILURES=$(jq -r '.consecutive_failures // 0' citation-status.json)
+          EXISTING=$(gh issue list --search "Citation auto-update failing in:title" --state open --json number --jq '.[0].number')
+
+          if [ "$SUCCESS" = "false" ] && [ "$FAILURES" -ge 2 ]; then
+            ERROR=$(jq -r '.error // "unknown error"' citation-status.json)
+            BODY="The weekly Google Scholar citation scraper has failed **$FAILURES** times in a row.
+
+          Latest error: \`$ERROR\`
+
+          Check the [workflow runs](../../actions/workflows/update-citations.yml) or update \`citations.json\` manually."
+
+            if [ -n "$EXISTING" ]; then
+              gh issue comment "$EXISTING" --body "$BODY"
+            else
+              gh issue create --title "Citation auto-update failing" --body "$BODY"
+            fi
+          elif [ "$SUCCESS" = "true" ] && [ -n "$EXISTING" ]; then
+            gh issue close "$EXISTING" --comment "Citation scraper succeeded again — closing."
           fi

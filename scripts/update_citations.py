@@ -9,16 +9,26 @@ from datetime import datetime
 
 SCHOLAR_ID = "oGVYJ5wAAAAJ"
 OUTPUT_FILE = "citations.json"
+STATUS_FILE = "citation-status.json"
 
 def scrape_with_scholarly():
     """Use scholarly library to get author data."""
     try:
-        from scholarly import scholarly
+        from scholarly import scholarly, ProxyGenerator
     except ImportError:
         print("scholarly not installed, installing...")
         import subprocess
         subprocess.check_call([sys.executable, "-m", "pip", "install", "scholarly"])
-        from scholarly import scholarly
+        from scholarly import scholarly, ProxyGenerator
+
+    # GitHub Actions runner IPs are shared/heavily scraped and frequently
+    # get blocked by Google Scholar. Route through rotating free proxies
+    # to avoid the "Cannot Fetch from Google Scholar" block.
+    pg = ProxyGenerator()
+    if not pg.FreeProxies():
+        print("Warning: could not set up free proxies, trying direct connection.")
+    else:
+        scholarly.use_proxy(pg)
 
     author = scholarly.search_author_id(SCHOLAR_ID)
     if not author:
@@ -55,8 +65,18 @@ def load_existing():
     return None
 
 
+def load_existing_status():
+    """Load existing citation-status.json if it exists."""
+    if os.path.exists(STATUS_FILE):
+        with open(STATUS_FILE) as f:
+            return json.load(f)
+    return None
+
+
 def main():
     existing = load_existing()
+    prev_status = load_existing_status() or {}
+    prev_failures = prev_status.get("consecutive_failures", 0)
 
     try:
         print("Scraping Google Scholar...")
@@ -70,13 +90,14 @@ def main():
             json.dump(data, f, indent=2)
 
         # Also write a status file so the site can show last-updated info
-        with open("citation-status.json", "w") as f:
+        with open(STATUS_FILE, "w") as f:
             json.dump({
                 "last_updated": data["updated"],
                 "total_citations": data["total_citations"],
                 "h_index": data["h_index"],
                 "source": "Google Scholar",
-                "success": True
+                "success": True,
+                "consecutive_failures": 0
             }, f, indent=2)
 
         print("citations.json updated successfully.")
@@ -100,11 +121,12 @@ def main():
             with open(OUTPUT_FILE, "w") as f:
                 json.dump(data, f, indent=2)
 
-        with open("citation-status.json", "w") as f:
+        with open(STATUS_FILE, "w") as f:
             json.dump({
                 "last_updated": datetime.utcnow().isoformat() + "Z",
                 "success": False,
-                "error": str(e)[:200]
+                "error": str(e)[:200],
+                "consecutive_failures": prev_failures + 1
             }, f, indent=2)
 
         sys.exit(0)  # Don't fail the workflow — keep last known data
