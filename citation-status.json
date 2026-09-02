@@ -1,7 +1,8 @@
 {
-  "last_updated": "2026-07-06T12:03:26.285790Z",
-  "total_citations": 77,
-  "h_index": 6,
+  "last_updated": "2026-09-02T17:03:11.027462Z",
+  "total_citations": 83,
+  "h_index": 5,
   "source": "Google Scholar",
-  "success": true
+  "success": true,
+  "consecutive_failures": 0
 }
