@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-14T14:43:55.302427Z",
+  "last_updated": "2026-09-21T14:50:19.304233Z",
   "success": false,
   "error": "No module named 'bibtexparser.bibdatabase'",
-  "consecutive_failures": 1
+  "consecutive_failures": 2
 }
