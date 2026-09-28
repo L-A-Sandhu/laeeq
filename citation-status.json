@@ -1,6 +1,8 @@
 {
-  "last_updated": "2026-09-21T14:50:19.304233Z",
-  "success": false,
-  "error": "No module named 'bibtexparser.bibdatabase'",
-  "consecutive_failures": 2
+  "last_updated": "2026-09-28T10:16:12.976786Z",
+  "total_citations": 88,
+  "h_index": 6,
+  "source": "Google Scholar",
+  "success": true,
+  "consecutive_failures": 0
 }
