@@ -5,21 +5,21 @@ Runs via GitHub Actions weekly. Falls back gracefully on failure.
 import json
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 
 SCHOLAR_ID = "oGVYJ5wAAAAJ"
-OUTPUT_FILE = "citations.json"
-STATUS_FILE = "citation-status.json"
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUTPUT_FILE = os.path.join(REPO_ROOT, "citations.json")
+STATUS_FILE = os.path.join(REPO_ROOT, "citation-status.json")
+
+
+def utc_now():
+    """Return an ISO-8601 UTC timestamp."""
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 def scrape_with_scholarly():
     """Use scholarly library to get author data."""
-    try:
-        from scholarly import scholarly, ProxyGenerator
-    except ImportError:
-        print("scholarly not installed, installing...")
-        import subprocess
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "scholarly"])
-        from scholarly import scholarly, ProxyGenerator
+    from scholarly import scholarly, ProxyGenerator
 
     # GitHub Actions runner IPs are shared/heavily scraped and frequently
     # get blocked by Google Scholar. Route through rotating free proxies
@@ -37,7 +37,7 @@ def scrape_with_scholarly():
     author = scholarly.fill(author, sections=["basics", "indices", "counts"])
 
     data = {
-        "updated": datetime.utcnow().isoformat() + "Z",
+        "updated": utc_now(),
         "name": author.get("name", "Laeeq Aslam"),
         "affiliation": author.get("affiliation", ""),
         "total_citations": author.get("citedby", 0),
@@ -55,6 +55,30 @@ def scrape_with_scholarly():
         }
 
     return data
+
+
+def validate_data(data, existing=None):
+    """Reject incomplete or regressed data before replacing the snapshot."""
+    required = ("name", "total_citations", "h_index", "i10_index", "citations_per_year")
+    missing = [key for key in required if key not in data]
+    if missing:
+        raise ValueError(f"Scholar response is missing fields: {', '.join(missing)}")
+
+    for key in ("total_citations", "h_index", "i10_index"):
+        if not isinstance(data[key], int) or data[key] < 0:
+            raise ValueError(f"Scholar response has invalid {key}: {data[key]!r}")
+
+    if not isinstance(data["citations_per_year"], dict):
+        raise ValueError("Scholar response has invalid citations_per_year")
+
+    # Citation totals should not decrease between weekly snapshots. Treat a
+    # regression as a partial/bad scrape and retain the last known good data.
+    if existing and isinstance(existing.get("total_citations"), int):
+        previous = existing["total_citations"]
+        if data["total_citations"] < previous:
+            raise ValueError(
+                f"Citation total regressed from {previous} to {data['total_citations']}"
+            )
 
 
 def load_existing():
@@ -81,6 +105,7 @@ def main():
     try:
         print("Scraping Google Scholar...")
         data = scrape_with_scholarly()
+        validate_data(data, existing)
         print(f"  Citations: {data['total_citations']}")
         print(f"  h-index: {data['h_index']}")
         print(f"  i10-index: {data['i10_index']}")
@@ -101,6 +126,7 @@ def main():
             }, f, indent=2)
 
         print("citations.json updated successfully.")
+        return 0
 
     except Exception as e:
         print(f"Scholar scrape failed: {e}")
@@ -110,7 +136,7 @@ def main():
         else:
             # Create a fallback file with manual data
             data = {
-                "updated": datetime.utcnow().isoformat() + "Z",
+                "updated": utc_now(),
                 "name": "Laeeq Aslam",
                 "total_citations": 0,
                 "citations_per_year": {},
@@ -123,14 +149,14 @@ def main():
 
         with open(STATUS_FILE, "w") as f:
             json.dump({
-                "last_updated": datetime.utcnow().isoformat() + "Z",
+                "last_updated": utc_now(),
                 "success": False,
                 "error": str(e)[:200],
                 "consecutive_failures": prev_failures + 1
             }, f, indent=2)
 
-        sys.exit(0)  # Don't fail the workflow — keep last known data
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

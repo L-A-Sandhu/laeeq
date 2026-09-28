@@ -1,0 +1,6 @@
+# Keep this updater reproducible. scholarly 1.7.11 still imports APIs that
+# bibtexparser 2 removed, and its free-proxy support requires httpx's legacy
+# `proxies` argument.
+scholarly==1.7.11
+bibtexparser==1.4.4
+httpx==0.27.2

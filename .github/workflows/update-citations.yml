@@ -2,12 +2,18 @@ name: Update Google Scholar Citations
 
 on:
   schedule:
-    # Runs every Monday at 08:00 UTC
-    - cron: '0 8 * * 1'
+    # Avoid minute 0, when scheduled GitHub Actions are most heavily queued.
+    - cron: '17 8 * * 1'
   workflow_dispatch:  # Allow manual trigger
   push:
     paths:
       - 'scripts/update_citations.py'  # Re-run if the scraper itself changes
+      - 'requirements-citations.txt'
+      - 'tests/test_update_citations.py'
+
+concurrency:
+  group: update-citations
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -22,16 +28,24 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements-citations.txt
 
       - name: Install dependencies
-        # httpx>=0.28 removed the `proxies` kwarg that scholarly's
-        # FreeProxies() still relies on internally; pin below that.
-        run: pip install scholarly "httpx<0.28"
+        run: |
+          python -m pip install --requirement requirements-citations.txt
+          python -m pip check
+
+      - name: Test citation updater
+        run: python tests/test_update_citations.py
 
       - name: Run citation scraper
+        id: scraper
+        continue-on-error: true
         run: python scripts/update_citations.py
 
       - name: Commit updated citations
+        if: always() && steps.scraper.outcome != 'skipped'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -49,6 +63,7 @@ jobs:
           fi
 
       - name: Alert on persistent scrape failures
+        if: always() && steps.scraper.outcome != 'skipped'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -72,3 +87,8 @@ jobs:
           elif [ "$SUCCESS" = "true" ] && [ -n "$EXISTING" ]; then
             gh issue close "$EXISTING" --comment "Citation scraper succeeded again — closing."
           fi
+
+      # Persist and alert first, but make the workflow visibly red on failure.
+      - name: Report scraper failure
+        if: steps.scraper.outcome == 'failure'
+        run: exit 1
