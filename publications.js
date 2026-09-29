@@ -12,6 +12,19 @@
 
 const publicationsData = [
   {
+    "id": "HAQ2026111557",
+    "title": "Prototype-Routed Exponential-Gated Residual Learning for Multi-Horizon Regional Electricity-Load Forecasting",
+    "venue": "Computers and Electrical Engineering",
+    "year": 2026,
+    "authors": "Izaz Ul Haq, Fang Liu, Denis Sidorov, Jiran Zhu, Suzhen Huang, Laeeq Aslam",
+    "pdf": "manuscripts/Prototype-Routed_Exponential-Gated_Residual_Learning.pdf",
+    "read_url": "https://doi.org/10.1016/j.compeleceng.2026.111557",
+    "code_url": null,
+    "featured": false,
+    "sdgs": ["7"],
+    "bibtex": "@article{HAQ2026111557,\n title={Prototype-routed exponential-gated residual learning for multi-horizon regional electricity-load forecasting},\n journal={Computers and Electrical Engineering},\n volume={140},\n pages={111557},\n year={2026},\n issn={0045-7906},\n doi={https://doi.org/10.1016/j.compeleceng.2026.111557},\n url={https://www.sciencedirect.com/science/article/pii/S0045790626006270},\n author={Haq, Izaz Ul and Liu, Fang and Sidorov, Denis and Zhu, Jiran and Huang, Suzhen and Aslam, Laeeq}\n}"
+  },
+  {
     "id": "aslam2026vortex",
     "title": "Physics-Informed Multi-Gated Convolutional Recurrent Network for Extreme Wind Speed Prediction",
     "venue": "Applied Energy",
