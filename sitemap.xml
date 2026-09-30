@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://laeeqalsam.com/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://laeeqaslam.com/</loc>
+    <lastmod>2026-09-30</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://laeeqalsam.com/about.html</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://laeeqaslam.com/publications.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://laeeqaslam.com/about.html</loc>
+    <lastmod>2026-06-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laeeqaslam.com/cv.html</loc>
+    <lastmod>2026-05-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laeeqaslam.com/projects.html</loc>
+    <lastmod>2026-05-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laeeqaslam.com/tooling.html</loc>
+    <lastmod>2026-05-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://laeeqalsam.com/trends.html</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://laeeqaslam.com/notes.html</loc>
+    <lastmod>2026-05-29</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://laeeqaslam.com/trends.html</loc>
+    <lastmod>2026-05-29</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>

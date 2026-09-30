@@ -1,0 +1,46 @@
+name: Pre-render publications for SEO
+
+# Keeps the static (crawlable) publication cards and ScholarlyArticle JSON-LD
+# in index.html / publications.html in sync with publications.js.
+on:
+  push:
+    paths:
+      - 'publications.js'
+      - 'scripts/prerender_publications.mjs'
+  workflow_dispatch:
+
+concurrency:
+  group: prerender-publications
+  cancel-in-progress: true
+
+jobs:
+  prerender:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.56.0
+          npx playwright install --with-deps chromium
+
+      - name: Pre-render
+        run: node scripts/prerender_publications.mjs
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet index.html publications.html; then
+            echo "Pre-rendered HTML already up to date."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add index.html publications.html
+            git commit -m "Pre-render publications [automated]"
+            git push
+          fi
