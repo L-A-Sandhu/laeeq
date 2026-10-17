@@ -12,6 +12,19 @@
 
 const publicationsData = [
   {
+    "id": "HAQ2026111567",
+    "title": "A Hierarchical Spatio-Temporal Refinement Network with Residual Temporal Convolutional Networks and Closed-Form Calibration for National-Scale Short-Term Load Forecasting",
+    "venue": "Computers and Electrical Engineering",
+    "year": 2026,
+    "authors": "Izaz Ul Haq, Fang Liu, Denis Sidorov, Suzhen Huang, Laeeq Aslam",
+    "pdf": "manuscripts/Hierarchical_Spatio-Temporal_Refinement_Network.pdf",
+    "read_url": "https://doi.org/10.1016/j.compeleceng.2026.111567",
+    "code_url": null,
+    "featured": false,
+    "sdgs": ["7", "13"],
+    "bibtex": "@article{HAQ2026111567,\n title={A hierarchical spatio-temporal refinement network with residual temporal convolutional networks and closed-form calibration for national-scale short-term load forecasting},\n journal={Computers and Electrical Engineering},\n volume={141},\n pages={111567},\n year={2027},\n issn={0045-7906},\n doi={https://doi.org/10.1016/j.compeleceng.2026.111567},\n author={Haq, Izaz Ul and Liu, Fang and Sidorov, Denis and Huang, Suzhen and Aslam, Laeeq}\n}"
+  },
+  {
     "id": "HAQ2026111557",
     "title": "Prototype-Routed Exponential-Gated Residual Learning for Multi-Horizon Regional Electricity-Load Forecasting",
     "venue": "Computers and Electrical Engineering",
