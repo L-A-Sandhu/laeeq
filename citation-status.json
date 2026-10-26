@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-19T15:35:27.046523Z",
+  "last_updated": "2026-10-26T15:12:51.382095Z",
   "success": false,
-  "error": "'NoneType' object has no attribute 'get'",
-  "consecutive_failures": 1
+  "error": "Cannot Fetch from Google Scholar.",
+  "consecutive_failures": 2
 }
