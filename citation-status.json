@@ -1,6 +1,9 @@
 {
-  "last_updated": "2026-10-26T15:12:51.382095Z",
-  "success": false,
-  "error": "Cannot Fetch from Google Scholar.",
-  "consecutive_failures": 2
+  "last_updated": "2026-10-29T15:21:25.160692Z",
+  "last_attempt": "2026-10-29T15:21:25.161187Z",
+  "total_citations": 111,
+  "h_index": 6,
+  "source": "Google Scholar",
+  "success": true,
+  "consecutive_failures": 0
 }

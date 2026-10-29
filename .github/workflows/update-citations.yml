@@ -7,9 +7,12 @@ on:
   workflow_dispatch:  # Allow manual trigger
   push:
     paths:
+      - '.github/workflows/update-citations.yml'
       - 'scripts/update_citations.py'  # Re-run if the scraper itself changes
       - 'requirements-citations.txt'
       - 'tests/test_update_citations.py'
+      - 'tests/test_citation_display.mjs'
+      - 'package.json'
 
 concurrency:
   group: update-citations
@@ -18,6 +21,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: write
       issues: write
@@ -36,10 +40,16 @@ jobs:
           python -m pip install --requirement requirements-citations.txt
           python -m pip check
 
-      - name: Test citation updater
-        run: python tests/test_update_citations.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Test citation updater and display
+        run: npm test
 
       - name: Run citation scraper
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
         id: scraper
         continue-on-error: true
         run: python scripts/update_citations.py

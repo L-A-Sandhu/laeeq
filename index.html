@@ -243,17 +243,17 @@
                 <div class="flex items-center gap-5 mt-4 w-full" data-aos="fade-up" data-aos-delay="250">
                     <div class="flex items-center gap-5 text-sm flex-shrink-0">
                         <div>
-                            <span class="text-lg font-bold text-gray-900" id="stat-citations">68</span>
+                            <span class="text-lg font-bold text-gray-900" id="stat-citations">—</span>
                             <span class="text-gray-500 text-xs ml-1">citations</span>
                         </div>
                         <span class="text-gray-300">|</span>
                         <div>
-                            <span class="text-base font-semibold text-gray-900" id="stat-hindex">6</span>
+                            <span class="text-base font-semibold text-gray-900" id="stat-hindex">—</span>
                             <span class="text-gray-500 text-xs ml-1">h-index</span>
                         </div>
                         <span class="text-gray-300">|</span>
                         <div>
-                            <span class="text-base font-semibold text-gray-900" id="stat-i10">2</span>
+                            <span class="text-base font-semibold text-gray-900" id="stat-i10">—</span>
                             <span class="text-gray-500 text-xs ml-1">i10-index</span>
                         </div>
                     </div>
@@ -262,6 +262,9 @@
                         <canvas id="citations-chart"></canvas>
                     </div>
                 </div>
+
+                <p id="citation-freshness" class="text-xs text-gray-500 mt-1" role="status" aria-live="polite">Loading citation data…</p>
+                <a href="https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-600 underline">View current Google Scholar profile</a>
 
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mt-4">
                     Machine Learning for Wind, Energy, and Climate Systems
@@ -1405,13 +1408,34 @@
     // ── Citations sparkline (golden ratio chart) ──
     async function loadCitationsChart() {
         try {
-            const resp = await fetch('citations.json');
+            const [resp, status] = await Promise.all([
+                fetch('citations.json', { cache: 'no-cache' }),
+                fetch('citation-status.json', { cache: 'no-cache' })
+                    .then(response => response.ok ? response.json() : null)
+                    .catch(() => null)
+            ]);
             if (!resp.ok) throw new Error('citations.json not found');
             const data = await resp.json();
 
-            document.getElementById('stat-citations').textContent = data.total_citations || '—';
-            document.getElementById('stat-hindex').textContent = data.h_index || '—';
-            document.getElementById('stat-i10').textContent = data.i10_index || '—';
+            document.getElementById('stat-citations').textContent = data.total_citations ?? '—';
+            document.getElementById('stat-hindex').textContent = data.h_index ?? '—';
+            document.getElementById('stat-i10').textContent = data.i10_index ?? '—';
+
+            const updated = new Date(data.updated);
+            const validDate = Number.isFinite(updated.getTime());
+            const dateLabel = validDate
+                ? updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
+                : 'date unavailable';
+            let freshness = 'Google Scholar · Updated ' + dateLabel;
+            const attempt = new Date(status?.last_attempt || status?.last_updated);
+            if (status?.success === false && (!validDate || attempt >= updated)) {
+                freshness += ' · Latest update failed; showing saved data.';
+            } else if (validDate && Date.now() - updated.getTime() > 14 * 24 * 60 * 60 * 1000) {
+                freshness += ' · Update overdue; showing saved data.';
+            } else if (!status) {
+                freshness += ' · Update status unavailable.';
+            }
+            document.getElementById('citation-freshness').textContent = freshness;
 
             const cpy = data.citations_per_year || {};
             const years = Object.keys(cpy).map(Number).sort((a,b) => a - b);
@@ -1496,7 +1520,11 @@
                 }
             });
         } catch (e) {
-            console.log('Citations: auto-updates weekly via GitHub Actions');
+            const freshness = document.getElementById('citation-freshness');
+            if (freshness.textContent === 'Loading citation data…') {
+                freshness.textContent = 'Citation data unavailable. View the Google Scholar profile for current figures.';
+            }
+            console.warn('Could not load citation data or chart.');
         }
     }
 
