@@ -1,7 +1,7 @@
 {
   "last_updated": "2026-10-29T15:30:54.043934Z",
-  "last_attempt": "2026-11-09T18:46:26.897390Z",
+  "last_attempt": "2026-11-14T06:15:58.691687Z",
   "success": false,
-  "error": "Direct Scholar: Citation provider returned HTTP 403",
-  "consecutive_failures": 2
+  "error": "Google Scholar scrape failed: Scholar returned a block page or an incomplete profile",
+  "consecutive_failures": 3
 }
