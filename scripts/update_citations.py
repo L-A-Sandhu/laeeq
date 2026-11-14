@@ -72,49 +72,15 @@ def parse_scholar_html(html):
     }
 
 
-def scrape_with_serpapi(api_key):
-    """Use the author API when a repository secret is configured."""
-    query = urlencode({"engine": "google_scholar_author", "author_id": SCHOLAR_ID,
-                       "hl": "en", "api_key": api_key})
-    payload = json.loads(fetch_url("https://serpapi.com/search.json?" + query))
-    if payload.get("error"):
-        raise ValueError("SerpApi could not retrieve the Scholar profile; check API quota and credentials")
-    metrics = {}
-    keys = {"citations": "total_citations", "h_index": "h_index", "i10_index": "i10_index"}
-    cited_by = payload.get("cited_by", {})
-    for row in cited_by.get("table", []):
-        for key, target in keys.items():
-            if key in row:
-                metrics[target] = row[key]["all"]
-    author = payload.get("author", {})
-    return {
-        "updated": utc_now(), "name": author.get("name", ""),
-        "affiliation": author.get("affiliations", ""), **metrics,
-        "citations_per_year": {item["year"]: item["citations"] for item in cited_by.get("graph", [])},
-        "source": "Google Scholar",
-    }
-
-
 def fetch_citations(existing=None):
-    """Prefer the configured API, with validated direct retrieval as fallback."""
-    providers = []
-    api_key = os.environ.get("SERPAPI_API_KEY", "").strip()
-    if api_key:
-        providers.append(("SerpApi", lambda: scrape_with_serpapi(api_key)))
-    providers.append(("Direct Scholar", lambda: parse_scholar_html(fetch_url(
-        "https://scholar.google.com/citations?" + urlencode({"user": SCHOLAR_ID, "hl": "en"})
-    ))))
-    errors = []
-    for label, provider in providers:
-        try:
-            data = provider()
-            validate_data(data, existing)
-            return data
-        except Exception as error:
-            # Sanitize even unexpected provider errors before persisting/logging.
-            message = str(error).replace(api_key, "[redacted]") if api_key else str(error)
-            errors.append(f"{label}: {message}")
-    raise RuntimeError("; ".join(errors))
+    """Fetch and validate the public Google Scholar profile directly."""
+    url = "https://scholar.google.com/citations?" + urlencode({"user": SCHOLAR_ID, "hl": "en"})
+    try:
+        data = parse_scholar_html(fetch_url(url))
+        validate_data(data, existing)
+        return data
+    except Exception as error:
+        raise RuntimeError(f"Google Scholar scrape failed: {error}") from error
 
 
 def validate_data(data, existing=None):

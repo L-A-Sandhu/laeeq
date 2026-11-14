@@ -48,8 +48,6 @@ jobs:
         run: npm test
 
       - name: Run citation scraper
-        env:
-          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
         id: scraper
         continue-on-error: true
         run: python scripts/update_citations.py

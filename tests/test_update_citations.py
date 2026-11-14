@@ -124,27 +124,8 @@ class RetrievalTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "block page"):
             update_citations.parse_scholar_html(b"<html>CAPTCHA</html>")
 
-    def test_incomplete_api_metrics_are_rejected(self):
-        payload = {"author": {"name": "Laeeq Aslam"}, "cited_by": {"table": [], "graph": []}}
-        with patch.object(update_citations, "fetch_url", return_value=json.dumps(payload)):
-            data = update_citations.scrape_with_serpapi("test-key")
-        with self.assertRaisesRegex(ValueError, "missing fields"):
-            update_citations.validate_data(data)
-
-    def test_api_response_uses_all_time_counts(self):
-        payload = {"author": {"name": "Laeeq Aslam", "affiliations": "GTIIT"}, "cited_by": {
-            "table": [{"citations": {"all": 84, "since_2021": 82}},
-                      {"h_index": {"all": 5}}, {"i10_index": {"all": 3}}],
-            "graph": [{"year": 2026, "citations": 32}]}}
-        with patch.object(update_citations, "fetch_url", return_value=json.dumps(payload)):
-            data = update_citations.scrape_with_serpapi("test-key")
-        update_citations.validate_data(data)
-        self.assertEqual(data["total_citations"], 84)
-
-    def test_bad_api_data_falls_back_to_direct(self):
-        with patch.dict(os.environ, {"SERPAPI_API_KEY": "test-key"}), patch.object(
-            update_citations, "scrape_with_serpapi", return_value={}
-        ), patch.object(update_citations, "fetch_url", return_value=b"profile"), patch.object(
+    def test_fetch_citations_uses_direct_scholar_profile(self):
+        with patch.object(update_citations, "fetch_url", return_value=b"profile"), patch.object(
             update_citations, "parse_scholar_html", return_value=GOOD_DATA
         ):
             self.assertEqual(update_citations.fetch_citations(), GOOD_DATA)
