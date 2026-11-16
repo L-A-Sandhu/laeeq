@@ -4,21 +4,17 @@ This website presents Laeeq Aslam's current research profile. The main GTIIT pro
 
 Public pages intentionally omit the phone number; the downloadable resume keeps full contact details.
 
-## Citation updates
+## Citation figures
 
-The weekly GitHub Action fetches the public Google Scholar profile directly, with
-20-second request timeouts and up to three attempts for transient failures. It
-preserves the last validated snapshot when blocked; the website shows the snapshot
-date and whether the latest update failed. Unknown publication counts are omitted
-rather than reported as zero.
+Citation totals, h-index, i10-index, the snapshot date, and yearly chart values
+are maintained manually in `index.html`. The current snapshot is dated
+29 October 2026: 111 citations, h-index 6, and i10-index 3. Live Scholar access
+was blocked during this change, so these saved figures have not been presented
+as newly verified counts.
 
-The updater uses only the public Google Scholar profile URL and standard HTTP
-requests; no API key or third-party service is required. It retries transient
-connection/server failures, validates the returned profile, and preserves the
-last known-good snapshot if Scholar returns a block page or HTTP 403. Google may
-still rate-limit or block automated GitHub-hosted requests, in which case the
-workflow records the failure and keeps the existing data.
+To update, check the linked Google Scholar profile, edit `stat-citations`,
+`stat-hindex`, `stat-i10`, and `citation-freshness`, then update the `cpy` values
+and dated comment inside `loadCitationsChart()`. There is no citation scraper,
+scheduled citation workflow, API key, or automatic refresh.
 
-Run locally with `python3 -m pip install -r requirements-citations.txt` and
-`python3 scripts/update_citations.py`. Run both the Python updater tests and JavaScript citation display tests with
-`npm test` (Python 3 and Node.js 20+ required).
+Run the citation display checks with `npm test` (Node.js 20+ required).

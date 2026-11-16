@@ -4,43 +4,48 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 
 const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-const start = html.indexOf('async function loadCitationsChart()');
+const start = html.indexOf('function loadCitationsChart()');
 const end = html.indexOf("document.addEventListener('DOMContentLoaded'", start);
 const source = html.slice(start, end);
-async function display(data, status, { offline = false, statusOffline = false } = {}) {
-    const elements = Object.fromEntries(['stat-citations', 'stat-hindex', 'stat-i10', 'citation-freshness'].map(id => [id, { textContent: id === 'citation-freshness' ? 'Loading citation data…' : '—' }]));
+const stat = id => html.match(new RegExp(`id="${id}"[^>]*>([^<]+)<`))[1];
+
+function draw({ chartUnavailable = false } = {}) {
+    let chart;
     const context = vm.createContext({
-        document: { getElementById: id => elements[id] }, console: { warn() {} },
-        fetch: async url => {
-            if (offline || (statusOffline && url === 'citation-status.json')) throw new Error('offline');
-            return { ok: true, json: async () => url === 'citations.json' ? data : status };
+        console: { warn() {} },
+        fetch() { assert.fail('Static citations must not make network requests'); },
+        document: { getElementById: () => ({
+            getContext: () => ({ createLinearGradient: () => ({ addColorStop() {} }) }),
+        }) },
+        Chart: function (_canvas, options) {
+            if (chartUnavailable) throw new Error('Chart unavailable');
+            chart = options;
         },
     });
-    await vm.runInContext(source + '\nloadCitationsChart()', context);
-    return elements;
+    vm.runInContext(source + '\nloadCitationsChart()', context);
+    return chart;
 }
-const snapshot = { updated: new Date().toISOString(), total_citations: 0, h_index: 0, i10_index: 0, citations_per_year: {} };
-test('zero metrics remain visible and date is shown', async () => {
-    const result = await display(snapshot, { success: true });
-    assert.equal(result['stat-citations'].textContent, 0);
-    assert.equal(result['stat-hindex'].textContent, 0);
-    assert.match(result['citation-freshness'].textContent, /Updated/);
-    assert.doesNotMatch(result['citation-freshness'].textContent, /failed|overdue/);
+
+test('static citation figures and snapshot date are present without JavaScript', () => {
+    for (const id of ['stat-citations', 'stat-hindex', 'stat-i10']) {
+        assert.match(stat(id), /^\d+$/);
+    }
+    assert.match(stat('citation-freshness'), /Google Scholar · As of/);
+    assert.doesNotMatch(stat('citation-freshness'), /failed|overdue|Loading/);
 });
-test('failed refresh explains saved snapshot', async () => {
-    const result = await display(snapshot, { success: false, last_attempt: new Date(Date.now() + 1000).toISOString() });
-    assert.match(result['citation-freshness'].textContent, /Latest update failed; showing saved data/);
+
+test('chart renders embedded yearly counts without data requests', () => {
+    const chart = draw();
+    assert.ok(chart);
+    const years = Array.from(chart.data.labels);
+    const values = Array.from(chart.data.datasets[0].data);
+    assert.equal(years.length, values.length);
+    assert.ok(values.every(value => Number.isInteger(value) && value >= 0));
+    assert.ok(values.reduce((sum, value) => sum + value, 0) <= Number(stat('stat-citations')));
 });
-test('old snapshots show overdue status', async () => {
-    const result = await display({ ...snapshot, updated: '2020-01-01T00:00:00Z' }, { success: true });
-    assert.match(result['citation-freshness'].textContent, /Update overdue/);
-});
-test('status failure does not hide saved figures', async () => {
-    const result = await display({ ...snapshot, total_citations: 111 }, null, { statusOffline: true });
-    assert.equal(result['stat-citations'].textContent, 111);
-    assert.match(result['citation-freshness'].textContent, /Update status unavailable/);
-});
-test('unavailable data gives a visible explanation', async () => {
-    const result = await display(null, null, { offline: true });
-    assert.match(result['citation-freshness'].textContent, /Citation data unavailable/);
+
+test('chart failure leaves the static citation figures available', () => {
+    assert.doesNotThrow(() => draw({ chartUnavailable: true }));
+    assert.match(stat('stat-citations'), /^\d+$/);
+    assert.match(stat('citation-freshness'), /As of/);
 });

@@ -1,2 +1,0 @@
-# Direct profile parsing; HTTP and retries use the Python standard library.
-beautifulsoup4==4.13.5

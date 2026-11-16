@@ -1,7 +1,0 @@
-{
-  "last_updated": "2026-10-29T15:30:54.043934Z",
-  "last_attempt": "2026-11-14T06:19:06.031778Z",
-  "success": false,
-  "error": "Google Scholar scrape failed: Citation provider returned HTTP 403",
-  "consecutive_failures": 4
-}
