@@ -8,7 +8,7 @@ Public pages intentionally omit the phone number; the downloadable resume keeps 
 
 Citation totals, h-index, i10-index, the snapshot date, and yearly chart values
 are maintained manually in `index.html`. The current snapshot was supplied as a screenshot on
-18 November 2026: 117 citations (115 since 2021), h-index 6, and i10-index 3.
+18 November 2026: 117 citations, h-index 6, and i10-index 3.
 The user confirmed 52 citations for 2026 so far and 43 for 2025. Older yearly
 chart counts are approximate readings of the screenshot's unlabeled bars.
 

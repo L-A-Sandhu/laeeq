@@ -99,11 +99,6 @@
         html { color-scheme: light; }
         html[data-theme="dark"] { color-scheme: dark; }
         #theme-toggle:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
-        .citation-table { border-collapse: collapse; font-size: 0.75rem; flex: 1; }
-        .citation-table th, .citation-table td { padding: 0.25rem 0.5rem; text-align: right; }
-        .citation-table th:first-child { text-align: left; padding-left: 0; }
-        .citation-table thead { border-bottom: 1px solid var(--border); }
-        .citation-table th { font-weight: 500; }
         /* Dark mode */
         [data-theme="dark"] { --bg: #0f172a; --bg2: #1e293b; --bg3: #1a2332; --text: #e2e8f0; --text2: #cbd5e1; --text3: #94a3b8; --border: #334155; --card: #1e293b; }
         [data-theme="light"] { --bg: #fff; --bg2: #f9fafb; --bg3: #f3f4f6; --text: #111827; --text2: #374151; --text3: #6b7280; --border: #e5e7eb; --card: #fff; }
@@ -256,22 +251,30 @@
                 </div>
 
                 <!-- Citation stats + sparkline (inline, golden ratio chart) -->
-                <div class="flex items-center gap-5 mt-4 w-full" style="flex-wrap:wrap" data-aos="fade-up" data-aos-delay="250">
-                    <table class="citation-table" aria-label="Google Scholar citation statistics">
-                        <thead><tr><th scope="col">Cited by</th><th scope="col">All</th><th scope="col">Since 2021</th></tr></thead>
-                        <tbody>
-                            <tr><th scope="row">Citations</th><td id="stat-citations">117</td><td id="stat-citations-recent">115</td></tr>
-                            <tr><th scope="row">h-index</th><td id="stat-hindex">6</td><td>6</td></tr>
-                            <tr><th scope="row">i10-index</th><td id="stat-i10">3</td><td>3</td></tr>
-                        </tbody>
-                    </table>
+                <div class="flex items-center gap-5 mt-4 w-full" data-aos="fade-up" data-aos-delay="250">
+                    <div class="flex items-center gap-5 text-sm flex-shrink-0">
+                        <div>
+                            <span class="text-lg font-bold text-gray-900" id="stat-citations">117</span>
+                            <span class="text-gray-500 text-xs ml-1">citations</span>
+                        </div>
+                        <span class="text-gray-300">|</span>
+                        <div>
+                            <span class="text-base font-semibold text-gray-900" id="stat-hindex">6</span>
+                            <span class="text-gray-500 text-xs ml-1">h-index</span>
+                        </div>
+                        <span class="text-gray-300">|</span>
+                        <div>
+                            <span class="text-base font-semibold text-gray-900" id="stat-i10">3</span>
+                            <span class="text-gray-500 text-xs ml-1">i10-index</span>
+                        </div>
+                    </div>
                     <!-- Golden ratio chart: width ≈ 1.618 × height -->
-                    <div class="flex-1 relative min-w-0" style="max-width: 210px; min-width: 130px; height: 130px;">
+                    <div class="flex-1 relative min-w-0" style="max-width: 210px; height: 130px;">
                         <canvas id="citations-chart"></canvas>
                     </div>
                 </div>
 
-                <p id="citation-freshness" class="text-xs text-gray-500 mt-1">Google Scholar · As of 18 Nov 2026 (provided screenshot)</p>
+                <p id="citation-freshness" class="text-xs text-gray-500 mt-1">Google Scholar · As of 18 Nov 2026</p>
                 <a href="https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-600 underline">View current Google Scholar profile</a>
 
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mt-4">

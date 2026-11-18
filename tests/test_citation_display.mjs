@@ -52,7 +52,6 @@ test('chart failure leaves the static citation figures available', () => {
 
 test('citation snapshot and latest years match the supplied figures', () => {
     assert.equal(stat('stat-citations'), '117');
-    assert.equal(stat('stat-citations-recent'), '115');
     assert.equal(stat('stat-hindex'), '6');
     assert.equal(stat('stat-i10'), '3');
     const chart = draw();
