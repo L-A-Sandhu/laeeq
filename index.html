@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="theme.js"></script>
     <title>Laeeq Aslam — Aerial Wind Sensing &amp; Physics-Informed Learning</title>
 
     <!-- Conventional SEO meta -->
@@ -91,6 +92,18 @@
             transition: all 0.3s ease;
         }
         #back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        /* Theme icons remain usable without the external icon library. */
+        .theme-sun { display: none; }
+        [data-theme="dark"] .theme-moon { display: none; }
+        [data-theme="dark"] .theme-sun { display: block; }
+        html { color-scheme: light; }
+        html[data-theme="dark"] { color-scheme: dark; }
+        #theme-toggle:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+        .citation-table { border-collapse: collapse; font-size: 0.75rem; flex: 1; }
+        .citation-table th, .citation-table td { padding: 0.25rem 0.5rem; text-align: right; }
+        .citation-table th:first-child { text-align: left; padding-left: 0; }
+        .citation-table thead { border-bottom: 1px solid var(--border); }
+        .citation-table th { font-weight: 500; }
         /* Dark mode */
         [data-theme="dark"] { --bg: #0f172a; --bg2: #1e293b; --bg3: #1a2332; --text: #e2e8f0; --text2: #cbd5e1; --text3: #94a3b8; --border: #334155; --card: #1e293b; }
         [data-theme="light"] { --bg: #fff; --bg2: #f9fafb; --bg3: #f3f4f6; --text: #111827; --text2: #374151; --text3: #6b7280; --border: #e5e7eb; --card: #fff; }
@@ -158,16 +171,19 @@
                         <a href="tooling.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Tools</a>
                         <a href="notes.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Notes</a>
                         <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
-                        <button id="theme-toggle" class="ml-4 p-1.5 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors" aria-label="Toggle dark mode" title="Toggle dark mode">
-                            <i data-lucide="moon" class="h-4 w-4"></i>
-                        </button>
                     </div>
                 </div>
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none" aria-label="Toggle menu">
-                    <i data-lucide="menu" id="menu-icon-open" class="h-6 w-6"></i>
-                    <i data-lucide="x" id="menu-icon-close" class="h-6 w-6 hidden"></i>
-                </button>
+                <div class="flex items-center gap-2">
+                    <button id="theme-toggle" type="button" class="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors" aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="false" style="min-width:44px; min-height:44px; display:grid; place-items:center">
+                        <svg class="theme-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg>
+                        <svg class="theme-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+                    </button>
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none" aria-label="Toggle menu">
+                        <i data-lucide="menu" id="menu-icon-open" class="h-6 w-6"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="h-6 w-6 hidden"></i>
+                    </button>
+                </div>
             </div>
         </div>
         <!-- Mobile menu panel -->
@@ -240,30 +256,22 @@
                 </div>
 
                 <!-- Citation stats + sparkline (inline, golden ratio chart) -->
-                <div class="flex items-center gap-5 mt-4 w-full" data-aos="fade-up" data-aos-delay="250">
-                    <div class="flex items-center gap-5 text-sm flex-shrink-0">
-                        <div>
-                            <span class="text-lg font-bold text-gray-900" id="stat-citations">111</span>
-                            <span class="text-gray-500 text-xs ml-1">citations</span>
-                        </div>
-                        <span class="text-gray-300">|</span>
-                        <div>
-                            <span class="text-base font-semibold text-gray-900" id="stat-hindex">6</span>
-                            <span class="text-gray-500 text-xs ml-1">h-index</span>
-                        </div>
-                        <span class="text-gray-300">|</span>
-                        <div>
-                            <span class="text-base font-semibold text-gray-900" id="stat-i10">3</span>
-                            <span class="text-gray-500 text-xs ml-1">i10-index</span>
-                        </div>
-                    </div>
+                <div class="flex items-center gap-5 mt-4 w-full" style="flex-wrap:wrap" data-aos="fade-up" data-aos-delay="250">
+                    <table class="citation-table" aria-label="Google Scholar citation statistics">
+                        <thead><tr><th scope="col">Cited by</th><th scope="col">All</th><th scope="col">Since 2021</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">Citations</th><td id="stat-citations">117</td><td id="stat-citations-recent">115</td></tr>
+                            <tr><th scope="row">h-index</th><td id="stat-hindex">6</td><td>6</td></tr>
+                            <tr><th scope="row">i10-index</th><td id="stat-i10">3</td><td>3</td></tr>
+                        </tbody>
+                    </table>
                     <!-- Golden ratio chart: width ≈ 1.618 × height -->
-                    <div class="flex-1 relative min-w-0" style="max-width: 210px; height: 130px;">
+                    <div class="flex-1 relative min-w-0" style="max-width: 210px; min-width: 130px; height: 130px;">
                         <canvas id="citations-chart"></canvas>
                     </div>
                 </div>
 
-                <p id="citation-freshness" class="text-xs text-gray-500 mt-1">Google Scholar · As of 29 Oct 2026</p>
+                <p id="citation-freshness" class="text-xs text-gray-500 mt-1">Google Scholar · As of 18 Nov 2026 (provided screenshot)</p>
                 <a href="https://scholar.google.com/citations?user=oGVYJ5wAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-600 underline">View current Google Scholar profile</a>
 
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mt-4">
@@ -1218,24 +1226,6 @@
             offset: 50
         });
 
-        // ── Dark mode toggle ──
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        if (savedTheme === 'dark') {
-            themeIcon.setAttribute('data-lucide', 'sun');
-            lucide.createIcons();
-        }
-        themeToggle.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            themeIcon.setAttribute('data-lucide', next === 'dark' ? 'sun' : 'moon');
-            lucide.createIcons();
-        });
-
         // ── Scroll progress bar ──
         const progressBar = document.getElementById('scroll-progress');
         window.addEventListener('scroll', () => {
@@ -1408,8 +1398,9 @@
     // ── Citations sparkline (golden ratio chart) ──
     function loadCitationsChart() {
         try {
-            // Manually maintained Google Scholar snapshot, 29 Oct 2026.
-            const cpy = { 2020: 2, 2021: 0, 2022: 2, 2023: 5, 2024: 5, 2025: 43, 2026: 47 };
+            // Manually maintained from the user-provided screenshot, 18 Nov 2026.
+            // The user confirmed 2025: 43 and 2026 year-to-date: 52; older bars are approximate.
+            const cpy = { 2020: 2, 2021: 0, 2022: 2, 2023: 5, 2024: 5, 2025: 43, 2026: 52 };
             const years = Object.keys(cpy).map(Number).sort((a,b) => a - b);
             const values = years.map(y => cpy[y]);
 

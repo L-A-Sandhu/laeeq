@@ -49,3 +49,14 @@ test('chart failure leaves the static citation figures available', () => {
     assert.match(stat('stat-citations'), /^\d+$/);
     assert.match(stat('citation-freshness'), /As of/);
 });
+
+test('citation snapshot and latest years match the supplied figures', () => {
+    assert.equal(stat('stat-citations'), '117');
+    assert.equal(stat('stat-citations-recent'), '115');
+    assert.equal(stat('stat-hindex'), '6');
+    assert.equal(stat('stat-i10'), '3');
+    const chart = draw();
+    const counts = Object.fromEntries(chart.data.labels.map((year, i) => [year, chart.data.datasets[0].data[i]]));
+    assert.equal(counts['2025'], 43);
+    assert.equal(counts['2026'], 52);
+});
